@@ -1,0 +1,8 @@
+.shop-card{
+    background-color: #DDE3C3;
+    transition: background-color 300ms ease-out;
+}
+
+.shop-card:hover{
+    background-color: #C1C9A0;
+}

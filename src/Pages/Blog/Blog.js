@@ -1,64 +1,97 @@
-import React, { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
-function DropdownHover() {
-    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+function Dropdown() {
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
-    const handleMouseEnter = () => {
-        setIsDropdownVisible(true);
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsOpen(false);
+        }
     };
 
-    const handleMouseLeave = () => {
-        setIsDropdownVisible(false);
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
     };
 
     return (
-        <div className="relative">
+        <div>
             <button
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                type="button"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                id="dropdownDefaultButton"
+                className="text-gray-700 pl-3 pr-4 py-2 md:p-0 flex items-center justify-between w-full md:w-auto"
+                onClick={toggleDropdown}
             >
-                Dropdown hover{' '}
+                Services
                 <svg
-                    className="w-4 h-4 ml-2"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${isOpen && "-rotate-180"
+                        }`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                    ></path>
                 </svg>
             </button>
-            {isDropdownVisible && (
-                <div className="absolute right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+
+            {isOpen && (
+                <div
+                    ref={dropdownRef}
+                    className="z-10 absolute -mt-9 divide-y lg:ml-[490px] divide-gray-100 rounded-lg shadow w-44"
+                    style={{ backgroundColor: "white", marginLeft: 478 }}
+                >
+                    <ul
+                        className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownDefaultButton"
+                    >
                         <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Dashboard
-                            </a>
+                            <Link
+                                to="/shoppingPage"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                                Used Islamic Book
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Settings
-                            </a>
+                            <Link
+                                to="/blog"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                                Blog
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Earnings
-                            </a>
+                            <Link
+                                to="/blog"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                                Blog
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                Sign out
-                            </a>
+                            <Link
+                                to="/blog"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                                Blog
+                            </Link>
                         </li>
                     </ul>
                 </div>
             )}
         </div>
     );
-}
+};
 
-export default DropdownHover;
+export default Dropdown;
