@@ -9,7 +9,7 @@ const ShoppingPage = () => {
     console.log(AllBooksData)
 
     return (
-        <div className=' pl-2 pr-2 grid grid-cols-4 gap-3' style={{ backgroundColor: "#FFFFF2" }}>
+        <div className='pl-2 pr-2 grid grid-cols-1 lg:grid-cols-4 gap-3' style={{ backgroundColor: "#FFFFF2" }}>
             {
                 AllBooksData.map(BooksData => <ShoppingCards key={BooksData.id} BooksData={BooksData}></ShoppingCards>)
             }
