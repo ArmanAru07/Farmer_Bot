@@ -1,0 +1,44 @@
+[
+    {
+      "image": "https://media.gettyimages.com/id/1127353853/photo/soccer-players-performing-warm-up-drills-on-field.jpg?s=612x612&w=0&k=20&c=G-U1V06i8cXER-QH8M_iUGTGuqXwik7vKmxvL7frL7c=",
+      "id": 0,
+      "title": "Power Stamina",
+      "description": "Football players improve their stamina through regular exercise and training.",
+      "time": 10
+    },
+    {
+      "image": "https://img.chelseafc.com//image/upload/f_auto,q_auto:best,f_auto,q_90,w_1440,c_fill,ar_16:9/video/2019/08/Willian_Shooting.jpg",
+      "id": 1,
+      "title": "Shooting",
+      "description": "Football shooting involves kicking the ball with accuracy and power towards the goal.",
+      "time": 30
+    },
+    {
+      "image": "https://www.thesun.co.uk/wp-content/uploads/2022/07/44b44150-0570-421d-8ec1-24f07517c927.jpg",
+      "id": 2,
+      "title": "Touch and ball control",
+      "description": "Football touch and ball control refer to a player's ability to handle the ball with precision and ease.",
+      "time": 30
+    },
+    {
+      "image": "https://nyc3.digitaloceanspaces.com/peoplespharmacy/soccer-player-heading-ball-practice.jpg",
+      "id": 3,
+      "title": "Heading",
+      "description": "Football heading involves using the head to control or redirect the ball.",
+      "time": 40
+    },
+    {
+      "image": "https://media.istockphoto.com/id/1183940092/photo/footballer-dribbling-ball-on-training-between-orange-cones-young-football-player-in-sports.jpg?s=170667a&w=0&k=20&c=VRrGKb5qbPPQYa1qzbNeP0nWLhQpxRNJNZkDeW5R-O0=",
+      "id": 4,
+      "title": "Dribbling",
+      "description": "Football dribbling involves moving the ball with the feet while maintaining control and avoiding opponents.",
+      "time": 40
+    },
+    {
+      "image": "https://st2.depositphotos.com/2166845/7172/i/450/depositphotos_71724119-stock-photo-soccer-player-and-goalie-during.jpg",
+      "id": 5,
+      "title": "Penalty Shootout",
+      "description": "A football penalty shootout is a tie-breaker used to determine the winner of a match that ended in a draw.",
+      "time": 60
+    }
+  ]

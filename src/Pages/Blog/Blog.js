@@ -19,7 +19,7 @@ function Dropdown() {
     };
 
     const toggleDropdown = () => {
-        setIsOpen(!isOpen);
+        setIsOpen(setIsOpen(true));
     };
 
     return (
