@@ -2,6 +2,7 @@
 
 --> React router
 --> Tailwind css
+--> daisy UI
 --> Flowbite
 
 # Problems
@@ -13,7 +14,8 @@
 
 # Update
 
-Give a small div to go to "my cart" in shop book option.
+--> Give a small div to go to "my cart" in shop book option.
+--> tipu project 5 footer direct call/email system.
 
 # Remember
 

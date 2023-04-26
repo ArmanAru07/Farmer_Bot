@@ -126,7 +126,7 @@ const Header = () => {
       </div>
 
       {/* Service dropdown */}
-      <div id="dropdown" className={` z-10 absolute sm:mt-0 lg:-mt-9 divide-y ml-[70px]  lg:ml-[490px] divide-gray-100 rounded-lg shadow w-44  ${isOpen ? '' : 'hidden'}`} style={{ backgroundColor: "white" }}>
+      <div id="dropdown" className={` z-10 absolute sm:mt-0 lg:-mt-9 divide-y ml-[70px]  lg:ml-[472px] divide-gray-100 rounded-lg shadow w-44  ${isOpen ? '' : 'hidden'}`} style={{ backgroundColor: "white" }}>
         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
           <li>
             <Link to="/therapy" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</Link>
@@ -135,10 +135,10 @@ const Header = () => {
             <Link to="/shoppingPage" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Islamic Book</Link>
           </li>
           <li>
-            <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</Link>
+            <Link to="/daisyui" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Daisy UI heaer</Link>
           </li>
           <li>
-            <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</Link>
+            <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">CSS header</Link>
           </li>
         </ul>
       </div>
