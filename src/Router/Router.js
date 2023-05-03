@@ -3,10 +3,13 @@ import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
-import ShoppingPage from "../Pages/ShoppingPage/ShoppingPage";
+import ShoppingPage from "../Pages/Shopping/ShoppingPage/ShoppingPage";
 import Therapy from "../Pages/Therapy/Therapy";
 import HeaderTest from "../Pages/HeaderTest";
 import Header from "../Pages/Header";
+import { LocalCartLoader } from '../Utilities/CartLocalStorage'
+import CartPage from "../Pages/Shopping/Cart/CartPage";
+
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +29,11 @@ export const router = createBrowserRouter([
                 path: "/shoppingPage",
                 element: <ShoppingPage></ShoppingPage>,
                 loader: async ({ params }) => fetch("Books.json"),
+            },
+            {
+                path: "/cart",
+                element: <CartPage></CartPage>,
+                loader: LocalCartLoader
             },
             {
                 path: "/cssheader",

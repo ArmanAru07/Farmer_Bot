@@ -21,7 +21,6 @@ const Card = ({ data, handleCartData, handleProgress }) => {
                 <h2 className="card-title text-center">{Name}</h2>
                 <p>{description}</p>
                 <div className="card-actions justify-between">
-                    {/* style={{ backgroundColor: "#18332F" }} */}
                     <div className="bg-black py-3 px-3 rounded-lg" >Time: {time} m</div>
                     <button onClick={() => handleClick(time)} disabled={disabled} className="btn btn-outline btn-success text-white">Complete</button>
                 </div>

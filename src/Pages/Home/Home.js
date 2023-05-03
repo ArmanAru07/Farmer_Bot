@@ -16,7 +16,8 @@ const Home = () => {
             <h1>1.  In header user name increase, page links positon change. </h1>
             <h1>2.  The dropdown work in empty page but not in original website. </h1>
             <h1>4.  404 page background color. </h1>
-            <h1>4.  Therapy page toast if so fast and not show propwerly </h1>
+            <h1>4.  Therapy page cart position is not fixed </h1>
+            <h1>4.  Therapy page toast if so fast and not show properly </h1>
 
             <br /><br />
             <h1># Work but need to know</h1>

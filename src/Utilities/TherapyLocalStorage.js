@@ -18,11 +18,11 @@ const setLocalTherapyTime = (time) => {
         }
     }
 
+    // Make a object then put key.
     else {
         localStorage.setItem("Practice Info", JSON.stringify({ therapyTime: time }));
     }
 }
-
 
 
 // set Break time local storage.
@@ -49,9 +49,8 @@ const setbreakTimeLocal = (time) => {
 }
 
 
-
+// Set progress time in local storage time.
 const setProgressTimeLocal = (time) => {
-    console.log(time)
 
     const practiceInfo = JSON.parse(localStorage.getItem("Practice Info"));
 
@@ -66,18 +65,13 @@ const setProgressTimeLocal = (time) => {
             practiceInfo["progressTime"] = time
             localStorage.setItem("Practice Info", JSON.stringify(practiceInfo));
         }
-
     }
     else {
         localStorage.setItem("Practice Info", JSON.stringify({ progressTime: time }));
     }
 }
 
-
-
-
-
-
+// Get full local storage.
 const getLocalStorage = () => {
 
     const getLocalObject = JSON.parse(localStorage.getItem("Practice Info"));
@@ -96,6 +90,8 @@ const getLocalStorage = () => {
 
 }
 
+
+// Auto reload function.
 const clearLocalStorage = () => {
     localStorage.removeItem("Practice Info");
     // page relaod by function

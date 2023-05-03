@@ -1,9 +1,10 @@
+// ** Main page
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import TimerCart from './TimerCart';
 import Card from './Card';
-import "./Therapy.css"
-import { setLocalTherapyTime, setProgressTimeLocal } from '../../Utilities/LocalStorage';
+import cartImage from '../../Asset/cart.jpg'
+import { setLocalTherapyTime, setProgressTimeLocal } from '../../Utilities/TherapyLocalStorage';
 
 const Therapy = () => {
 
@@ -11,14 +12,15 @@ const Therapy = () => {
     const therapyData = useLoaderData();
 
 
-    // After click card button of an therapy this function work
+    // After click therapy complete button, this function work
     const [therapyTime, setTherapyTime] = useState(0);
     const handleCartData = (time) => {
         setTherapyTime(therapyTime + time);
+        // Local storage
         setLocalTherapyTime(time);
     }
 
-
+    // After click therapy complete button, for update progress bar
     const [progressTime, setProgressTime] = useState(0);
     const handleProgress = (Time) => {
         let progress = (((Time / 60) * 100));
@@ -27,10 +29,8 @@ const Therapy = () => {
         setProgressTimeLocal(progress);
     }
 
-    // console.log(progressTime);
-
     return (
-        <div className='grid grid-cols-4 '>
+        <div className='grid relative grid-cols-4 '>
             <div className='col-span-3'>
                 <p className='mb-2'>For learn how to do the activities , click read more</p>
                 <div className='grid grid-cols-2 gap-6 ml-5'>
@@ -40,7 +40,7 @@ const Therapy = () => {
                 </div>
 
             </div>
-            <div className='timercart col-span-1 border rounded-xl relative ' style={{ borderColor: "#18332F", backgroundColor: "#5C616B", height: 425 }}>
+            <div className='timercart fixed  col-span-1 border rounded-xl relative ' style={{ borderColor: "#18332F", backgroundColor: "#5C616B", height: 425, backgroundImage: `url(${cartImage})` }}>
                 <TimerCart therapyTime={therapyTime} progressTime={progressTime}></TimerCart>
             </div>
         </div>

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import userImage from '../../Assets/images/joy.jpeg'
-// import { ImLocation2 } from "react-icons/im";
-// import { Button } from '@mui/material';
-// import { toast, ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-import { clearLocalStorage, getLocalStorage, setLocalTherapyTime, setProgressTimeLocal, setbreakTimeLocal } from '../../Utilities/LocalStorage';
+import { clearLocalStorage, getLocalStorage, setbreakTimeLocal } from '../../Utilities/TherapyLocalStorage';
 import { ToastContainer, toast } from 'react-toastify';
+
 
 const TimerCart = ({ therapyTime, progressTime }) => {
 
@@ -22,7 +18,9 @@ const TimerCart = ({ therapyTime, progressTime }) => {
         setbreakTime(value?.breakTime);
     }, [breakTime]);
 
-    // therapy time useEffect for auto relaod. 
+
+    // therapy time useEffect for show from local storage after reload. 
+    // Dependancy -- as many time "therapyTime" change this useEffect work.
     const [TherapyTime, setTherapyTime] = useState(therapyTime);
     useEffect(() => {
         const value = getLocalStorage();
@@ -30,16 +28,12 @@ const TimerCart = ({ therapyTime, progressTime }) => {
     }, [therapyTime]);
 
 
-    // this is for progress bar.
+    //  progress bar use effect.
     const [ThTimeProgress, setThTimeProgress] = useState(progressTime);
     useEffect(() => {
         const value = getLocalStorage();
-        console.log(value);
         setThTimeProgress(value?.progressTime);
     }, [progressTime]);
-
-    // console.log(ThTimeProgress);
-
 
 
     const tostify = () => {
@@ -58,7 +52,7 @@ const TimerCart = ({ therapyTime, progressTime }) => {
 
     return (
         // fixed
-        <div className='Cart  border-red-200 mt-4 ml-5' >
+        <div className='Cart border-red-200 mt-4 ml-5' >
             <p className='text-white mt-3 mb-2 font-bold text-left mb-2' >Progress</p>
 
             <div className='flex mr-3 pt-2 pb-2 pl-2 pr-2 rounded-md' style={{ backgroundColor: "#F2F3FB" }}>
@@ -88,7 +82,6 @@ const TimerCart = ({ therapyTime, progressTime }) => {
                     {
                         TherapyTime ? <p style={{ marginLeft: 70 }}>{TherapyTime} minute</p> : <p style={{ marginLeft: 70 }}>{therapyTime} minute</p>
                     }
-                    {/* <p style={{ marginLeft: 70 }}>{TherapyTime} minute</p> */}
                 </div>
             </div>
 

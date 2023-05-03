@@ -4,6 +4,7 @@
 --> Tailwind css
 --> daisy UI
 --> Flowbite
+--> React icons
 
 # Problems
 

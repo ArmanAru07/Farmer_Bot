@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./Header.css"
+import "../Shared/Header.css"
 
 const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // this code is work fine in blank page
-  // but not working over is anoher div/components
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -18,7 +16,6 @@ const Header = () => {
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      console.log("Enter")
       setIsOpen(false);
     }
   };
@@ -33,7 +30,7 @@ const Header = () => {
 
       <header className="h-32 w-full flex items-center  justify-between px-4 lg:px-16" style={{ backgroundColor: "#18332F" }}>
 
-        <div className='brand-name'>
+        <div className='text-white brand-name'>
           <h1 className='website-name' >Serene</h1>
         </div>
 
@@ -126,7 +123,7 @@ const Header = () => {
       </div>
 
       {/* Service dropdown */}
-      <div id="dropdown" className={` z-10 absolute sm:mt-0 lg:-mt-9 divide-y ml-[70px]  lg:ml-[472px] divide-gray-100 rounded-lg shadow w-44  ${isOpen ? '' : 'hidden'}`} style={{ backgroundColor: "white" }}>
+      <div id="dropdown" className={` z-10 absolute lg:-mt-9 divide-y  lg:ml-[490px] divide-gray-100 rounded-lg shadow w-44  ${isOpen ? '' : 'hidden'}`} style={{ backgroundColor: "white", marginLeft: 480 }}>
         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
           <li>
             <Link to="/therapy" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</Link>
@@ -135,10 +132,10 @@ const Header = () => {
             <Link to="/shoppingPage" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Islamic Book</Link>
           </li>
           <li>
-            <Link to="/daisyui" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Daisy UI heaer</Link>
+            <Link to="/cart" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</Link>
           </li>
           <li>
-            <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">CSS header</Link>
+            <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</Link>
           </li>
         </ul>
       </div>
