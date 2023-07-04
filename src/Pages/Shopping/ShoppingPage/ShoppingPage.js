@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import ShoppingCards from './ShoppingCards';
 import Cart from '../Cart/Cart';
 import { addLocalStorage } from '../../../Utilities/BooksLocalStorage';
+import { ToastContainer } from 'react-toastify';
 
 const ShoppingPage = () => {
 
@@ -47,6 +48,7 @@ const ShoppingPage = () => {
                     AllBooksData.map(BooksData => <ShoppingCards key={BooksData.id} BooksData={BooksData} handleCartItem={handleCartItem}></ShoppingCards>)
                 }
             </div>
+            <ToastContainer />
         </div>
     );
 };

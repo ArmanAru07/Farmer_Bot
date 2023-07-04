@@ -6,9 +6,10 @@ import Home from "../Pages/Home/Home";
 import ShoppingPage from "../Pages/Shopping/ShoppingPage/ShoppingPage";
 import Therapy from "../Pages/Therapy/Therapy";
 import HeaderTest from "../Pages/HeaderTest";
-import Header from "../Pages/Header";
+import Header from "../Pages/Test";
 import { LocalCartLoader } from '../Utilities/CartLocalStorage'
 import CartPage from "../Pages/Shopping/Cart/CartPage";
+import Test from "../Pages/Test";
 
 
 export const router = createBrowserRouter([
@@ -35,10 +36,7 @@ export const router = createBrowserRouter([
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
             },
-            {
-                path: "/cssheader",
-                element: <Header></Header>,
-            },
+
 
         ]
     },
@@ -53,5 +51,9 @@ export const router = createBrowserRouter([
     {
         path: "/daisyui",
         element: <HeaderTest></HeaderTest>,
+    },
+    {
+        path: "/test",
+        element: <Test></Test>,
     },
 ]);

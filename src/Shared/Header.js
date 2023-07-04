@@ -4,6 +4,7 @@ import "../Shared/Header.css"
 
 const Header = () => {
 
+  // Service dropdown ************************************************************
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -24,11 +25,27 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  // Header shrinking **************************************************************
+  const [isShrunk, setShrunk] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const isTop = scrollTop === 0;
+
+      setShrunk(!isTop);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   return (
     <div className='sticky relative top-0 z-30 mb-4'>
 
-      <header className="h-32 w-full flex items-center  justify-between px-4 lg:px-16" style={{ backgroundColor: "#18332F" }}>
+      <header className={`h-32 w-full flex items-center  justify-between px-4 lg:px-16 ${isShrunk ? 'h-16' : 'h-32'}`} style={{ backgroundColor: "#18332F" }}>
 
         <div className='text-white brand-name'>
           <h1 className='website-name' >Serene</h1>
@@ -123,7 +140,7 @@ const Header = () => {
       </div>
 
       {/* Service dropdown */}
-      <div id="dropdown" className={` z-10 absolute lg:-mt-9 divide-y  lg:ml-[490px] divide-gray-100 rounded-lg shadow w-44  ${isOpen ? '' : 'hidden'}`} style={{ backgroundColor: "white", marginLeft: 480 }}>
+      <div id="dropdown" className={` z-10 absolute lg:-mt-9 divide-y  lg:ml-[490px] ${isShrunk ? 'lg:-mt-1' : 'lg:-mt-9'} divide-gray-100 rounded-lg shadow w-44  ${isOpen ? '' : 'hidden'}`} style={{ backgroundColor: "white", marginLeft: 480 }}>
         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
           <li>
             <Link to="/therapy" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</Link>
@@ -135,7 +152,7 @@ const Header = () => {
             <Link to="/cart" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</Link>
           </li>
           <li>
-            <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</Link>
+            <Link to="/test" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</Link>
           </li>
         </ul>
       </div>

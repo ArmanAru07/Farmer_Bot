@@ -5,6 +5,7 @@
 --> daisy UI
 --> Flowbite
 --> React icons
+--> React toastify
 
 # Problems
 
