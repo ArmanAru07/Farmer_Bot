@@ -10,6 +10,10 @@ import Header from "../Pages/Test";
 import { LocalCartLoader } from '../Utilities/CartLocalStorage'
 import CartPage from "../Pages/Shopping/Cart/CartPage";
 import Test from "../Pages/Test";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
+import Login_2 from "../Pages/Login_2/Login_2";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -22,8 +26,20 @@ export const router = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
+                path: "/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/login2",
+                element: <Login_2></Login_2>,
+            },
+            {
+                path: "/register",
+                element: <Register></Register>,
+            },
+            {
                 path: "/therapy",
-                element: <Therapy></Therapy>,
+                element: <PrivateRoute><Therapy></Therapy></PrivateRoute>,
                 loader: async ({ params }) => fetch("Therapy.json")
             },
             {

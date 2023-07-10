@@ -6,6 +6,7 @@
 --> Flowbite
 --> React icons
 --> React toastify
+--> Sweet alert.
 
 # Problems
 

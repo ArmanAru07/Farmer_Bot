@@ -13,8 +13,9 @@ const Home = () => {
             <br /><br />
             <h1># Problems</h1>
 
+            <h1>** . Header shrinking is not Working </h1>
             <h1>1.  In header user name increase, page links positon change. </h1>
-            <h1>2.  The dropdown work in empty page but not in original website. </h1>
+            <h1>2.  The dropdown work in empty page but not in original website. Check bookmark "Live demo" </h1>
             <h1>4.  404 page background color. </h1>
             <h1>4.  Therapy page cart position is not fixed </h1>
             <h1>4.  Therapy page toast if so fast and not show properly </h1>
@@ -32,7 +33,14 @@ const Home = () => {
             <h1>2. make a aside bar for service dropdown in mobile view</h1>
             <h1>3.  when scroll down , header will be small. </h1>
             <h1>4. therapy page, card background image will be zoom </h1>
-            <h1>5. T resturant website feature option.  </h1>
+            <h1>5. Tp er resturant website feature option.  </h1>
+            <h1>6. Tp   er resturant website feature option.  </h1>
+            <h1>7. Authetication code sent option </h1>
+            <h1>8. Search option in buy book page </h1>
+            <h1>8. Login signup reg ex. </h1>
+            <h1>9. Twitter login after hosting (we need url) </h1>
+
+
 
         </div>
     );

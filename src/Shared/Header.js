@@ -1,8 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../Shared/Header.css"
+import { AuthContext } from '../Context/UserContext';
 
 const Header = () => {
+
+  // ---> UseContext
+  const { user, LogOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    LogOut().then(() => {
+    }).catch((error) => {
+    });
+  }
+
 
   // Service dropdown ************************************************************
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +54,7 @@ const Header = () => {
 
 
   return (
-    <div className='sticky relative top-0 z-30 mb-4'>
+    <div className='sticky relative top-0 z-30 '>
 
       <header className={`h-32 w-full flex items-center  justify-between px-4 lg:px-16 ${isShrunk ? 'h-16' : 'h-32'}`} style={{ backgroundColor: "#18332F" }}>
 
@@ -92,12 +103,32 @@ const Header = () => {
         {/* Studen info */}
         <div className="flex flex-shrink-0 items-center space-x-4 text-white user-header-info">
 
-          <div className="flex flex-col items-end ">
+          {/* <div className="flex flex-col items-end ">
             <div className="text-md font-medium ">Muhibur Rahman</div>
             <div className="text-sm font-regular">User</div>
           </div>
 
-          <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div>
+          <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div> */}
+          {
+            user && user.email ?
+              <Link onClick={handleLogOut} >
+                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                  Sign out
+                </button>
+              </Link>
+              :
+              <Link to="/login">
+                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                  Sign in
+                </button>
+              </Link>
+          }
+
+          <Link to="/register">
+            <button className="bg-white hover:bg-transparent  py-2 px-4 border text-gray-800 hover:text-white rounded shadow">
+              Sign up
+            </button>
+          </Link>
 
         </div>
 
