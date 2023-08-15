@@ -8,6 +8,8 @@ const Header = () => {
   // ---> UseContext
   const { user, LogOut } = useContext(AuthContext);
 
+  // console.log(user);
+
   const handleLogOut = () => {
     LogOut().then(() => {
     }).catch((error) => {
@@ -103,12 +105,17 @@ const Header = () => {
         {/* Studen info */}
         <div className="flex flex-shrink-0 items-center space-x-4 text-white user-header-info">
 
-          {/* <div className="flex flex-col items-end ">
-            <div className="text-md font-medium ">Muhibur Rahman</div>
-            <div className="text-sm font-regular">User</div>
-          </div>
 
-          <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"></div> */}
+          {
+            user && user.email &&
+            <div className="flex flex-col items-end ">
+              <div className="text-md font-medium ">{user.displayName}</div>
+              <div className="text-sm font-regular">User</div>
+            </div>
+          }
+
+          <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
+            src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" /></div>
           {
             user && user.email ?
               <Link onClick={handleLogOut} >
@@ -124,11 +131,12 @@ const Header = () => {
               </Link>
           }
 
-          <Link to="/register">
+          {/* Register button */}
+          {/* <Link to="/register">
             <button className="bg-white hover:bg-transparent  py-2 px-4 border text-gray-800 hover:text-white rounded shadow">
               Sign up
             </button>
-          </Link>
+          </Link> */}
 
         </div>
 

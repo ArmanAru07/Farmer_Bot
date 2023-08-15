@@ -3,6 +3,7 @@ import { FaFacebook, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    const { passwordSignIn } = useContext(AuthContext);
+    const { passwordSignIn, setloading } = useContext(AuthContext);
     const [error, setError] = useState(null);
 
 
@@ -26,15 +27,26 @@ const Login = () => {
         passwordSignIn(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                sweetAlert();
-                form.reset();
-                navigate(from, { replace: true });
+
+
+                if (user.emailVerified) {
+                    sweetAlert();
+                    form.reset();
+                    navigate(from, { replace: true });
+                }
+                else {
+                    notVerified();
+                }
+
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setError(errorMessage);
-            });
+                setError("Email is not registered!");
+            })
+            .finally(() => {
+                setloading(false);
+            })
 
     }
 
@@ -45,6 +57,16 @@ const Login = () => {
             title: 'Sign In successfully',
             showConfirmButton: false,
             timer: 2000
+        })
+    }
+
+    const notVerified = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Email is not verified! Please check your Email.',
+            showConfirmButton: false,
+            timer: 2500
         })
     }
 
@@ -61,7 +83,7 @@ const Login = () => {
                 </div>
 
                 {/* ------------------------------------------ */}
-                <form onSubmit={handleForm} class=" mx-auto">
+                <form onSubmit={handleForm} class="mx-auto">
                     <h2 class="text-left text-2xl font-bold mb-4">Sign In</h2>
                     <p class="text-left text-gray-600 mb-4">Sign in with your social media account or email address</p>
 
@@ -72,7 +94,7 @@ const Login = () => {
                     </div>
                     <div class="mb-4 relative">
                         <input type="password" class="border border-gray-300 rounded-lg w-full px-4 py-3 pr-10" name="password" placeholder="Password" required />
-                        <a href="#" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-blue-500 hover:text-gray-700">Forgot Password</a>
+                        <Link to="/fpassword" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-blue-500 hover:text-gray-700">Forgot Password</Link>
                     </div>
                     <div class="mb-4">
                         <button type="submit" class="bg-blue-900 hover:bg-green-600 text-white font-semibold py-3 px-6 w-full rounded-lg">Sign In</button>

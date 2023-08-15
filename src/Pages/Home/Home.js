@@ -16,9 +16,12 @@ const Home = () => {
             <h1>** . Header shrinking is not Working </h1>
             <h1>1.  In header user name increase, page links positon change. </h1>
             <h1>2.  The dropdown work in empty page but not in original website. Check bookmark "Live demo" </h1>
-            <h1>4.  404 page background color. </h1>
+            <h1>3.  404 page background color. </h1>
             <h1>4.  Therapy page cart position is not fixed </h1>
-            <h1>4.  Therapy page toast if so fast and not show properly </h1>
+            <h1>5.  Therapy page toast if so fast and not show properly </h1>
+            <h1>6.  React toastify problem </h1>
+            <h1>7.  Forget password page, React toastify is not working, but hot toast work</h1>
+            <h1>7.  After register a new id , and verify , first time login don't work. Need to refresh</h1>
 
             <br /><br />
             <h1># Work but need to know</h1>
@@ -39,9 +42,7 @@ const Home = () => {
             <h1>8. Search option in buy book page </h1>
             <h1>8. Login signup reg ex. </h1>
             <h1>9. Twitter login after hosting (we need url) </h1>
-
-
-
+            <h1>Terms and condition page from registrtion page</h1>
         </div>
     );
 };

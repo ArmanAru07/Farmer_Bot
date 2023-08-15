@@ -14,6 +14,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Login_2 from "../Pages/Login_2/Login_2";
 import PrivateRoute from "./PrivateRoute";
+import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
+import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +36,10 @@ export const router = createBrowserRouter([
                 element: <Login_2></Login_2>,
             },
             {
+                path: "/fpassword",
+                element: <ForgetPassword></ForgetPassword>,
+            },
+            {
                 path: "/register",
                 element: <Register></Register>,
             },
@@ -51,6 +57,10 @@ export const router = createBrowserRouter([
                 path: "/cart",
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
+            },
+            {
+                path: "/terms",
+                element: <TermsAndConditions></TermsAndConditions>,
             },
 
 
