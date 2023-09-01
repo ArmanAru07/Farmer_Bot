@@ -4,8 +4,11 @@ import ShoppingCards from './ShoppingCards';
 import Cart from '../Cart/Cart';
 import { addLocalStorage } from '../../../Utilities/BooksLocalStorage';
 import { ToastContainer } from 'react-toastify';
+import useTitle from '../../../Hooks/useTitle';
 
 const ShoppingPage = () => {
+
+    useTitle("Shopping");
 
     // Load all books data from my personal API by Router.
     const AllBooksData = useLoaderData();

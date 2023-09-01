@@ -4,9 +4,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../Hooks/useTitle';
 
 
 const Login = () => {
+
+    useTitle("Login");
 
     const navigate = useNavigate();
     let location = useLocation();
@@ -42,7 +45,7 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                setError("Email is not registered!");
+                setError(errorMessage);
             })
             .finally(() => {
                 setloading(false);

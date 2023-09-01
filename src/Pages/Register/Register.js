@@ -5,8 +5,11 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Context/UserContext';
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
+
+    useTitle("Register");
 
     const { reagistration, googleSignIn, facebookSignIn, updateUserProfile, verifyEmail } = useContext(AuthContext);
     const [error, setError] = useState(null);

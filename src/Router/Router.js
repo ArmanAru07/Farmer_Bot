@@ -5,17 +5,15 @@ import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import ShoppingPage from "../Pages/Shopping/ShoppingPage/ShoppingPage";
 import Therapy from "../Pages/Therapy/Therapy";
-import HeaderTest from "../Pages/HeaderTest";
-import Header from "../Pages/Test";
 import { LocalCartLoader } from '../Utilities/CartLocalStorage'
 import CartPage from "../Pages/Shopping/Cart/CartPage";
-import Test from "../Pages/Test";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Login_2 from "../Pages/Login_2/Login_2";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
+import Test from "../Pages/Test";
 
 
 export const router = createBrowserRouter([
@@ -62,24 +60,23 @@ export const router = createBrowserRouter([
                 path: "/terms",
                 element: <TermsAndConditions></TermsAndConditions>,
             },
+            {
+                path: "/blog",
+                element: <Blog></Blog>,
+            },
+            {
+                path: "/Test",
+                element: <Test></Test>,
+            },
 
 
         ]
     },
-    {
-        path: "/blog",
-        element: <Blog></Blog>,
-    },
+
     {
         path: "*",
         element: <Error></Error>,
     },
-    {
-        path: "/daisyui",
-        element: <HeaderTest></HeaderTest>,
-    },
-    {
-        path: "/test",
-        element: <Test></Test>,
-    },
+
+
 ]);

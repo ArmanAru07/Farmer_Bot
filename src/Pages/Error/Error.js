@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Error.css';
+import useTitle from '../../Hooks/useTitle';
 // import GhostEyes from './Animation';
 
 const Error = () => {
+
+    useTitle("Page not Found");
+
     return (
         <div>
             <div class="box">

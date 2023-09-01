@@ -5,8 +5,11 @@ import TimerCart from './TimerCart';
 import Card from './Card';
 import cartImage from '../../Asset/cart.jpg'
 import { setLocalTherapyTime, setProgressTimeLocal } from '../../Utilities/TherapyLocalStorage';
+import useTitle from '../../Hooks/useTitle';
 
 const Therapy = () => {
+
+    useTitle("Therapy");
 
     // load from personal API by router.
     const therapyData = useLoaderData();

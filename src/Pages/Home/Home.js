@@ -1,6 +1,9 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const Home = () => {
+
+    useTitle("Home");
     return (
         <div className='relative text-left' style={{ backgroundColor: "#FFFFF2" }}>
 
@@ -13,15 +16,14 @@ const Home = () => {
             <br /><br />
             <h1># Problems</h1>
 
-            <h1>** . Header shrinking is not Working </h1>
-            <h1>1.  In header user name increase, page links positon change. </h1>
-            <h1>2.  The dropdown work in empty page but not in original website. Check bookmark "Live demo" </h1>
-            <h1>3.  404 page background color. </h1>
-            <h1>4.  Therapy page cart position is not fixed </h1>
-            <h1>5.  Therapy page toast if so fast and not show properly </h1>
-            <h1>6.  React toastify problem </h1>
-            <h1>7.  Forget password page, React toastify is not working, but hot toast work</h1>
-            <h1>7.  After register a new id , and verify , first time login don't work. Need to refresh</h1>
+            <h1>**** . Header shrinking is not Working </h1>
+            <h1>**** .  In header user name increase, page links positon change. </h1>
+            <h1>**** .  404 page background color. </h1>
+            <h1>**** .  Therapy page cart position is not fixed </h1>
+            <h1>**** .  Therapy page toast if so fast and not show properly </h1>
+            <h1>**** .  React toastify problem </h1>
+            <h1>**** .  Forget password page, React toastify is not working, but hot toast work</h1>
+            <h1>**** .  After register a new id , and verify , first time login don't work. Need to refresh (check assignment 10)</h1>
 
             <br /><br />
             <h1># Work but need to know</h1>
@@ -32,6 +34,9 @@ const Home = () => {
             <br /><br />
             <h1># Update</h1>
 
+
+            <h1>1. #088E8E  --> checkout this color  </h1>
+            <h1>Give title in new added page.</h1>
             <h1>1. Give a small div to go to "my cart" in shop book option. </h1>
             <h1>2. make a aside bar for service dropdown in mobile view</h1>
             <h1>3.  when scroll down , header will be small. </h1>
