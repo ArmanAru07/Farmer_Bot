@@ -52,9 +52,11 @@ const UserContext = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser === null || currentUser.emailVerified) {
-                setUser(currentUser);
-            }
+            // Email verification
+            // if (currentUser === null || currentUser.emailVerified) {
+
+            // }
+            setUser(currentUser);
             setloading(false);
         })
         return () => {

@@ -30,16 +30,17 @@ const Login = () => {
         passwordSignIn(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                sweetAlert();
+                form.reset();
+                navigate(from, { replace: true });
 
+                // Email varification
+                // if (user.emailVerified) {
 
-                if (user.emailVerified) {
-                    sweetAlert();
-                    form.reset();
-                    navigate(from, { replace: true });
-                }
-                else {
-                    notVerified();
-                }
+                // }
+                // else {
+                //     notVerified();
+                // }
 
             })
             .catch((error) => {
@@ -47,9 +48,10 @@ const Login = () => {
                 const errorMessage = error.message;
                 setError(errorMessage);
             })
-            .finally(() => {
-                setloading(false);
-            })
+        // Emial varification
+        // .finally(() => {
+        //     setloading(false);
+        // })
 
     }
 

@@ -50,10 +50,12 @@ const Register = () => {
         reagistration(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                // Email varification
                 successAlert();
                 form.reset();
                 handleUpdateUser(firstname + " " + lastname);
-                handleEmailVerification();
+                // Email verification
+                // handleEmailVerification();
             })
             .catch((error) => {
                 const errorCode = error.code;
