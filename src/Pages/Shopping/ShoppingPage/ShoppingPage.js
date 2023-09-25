@@ -40,7 +40,7 @@ const ShoppingPage = () => {
         }
         //     // add my manual array state
         setCartData(newCart);
-        addLocalStorage(selectedData.id);
+        addLocalStorage(selectedData._id);
     }
 
 
@@ -48,7 +48,7 @@ const ShoppingPage = () => {
         <div>
             <div className='pl-2 pr-2 grid grid-cols-1 lg:grid-cols-4 gap-3' style={{ backgroundColor: "#FFFFF2" }}>
                 {
-                    AllBooksData.map(BooksData => <ShoppingCards key={BooksData.id} BooksData={BooksData} handleCartItem={handleCartItem}></ShoppingCards>)
+                    AllBooksData.map(BooksData => <ShoppingCards key={BooksData._id} BooksData={BooksData} handleCartItem={handleCartItem}></ShoppingCards>)
                 }
             </div>
             <ToastContainer />

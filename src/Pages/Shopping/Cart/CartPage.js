@@ -8,6 +8,7 @@ import { BsFillEmojiFrownFill } from "react-icons/bs";
 const CartPage = () => {
 
     const { CartData, AllBooksData } = useLoaderData();
+    console.log(CartData);
 
     // Keep the loader data in state, cause we change them in future.
     const [LocalCart, setLocalCart] = useState(CartData);

@@ -44,7 +44,6 @@ const ShoppingCards = ({ BooksData, handleCartItem }) => {
                 <div className="flex items-center justify-between">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
                     <Link onClick={() => halndleAddButton(BooksData)} className="text-white bg-blue-700 hover:bg-blue-800   font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart <FaOpencart className='inline-flex'></FaOpencart> </Link>
-
                 </div>
             </div>
         </div>

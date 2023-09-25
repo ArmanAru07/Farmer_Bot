@@ -9,20 +9,22 @@ import { getCart } from "./BooksLocalStorage";
 export const LocalCartLoader = async () => {
 
     // Get all Books data
-    const Books = await fetch(`Books.json`);
+    const Books = await fetch(`http://localhost:4000/products`);
     const AllBooksData = await Books.json();
 
     // get local cart data from other funaction call.
     const savedCart = getCart();
+    console.log(savedCart);
 
     let CartData = []
     for (const id in savedCart) {
-        const findData = AllBooksData.find(data => id === data.id)
+        const findData = AllBooksData.find(data => id === data._id)
         if (findData) {
             findData.quantity = savedCart[id];
             CartData.push(findData)
         }
     }
+    console.log(CartData);
     return { CartData, AllBooksData };
 }
 
