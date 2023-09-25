@@ -135,13 +135,7 @@ const Header = () => {
                       <NavLink to="/cart" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/addproducts" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Products</NavLink>
-                    </li>
-                    <li>
                       <NavLink to="/Dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/updateProduct" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">UpdateProduct</NavLink>
                     </li>
                     <li>
                       <NavLink to="/Test" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>

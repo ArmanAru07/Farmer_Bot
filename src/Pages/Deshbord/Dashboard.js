@@ -1,67 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import MyProducts from '../MyProduct/MyProducts';
 
 const Dashboard = () => {
-
-    const { user } = useContext(AuthContext);
-    // console.log(user);
-
-    // get product from server
-    const [products, setProducts] = useState([]);
-    console.log(products);
-
-    useEffect(() => {
-        fetch(`http://localhost:4000/myProduct?sellerEmail=${user?.email}`)
-            .then(response => response.json())
-            .then(data => setProducts(data))
-    }, [user]);
-
-    // Delete Product
-    const handleDelete = (DeleteProduct) => {
-        const agree = window.confirm(`Are you sure to delete ${DeleteProduct.name}`);
-
-        if (agree) {
-            fetch(`http://localhost:4000/products/${DeleteProduct._id}`, {
-                method: 'DELETE', // or 'PUT'
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(),  // Keep blank when delete.
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log('Success:', data);
-                    // a return message is come from server (res.send)
-                    // There are a value deleteCount = 1
-                    if (data.deletedCount > 0) {
-                        alert("Deleted successfully");
-                        const remainingUser = products.filter(product => product._id !== DeleteProduct._id);
-                        setProducts(remainingUser);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
-    }
-
-
-    // Active nav link
-    const navLinkStyle = ({ isActive }) => {
-        return {
-            fontWeight: isActive ? "bold" : "normal",
-            color: isActive ? "yellow" : "rgb(209, 213, 219)"
-        }
-    }
 
 
     return (
 
-        <div className='grid grid-cols-6  divide-x divide-dashe'>
 
-            <div className='col-span-1' >
-                <Link onClick={navLinkStyle} className='flex gap-3 mt-5  mr-3 p-4 rounded-r-full font-semibold  hover:bg-gray-200'>
+        <div className='grid grid-cols-6 relative'>
+
+            {/* This is left nav */}
+            <div className='col-span-1 border-r-4 border-indigo-500 h-96 ' >
+
+                <Link to="MyProfile" className='flex gap-3 mt-5  mr-3 p-4 rounded-r-full font-semibold  hover:bg-gray-200'>
+                    <div>
+                        Logo
+                    </div>
+                    <div>
+                        My Profile
+                    </div>
+                </Link>
+
+                <Link to="myProduct" className='flex gap-3   mr-3 p-4 rounded-r-full font-semibold  hover:bg-gray-200'>
                     <div>
                         Logo
                     </div>
@@ -70,86 +32,22 @@ const Dashboard = () => {
                     </div>
                 </Link>
 
-                <Link onClick={navLinkStyle} className='flex gap-3  mr-3 p-4 rounded-r-full  hover:bg-gray-200'>
+                <Link to="addproducts" className='flex gap-3   mr-3 p-4 rounded-r-full font-semibold  hover:bg-gray-200'>
                     <div>
                         Logo
                     </div>
                     <div>
-                        My Profile
+                        Add Product
                     </div>
                 </Link>
             </div>
 
+            {/* This is right side grid */}
+            <div className='col-span-5'>
+                <Outlet></Outlet>
+            </div>
 
-            {/* Product info */}
-            {
-                products.length === 0 ?
-                    <h1 className='col-span-5 mt-10 text-4xl text-red-500'>There is no product added :(</h1>
-                    :
-                    <div className="relative col-span-5 overflow-x-auto shadow-md sm:rounded-lg mt-2">
-                        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" className="px-6 py-3">
-                                        <span className="sr-only">Image</span>
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Product
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Category
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Price
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Update
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Delete
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {
-                                    products.map(product =>
-                                        <tr key={product._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                            <td className="w-32 p-4">
-                                                <img src={product.img} alt="Apple Watch" />
-                                            </td>
-                                            <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                {product.name}
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                {product.category}
-                                            </td>
-                                            <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                {product.price}<span className='text-xl'> ৳</span>
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                <Link to={`/updateProduct/${product._id}`}>
-                                                    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                                                        Edit
-                                                    </button>
-                                                </Link>
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                <button onClick={() => handleDelete(product)} className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
-                                                    Delete
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    )
-                                }
-
-                            </tbody>
-                        </table>
-                    </div>
-            }
         </div>
-
-
 
 
     );

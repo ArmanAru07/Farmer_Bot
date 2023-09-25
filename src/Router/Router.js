@@ -17,6 +17,8 @@ import Test from "../Pages/Test";
 import AddProducts from "../Pages/AddProducts/AddProducts";
 import Deshbord from "../Pages/Deshbord/Dashboard";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import MyProducts from "../Pages/MyProduct/MyProducts";
+import MyProfile from "../Pages/MyProfile/MyProfile";
 
 
 export const router = createBrowserRouter([
@@ -55,18 +57,30 @@ export const router = createBrowserRouter([
                 loader: async () => fetch(`http://localhost:4000/products`),
             },
             {
+                path: "/Dashboard",
+                element: <Deshbord></Deshbord>,
+                children: [
+                    {
+                        path: "myProduct",
+                        element: <MyProducts></MyProducts>,
+                    },
+                    {
+                        path: "MyProfile",
+                        element: <MyProfile></MyProfile>,
+                    },
+                    {
+                        path: "addproducts",
+                        element: <AddProducts></AddProducts>,
+                    },
+                ]
+
+            },
+            {
                 path: "/cart",
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
             },
-            {
-                path: "/addproducts",
-                element: <AddProducts></AddProducts>,
-            },
-            {
-                path: "/Dashboard",
-                element: <Deshbord></Deshbord>,
-            },
+
             {
                 path: "/updateProduct/:id",
                 element: <UpdateProduct></UpdateProduct>,
@@ -84,8 +98,6 @@ export const router = createBrowserRouter([
                 path: "/Test",
                 element: <Test></Test>,
             },
-
-
         ]
     },
 
