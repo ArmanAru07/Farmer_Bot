@@ -24,6 +24,7 @@ const Home = () => {
             <h1>**** .  React toastify problem </h1>
             <h1>**** .  Forget password page, React toastify is not working, but hot toast work</h1>
             <h1>**** .  After register a new id , and verify , first time login don't work. Need to refresh (check assignment 10)</h1>
+            <h1>**** .  Add product page, description box align item problem</h1>
 
             <br /><br />
             <h1># Work but need to know</h1>

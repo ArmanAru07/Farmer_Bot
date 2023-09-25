@@ -14,8 +14,6 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [laoding, setloading] = useState(true);
 
-    console.log(user);
-
     const reagistration = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }

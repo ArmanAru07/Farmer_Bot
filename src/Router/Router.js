@@ -14,6 +14,9 @@ import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
 import Test from "../Pages/Test";
+import AddProducts from "../Pages/AddProducts/AddProducts";
+import Deshbord from "../Pages/Deshbord/Dashboard";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 
 
 export const router = createBrowserRouter([
@@ -44,17 +47,30 @@ export const router = createBrowserRouter([
             {
                 path: "/therapy",
                 element: <PrivateRoute><Therapy></Therapy></PrivateRoute>,
-                loader: async ({ params }) => fetch("Therapy.json")
+                loader: async () => fetch("Therapy.json")
             },
             {
                 path: "/shoppingPage",
                 element: <ShoppingPage></ShoppingPage>,
-                loader: async ({ params }) => fetch("Books.json"),
+                loader: async () => fetch(`http://localhost:4000/products`),
             },
             {
                 path: "/cart",
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
+            },
+            {
+                path: "/addproducts",
+                element: <AddProducts></AddProducts>,
+            },
+            {
+                path: "/Dashboard",
+                element: <Deshbord></Deshbord>,
+            },
+            {
+                path: "/updateProduct/:id",
+                element: <UpdateProduct></UpdateProduct>,
+                loader: async ({ params }) => fetch(`http://localhost:4000/product/${params.id}`),
             },
             {
                 path: "/terms",

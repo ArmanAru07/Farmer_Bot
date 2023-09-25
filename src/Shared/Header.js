@@ -52,6 +52,14 @@ const Header = () => {
   }
 
 
+  // Profile dropdown ***********************************************************
+  const [profileHover, setProfileHover] = useState(false);
+
+  const handlePfofileDropdown = () => {
+    setProfileHover(!profileHover);
+  };
+
+
   // Header shrinking **************************************************************
   const [isShrunk, setShrunk] = useState(false);
 
@@ -67,6 +75,8 @@ const Header = () => {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+
 
   return (
     <div className='sticky relative top-0 z-30 '>
@@ -89,8 +99,7 @@ const Header = () => {
               <div className="relative inline-block text-left group">
                 <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
                   onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
+                  onMouseLeave={handleMouseLeave}>
                   Services{' '}
                   <svg
                     className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
@@ -109,13 +118,12 @@ const Header = () => {
                   <div
                     className="absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 group-hover:block"
                     onMouseEnter={() => this.setState({ isHovered: true })}
-                    onMouseLeave={() => this.setState({ isHovered: false })}
-                  >
-                    {/* Dropdown content */}
+                    onMouseLeave={() => this.setState({ isHovered: false })}>
                   </div>
                 </button>
 
-                <div style={{ zIndex: 100 }} className="absolute  hidden  divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-700 group-hover:block">
+                {/* Nav Dropdown content */}
+                <div style={{ zIndex: 100 }} className="absolute hidden divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-700 group-hover:block">
                   <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
                     <li>
                       <NavLink to="/therapy" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
@@ -125,6 +133,15 @@ const Header = () => {
                     </li>
                     <li>
                       <NavLink to="/cart" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/addproducts" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Add Products</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/Dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/updateProduct" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">UpdateProduct</NavLink>
                     </li>
                     <li>
                       <NavLink to="/Test" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>
@@ -156,8 +173,18 @@ const Header = () => {
             </div>
           }
 
-          <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
-            src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" /></div>
+          {
+            user && user.email ?
+              <div onClick={handlePfofileDropdown} data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
+                src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" />
+              </div>
+              :
+              <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
+                src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" />
+              </div>
+          }
+
+
           {
             user && user.email ?
               <Link onClick={handleLogOut} >
@@ -190,10 +217,8 @@ const Header = () => {
             <Link to="/" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >Home</Link>
           </li>
           <li>
-            <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
+            <button onClick={dropdownClick} className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button">
 
-              onClick={dropdownClick}
-            >
               Services{' '}
               <svg
                 className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
@@ -212,12 +237,12 @@ const Header = () => {
               <div
                 className="absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 group-hover:block"
                 onMouseEnter={() => this.setState({ isHovered: true })}
-                onMouseLeave={() => this.setState({ isHovered: false })}
-              >
+                onMouseLeave={() => this.setState({ isHovered: false })}>
                 {/* Dropdown content */}
               </div>
             </button>
 
+            {/* Responsive header dropdown */}
             <div style={{ zIndex: 100 }} className={` ${isHovered ? '' : 'hidden'} absolute  divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-700 group-hover:block`}>
               <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
                 <li role="menuitem">
@@ -253,6 +278,29 @@ const Header = () => {
           </li>
         </ul>
       </div>
+
+      {/* Profile dropdown */}
+      <div id="userDropdown" style={{ zIndex: 100 }} className={` ${profileHover ? "block" : 'hidden'}  bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`}>
+        <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+          <div>Bonnie Green</div>
+          <div className="font-medium truncate">name@flowbite.com</div>
+        </div>
+        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+          <li>
+            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+          </li>
+          <li>
+            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+          </li>
+          <li>
+            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+          </li>
+        </ul>
+        <div className="py-1">
+          <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+        </div>
+      </div>
+
       {/* Header Ends */}
     </div>
 
