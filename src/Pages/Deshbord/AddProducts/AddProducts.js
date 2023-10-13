@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../Context/UserContext';
+import { AuthContext } from '../../../Context/UserContext';
 
 const AddProducts = () => {
 

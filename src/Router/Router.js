@@ -14,11 +14,13 @@ import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
 import Test from "../Pages/Test";
-import AddProducts from "../Pages/AddProducts/AddProducts";
+import AddProducts from "../../src/Pages/Deshbord/AddProducts/AddProducts";
 import Deshbord from "../Pages/Deshbord/Dashboard";
-import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
-import MyProducts from "../Pages/MyProduct/MyProducts";
-import MyProfile from "../Pages/MyProfile/MyProfile";
+import UpdateProduct from "../../src/Pages/Deshbord/UpdateProduct/UpdateProduct";
+import MyProducts from "../../src/Pages/Deshbord/MyProduct/MyProducts";
+import MyProfile from "../../src/Pages/Deshbord/MyProfile/MyProfile";
+import Description from "../Pages/Shopping/Description/Description";
+import MyReviews from "../Pages/Deshbord/MyReviews/MyReviews";
 
 
 export const router = createBrowserRouter([
@@ -57,6 +59,11 @@ export const router = createBrowserRouter([
                 loader: async () => fetch(`http://localhost:4000/products`),
             },
             {
+                path: "/description/:id",
+                element: <Description></Description>,
+                loader: async ({ params }) => fetch(`http://localhost:4000/product/${params.id}`),
+            },
+            {
                 path: "/Dashboard",
                 element: <Deshbord></Deshbord>,
                 children: [
@@ -72,6 +79,10 @@ export const router = createBrowserRouter([
                         path: "addproducts",
                         element: <AddProducts></AddProducts>,
                     },
+                    {
+                        path: "myReviews",
+                        element: <MyReviews></MyReviews>,
+                    },
                 ]
 
             },
@@ -80,7 +91,6 @@ export const router = createBrowserRouter([
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
             },
-
             {
                 path: "/updateProduct/:id",
                 element: <UpdateProduct></UpdateProduct>,

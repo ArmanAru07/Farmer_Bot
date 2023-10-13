@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
-import MyProducts from '../MyProduct/MyProducts';
+import MyProducts from './MyProduct/MyProducts';
 
 const Dashboard = () => {
 
@@ -20,6 +20,15 @@ const Dashboard = () => {
                     </div>
                     <div>
                         My Profile
+                    </div>
+                </Link>
+
+                <Link to='myReviews' className='flex gap-3   mr-3 p-4 rounded-r-full font-semibold  hover:bg-gray-200'>
+                    <div>
+                        Logo
+                    </div>
+                    <div >
+                        My Reviews
                     </div>
                 </Link>
 

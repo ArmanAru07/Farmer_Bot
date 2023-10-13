@@ -14,7 +14,6 @@ const Register = () => {
     const { reagistration, googleSignIn, facebookSignIn, updateUserProfile, verifyEmail } = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [accepted, setAccepted] = useState(false);
-    console.log(accepted);
 
     const handleForm = event => {
         event.preventDefault();
@@ -22,9 +21,12 @@ const Register = () => {
         const form = event.target;
         const firstname = form.firstname.value;
         const lastname = form.lastname.value;
+        const gender = form.gender.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm_password = form.confirm_password.value;
+
+        console.log(gender);
 
 
         // reg ex.
@@ -53,7 +55,7 @@ const Register = () => {
                 // Email varification
                 successAlert();
                 form.reset();
-                handleUpdateUser(firstname + " " + lastname);
+                handleUpdateUser(firstname + " " + lastname, gender);
                 // Email verification
                 // handleEmailVerification();
             })
@@ -72,9 +74,9 @@ const Register = () => {
     }
 
 
-    const handleUpdateUser = (username) => {
+    const handleUpdateUser = (username, gender) => {
         const profile = {
-            displayName: username
+            displayName: username,
         }
         updateUserProfile(profile)
             .then(() => {
@@ -158,6 +160,12 @@ const Register = () => {
                     </div>
                     <div className="mb-4">
                         <input type="text" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="lastname" placeholder="Lastname" maxlength="20" required />
+                    </div>
+                    <div className="mb-4">
+                        <select name="gender" className="border border-gray-300 rounded-lg  rounded px-4 w-full" placeholder="Gender" required>
+                            <option value="male">Gender : Male</option>
+                            <option value="female">Gender : Female</option>
+                        </select>
                     </div>
                     <div className="mb-4">
                         <input type="email" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="email" placeholder="Email Address" required />

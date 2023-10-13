@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../Context/UserContext';
+import { AuthContext } from '../../../Context/UserContext';
 
 const UpdateProduct = () => {
 

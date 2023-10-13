@@ -147,7 +147,7 @@ const Header = () => {
             </li>
 
             <li>
-              <NavLink style={navLinkStyle} to="/hi" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Menu</NavLink>
+              <NavLink to="/Dashboard" style={navLinkStyle} className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Dashboard</NavLink>
             </li>
             <li>
               <NavLink style={navLinkStyle} to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Blog</NavLink>
