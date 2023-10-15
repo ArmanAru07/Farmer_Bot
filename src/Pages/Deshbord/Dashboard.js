@@ -9,7 +9,7 @@ const Dashboard = () => {
     return (
 
 
-        <div className='grid grid-cols-6 relative'>
+        <div style={{ backgroundColor: '#111827' }} className='grid grid-cols-6 relative'>
 
             {/* This is left nav */}
             <div className='col-span-1 border-r-4 border-indigo-500 h-96 ' >
