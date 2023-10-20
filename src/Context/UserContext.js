@@ -14,7 +14,7 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [laoding, setloading] = useState(true);
 
-    console.log(user);
+    // console.log(user);
 
     const reagistration = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -47,6 +47,7 @@ const UserContext = ({ children }) => {
 
 
     const LogOut = () => {
+        localStorage.removeItem('Token');
         return signOut(auth);
     }
 

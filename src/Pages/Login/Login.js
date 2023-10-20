@@ -34,6 +34,25 @@ const Login = () => {
                 form.reset();
                 navigate(from, { replace: true });
 
+                const currentUser = { email: user.email };
+                fetch('http://localhost:4000/jwt', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(currentUser),  // here is the user
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data);
+                        localStorage.setItem('Token', data.token);
+                        navigate(from, { replace: true })
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+
+
                 // Email varification
                 // if (user.emailVerified) {
 

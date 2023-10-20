@@ -38,6 +38,7 @@ const Home = () => {
 
             <h1>1. #088E8E  --> checkout this color  </h1>
             <h1>Give title in new added page.</h1>
+            <h1>Pagination</h1>
             <h1>1. Give a small div to go to "my cart" in shop book option. </h1>
             <h1>2. make a aside bar for service dropdown in mobile view</h1>
             <h1>3.  when scroll down , header will be small. </h1>
@@ -48,7 +49,7 @@ const Home = () => {
             <h1>8. Search option in buy book page </h1>
             <h1>8. Login signup reg ex. </h1>
             <h1>9. Twitter login after hosting (we need url) </h1>
-            <h1>Terms and condition page from registrtion page</h1>
+            <h1>10. Terms and condition page from registrtion page</h1>
         </div>
     );
 };
