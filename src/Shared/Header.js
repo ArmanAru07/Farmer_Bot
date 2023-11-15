@@ -138,6 +138,9 @@ const Header = () => {
                       <NavLink to="/Dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
                     </li>
                     <li>
+                      <NavLink to="/appointment" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
+                    </li>
+                    <li>
                       <NavLink to="/Test" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>
                     </li>
                   </ul>
@@ -149,6 +152,7 @@ const Header = () => {
             <li>
               <NavLink to="/Dashboard" style={navLinkStyle} className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Dashboard</NavLink>
             </li>
+
             <li>
               <NavLink style={navLinkStyle} to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Blog</NavLink>
             </li>

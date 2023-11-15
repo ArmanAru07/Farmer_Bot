@@ -21,6 +21,7 @@ import MyProducts from "../../src/Pages/Deshbord/MyProduct/MyProducts";
 import MyProfile from "../../src/Pages/Deshbord/MyProfile/MyProfile";
 import Description from "../Pages/Shopping/Description/Description";
 import MyReviews from "../Pages/Deshbord/MyReviews/MyReviews";
+import Appointment from "../Pages/Appointment/Appointment";
 
 export const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
                 path: "/updateProduct/:id",
                 element: <UpdateProduct></UpdateProduct>,
                 loader: async ({ params }) => fetch(`http://localhost:4000/product/${params.id}`),
+            },
+            {
+                path: "/appointment",
+                element: <Appointment></Appointment>
             },
             {
                 path: "/terms",
