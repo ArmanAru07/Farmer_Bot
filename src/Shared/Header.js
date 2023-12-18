@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./Header.css";
 import { AuthContext } from '../Context/UserContext';
+import { Avatar, Dropdown } from 'flowbite-react';
 
 const Header = () => {
 
   // ---> UseContext
   const { user, LogOut } = useContext(AuthContext);
+  console.log(user);
 
   // --> Log out function ********************************
   const handleLogOut = () => {
@@ -171,25 +173,21 @@ const Header = () => {
             </div>
           }
 
-          {
-            user && user.email ?
-              <div onClick={handlePfofileDropdown} data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
-                src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" />
-              </div>
-              :
-              <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
-                src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" />
-              </div>
-          }
-
 
           {
             user && user.email ?
-              <Link onClick={handleLogOut} >
-                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
-                  Sign out
-                </button>
-              </Link>
+              <div>
+                <Dropdown arrowIcon={false} inline label={<Avatar alt="User settings" img="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" rounded bordered />}>
+                  <Dropdown.Header>
+                    {/* <span className="block text-sm">Bonnie Green</span> */}
+                    <span className="block truncate text-sm font-medium">{user?.email}</span>
+                  </Dropdown.Header>
+                  <Dropdown.Item as={Link} to='/dashboard' >Dashboard</Dropdown.Item>
+
+                  <Dropdown.Divider />
+                  <Dropdown.Item onClick={handleLogOut}>Sign out</Dropdown.Item>
+                </Dropdown>
+              </div>
               :
               <Link to="/login">
                 <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">

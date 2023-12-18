@@ -22,6 +22,11 @@ import MyProfile from "../../src/Pages/Deshbord/MyProfile/MyProfile";
 import Description from "../Pages/Shopping/Description/Description";
 import MyReviews from "../Pages/Deshbord/MyReviews/MyReviews";
 import Appointment from "../Pages/Appointment/Appointment";
+import AddDoctor from "../Pages/Deshbord/AddDoctor/AddDoctor";
+import ManageDoctor from "../Pages/Deshbord/ManageDoctor/ManageDoctor";
+import AllUser from "../Pages/Deshbord/AllUser/AllUser";
+import ManageProduct from "../Pages/Deshbord/ManageProduct/ManageProduct";
+import MyAppointemnt from "../Pages/Deshbord/MyAppointemnt/MyAppointemnt";
 
 export const router = createBrowserRouter([
     {
@@ -64,29 +69,6 @@ export const router = createBrowserRouter([
                 loader: async ({ params }) => fetch(`http://localhost:4000/product/${params.id}`),
             },
             {
-                path: "/Dashboard",
-                element: <Deshbord></Deshbord>,
-                children: [
-                    {
-                        path: "myProduct",
-                        element: <MyProducts></MyProducts>,
-                    },
-                    {
-                        path: "MyProfile",
-                        element: <MyProfile></MyProfile>,
-                    },
-                    {
-                        path: "addproducts",
-                        element: <AddProducts></AddProducts>,
-                    },
-                    {
-                        path: "myReviews",
-                        element: <MyReviews></MyReviews>,
-                    },
-                ]
-
-            },
-            {
                 path: "/cart",
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
@@ -114,7 +96,49 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "/Dashboard",
+        element: <Deshbord></Deshbord>,
+        children: [
+            {
+                path: "/Dashboard/addDoctor",
+                element: <AddDoctor></AddDoctor>,
+            },
+            {
+                path: "/Dashboard/allUser",
+                element: <AllUser></AllUser>,
+            },
+            {
+                path: "/Dashboard/manageDoctor",
+                element: <ManageDoctor></ManageDoctor>,
+            },
+            {
+                path: "/Dashboard/myProduct",
+                element: <MyProducts></MyProducts>,
+            },
+            {
+                path: "/Dashboard/MyProfile",
+                element: <MyProfile></MyProfile>,
+            },
+            {
+                path: "/Dashboard/addproducts",
+                element: <AddProducts></AddProducts>,
+            },
+            {
+                path: "/Dashboard/myReviews",
+                element: <MyReviews></MyReviews>,
+            },
+            {
+                path: "/Dashboard/manageProduct",
+                element: <ManageProduct></ManageProduct>,
+            },
+            {
+                path: "/Dashboard/myApointments",
+                element: <MyAppointemnt></MyAppointemnt>,
+            },
+        ]
 
+    },
     {
         path: "*",
         element: <Error></Error>,

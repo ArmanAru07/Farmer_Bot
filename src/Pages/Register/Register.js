@@ -26,16 +26,13 @@ const Register = () => {
         const password = form.password.value;
         const confirm_password = form.confirm_password.value;
 
-        console.log(gender);
-
-
         // reg ex.
         if (!/^(?=.*[A-Z])/.test(password)) {
-            setError("Password must be one uppercase");
+            setError("Password must be one uppercase letter !");
             return;
         }
         if (!/^(?=.*[a-z])/.test(password)) {
-            setError("Password must be one lowercase");
+            setError("Password must be one lowercase letter !");
             return;
         }
         if (password.length < 6) {
@@ -55,7 +52,9 @@ const Register = () => {
                 // Email varification
                 successAlert();
                 form.reset();
+                saveUserData(firstname + " " + lastname, email);
                 handleUpdateUser(firstname + " " + lastname, gender);
+
                 // Email verification
                 // handleEmailVerification();
             })
@@ -64,6 +63,29 @@ const Register = () => {
                 const errorMessage = error.message;
                 setError(errorMessage);
 
+            });
+    }
+
+    const saveUserData = (name, email) => {
+
+        const user = { name, email };
+
+        fetch('http://localhost:4000/users', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),  // here is the user
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.acknowledged) {
+                    alert("Information saved successfully");
+                    // setUserEmail(email);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
             });
     }
 

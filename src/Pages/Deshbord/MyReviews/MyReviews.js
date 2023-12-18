@@ -269,7 +269,7 @@ const MyReviews = () => {
                         )
                         :
                         <div className='mt-5 text-center'>
-                            <h1 className=' text-lg text-black '>No Review to show</h1>
+                            <h1 className='text-lg text-black '>No Review </h1>
                         </div>
                 }
             </table>

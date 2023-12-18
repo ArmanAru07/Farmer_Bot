@@ -33,6 +33,16 @@ const Home = () => {
 
 
             <br /><br />
+            <h1># Dashboard</h1>
+
+            <h1> Admin -->  Add doctor, Manage Doctor, Manage Seller, Manage Patient, All Product</h1>
+            <h1> Doctor -->  My Profile, Appointments </h1>
+            <h1> Seller -->  My Profile, My products, Add products </h1>
+            <h1> Patinet -->  My Profile, My reviews, My appointments</h1>
+            <h1> Doctor Email -->  Firebase default account </h1>
+
+
+            <br /><br />
             <h1># Update</h1>
 
 
@@ -43,13 +53,10 @@ const Home = () => {
             <h1>2. make a aside bar for service dropdown in mobile view</h1>
             <h1>3.  when scroll down , header will be small. </h1>
             <h1>4. therapy page, card background image will be zoom </h1>
-            <h1>5. Tp er resturant website feature option.  </h1>
-            <h1>6. Tp   er resturant website feature option.  </h1>
+            <h1>6. Tpu er resturant website feature option.  </h1>
             <h1>7. Authetication code sent option </h1>
             <h1>8. Search option in buy book page </h1>
-            <h1>8. Login signup reg ex. </h1>
             <h1>9. Twitter login after hosting (we need url) </h1>
-            <h1>10. Terms and condition page from registrtion page</h1>
         </div>
     );
 };
