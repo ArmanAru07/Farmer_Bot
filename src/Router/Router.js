@@ -27,6 +27,9 @@ import ManageDoctor from "../Pages/Deshbord/ManageDoctor/ManageDoctor";
 import AllUser from "../Pages/Deshbord/AllUser/AllUser";
 import ManageProduct from "../Pages/Deshbord/ManageProduct/ManageProduct";
 import MyAppointemnt from "../Pages/Deshbord/MyAppointemnt/MyAppointemnt";
+import Chat from "../Pages/Chat/Chat";
+import Post from "../Pages/Post/Post";
+import AIAssistant from "../Pages/AIAssistant/AIAssistant";
 
 export const router = createBrowserRouter([
     {
@@ -56,7 +59,7 @@ export const router = createBrowserRouter([
             {
                 path: "/therapy",
                 element: <PrivateRoute><Therapy></Therapy></PrivateRoute>,
-                loader: async () => fetch("Therapy.json")
+                loader: async () => fetch(`Therapy.json`),
             },
             {
                 path: "/shoppingPage",
@@ -91,9 +94,21 @@ export const router = createBrowserRouter([
                 element: <Blog></Blog>,
             },
             {
+                path: "/chat",
+                element: <Chat></Chat>,
+            },
+            {
+                path: "/post",
+                element: <Post></Post>,
+            },
+            {
                 path: "/Test",
                 element: <Test></Test>,
             },
+            {
+                path: "/aIAssistant",
+                element: <AIAssistant></AIAssistant>,
+            }
         ]
     },
     {
@@ -135,14 +150,15 @@ export const router = createBrowserRouter([
             {
                 path: "/Dashboard/myApointments",
                 element: <MyAppointemnt></MyAppointemnt>,
-            },
+            }
         ]
-
     },
     {
         path: "*",
         element: <Error></Error>,
     },
+
+
 
 
 ]);

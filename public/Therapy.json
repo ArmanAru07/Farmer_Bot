@@ -1,46 +1,50 @@
 [
   {
-    "id": 1,
-    "Name": "1. Breathing Exercise",
-    "description": "This is Product A",
+    "Name": "Breathing Exercise",
+    "description": "If you're sitting or standing, place both feet flat on the ground. Whatever position you're in, place your feet roughly hip-width apart.Let your breath flow as deep down into your belly as is comfortable, without forcing it.Try breathing in through your nose and out through your mouth. Breathe in gently and regularly. Some people find it helpful to count steadily from 1 to 5. You may not be able to reach 5 at first. Then let it flow out gently, counting from 1 to 5 again, if you find this helpful. Keep doing this for at least 5 minutes.",
+    "bangla":"আপনি যদি বসে থাকেন বা দাঁড়িয়ে থাকেন তবে উভয় পা মাটিতে সমতল রাখুন। আপনি যে অবস্থানেই থাকুন না কেন, আপনার পা মোটামুটি নিতম্ব-প্রস্থে রাখুন। আপনার শ্বাস আপনার পেটের গভীরে যতটা আরামদায়ক, জোর না করে প্রবাহিত হতে দিন। আপনার নাক দিয়ে শ্বাস নেওয়ার চেষ্টা করুন এবং আপনার মুখ দিয়ে বের করুন। ধীরে ধীরে এবং নিয়মিত শ্বাস নিন। কিছু লোক 1 থেকে 5 পর্যন্ত অবিচ্ছিন্নভাবে গণনা করা সহায়ক বলে মনে করে। আপনি প্রথমে 5 এ পৌঁছাতে পারবেন না। তারপরে এটিকে আস্তে আস্তে প্রবাহিত হতে দিন, আবার 1 থেকে 5 পর্যন্ত গণনা করুন, যদি আপনি এটিকে সহায়ক মনে করেন। অন্তত ৫ মিনিট এভাবে করতে থাকুন।",
     "time": 10,
     "img": "https://www.artofliving.org/sites/www.artofliving.org/files/styles/original_image/public/unity2/blog_image/breath_class_in_yoga_studio_0.jpg.webp?itok=U3DK99Fq"
   },
   {
-    "id": 2,
-    "Name": "2. Meditation",
-    "description": "This is Product A",
+    
+    "Name": "Meditation",
+    "description": "With your eyes closed, simply breathe in while saying 'breathe in' in your head as you do. Then breathe out and say 'breathe out'. For the next 10 minutes or so, your aim is to focus on this circular breath and the simple words in your head as much as possible.",
+    "bangla":"আপনার চোখ বন্ধ করে, আপনার মতো করে আপনার মাথায় 'ব্রিদ ইন' বলার সময় কেবল শ্বাস নিন। তারপর শ্বাস ছাড়ুন এবং বলুন 'ব্রিদ আউট'। পরবর্তী 10 মিনিটের জন্য, আপনার লক্ষ্য এই বৃত্তাকার শ্বাস এবং যতটা সম্ভব আপনার মাথার সহজ শব্দগুলিতে ফোকাস করা।",
     "time": 5,
     "img": "https://image.cnbcfm.com/api/v1/image/107178740-1673644452489-gettyimages-1388419349-img_5093.jpeg?v=1673649280&w=630&h=354&ffmt=webp&vtcrop=y"
   },
   {
-    "id": 3,
-    "Name": "3. Core Stretching",
-    "description": "This is Product A",
+    "Name": "Memorize patterns",
+    "description": "This game uses direct memory recall to train your focusing abilities. Try putting objects into a row on a flat surface. Then cover them with a blanket or sheet of paper so you can't see the objects anymore. Try to recall what objects were in the row and in what order they appeared. You can then write the objects down in a list or draw them. Keep track of how much time you spend remembering the objects and record your accuracy. To increase the difficulty, add more objects to the original row." ,
+    "bangla":"এই গেমটি আপনার ফোকাস করার ক্ষমতা প্রশিক্ষণের জন্য সরাসরি মেমরি রিকল ব্যবহার করে। একটি সমতল পৃষ্ঠে একটি সারিতে বস্তু স্থাপন করার চেষ্টা করুন। তারপরে তাদের একটি কম্বল বা কাগজের শীট দিয়ে ঢেকে দিন যাতে আপনি আর বস্তুগুলি দেখতে না পারেন। সারিতে কী কী বস্তু ছিল এবং তারা কী ক্রমে উপস্থিত হয়েছিল তা মনে করার চেষ্টা করুন। তারপরে আপনি একটি তালিকায় বস্তুগুলি লিখতে বা আঁকতে পারেন। আপনি বস্তুগুলি মনে রাখার জন্য কতটা সময় ব্যয় করেন তার ট্র্যাক রাখুন এবং আপনার নির্ভুলতা রেকর্ড করুন। অসুবিধা বাড়াতে, মূল সারিতে আরও অবজেক্ট যোগ করুন।",
+    "time": 10,
+    "img": "https://cdn.staticcrate.com/stock-hd/effects/footagecrate-numbers-transition-colorful-1a@3X.png"
+  },
+  {
+    
+    "Name": "Mindfulness",
+    "description": "Take a few minutes  to sit quietly and focus on your breath. Observe your thoughts and feelings without trying to change them. Over time, this will help you become more aware of your emotional triggers and thought patterns.",
+    "bangla":"শান্তভাবে বসতে এবং আপনার শ্বাসের উপর ফোকাস করার জন্য কয়েক মিনিট সময় নিন। আপনার চিন্তাভাবনা এবং অনুভূতিগুলি পরিবর্তন করার চেষ্টা না করে পর্যবেক্ষণ করুন। সময়ের সাথে সাথে, এটি আপনাকে আপনার মানসিক ট্রিগার এবং চিন্তার ধরণ সম্পর্কে আরও সচেতন হতে সাহায্য করবে।",
+    "time": 20,
+    "img": "https://picjumbo.com/wp-content/uploads/woman-meditating-early-in-the-morning-overlooking-a-mountain-scenery-free-photo.jpg"
+  },
+  {
+    
+    "Name": "Core Stretching",
+    "description": "Get on your hands and knees, and tuck your head downward as you arch your back, similar to how a cat does it. Extend the neck all the way upwards, and drop your belly all the way downwards, stretching the abdominal muscles. Hold for 20 seconds, then return to the starting position.",
+    "bangla":"আপনার হাত এবং হাঁটুতে উঠুন এবং আপনার পিছনের দিকে খিলান করার সময় আপনার মাথাটি নীচের দিকে টেনে নিন, যেমন একটি বিড়াল এটি করে। ঘাড়টি উপরের দিকে প্রসারিত করুন এবং পেটের পেশীগুলিকে প্রসারিত করে আপনার পেটটি নীচের দিকে নামিয়ে দিন। 20 সেকেন্ড ধরে রাখুন, তারপর শুরুর অবস্থানে ফিরে আসুন।",
     "time": 5,
     "img": "https://i.insider.com/607f1f0244f4540019207c84?width=1300&format=jpeg&auto=webp"
   },
   {
-    "id": 4,
-    "Name": "Glute stretch ",
-    "description": "This is Product A",
+    
+    "Name": "5, 4, 3, 2, 1 grounding technique",
+    "description": "Name 5 things you can see.  Name 4 things you can hear. Name 3 things you can feel. Name 2 things you can smell. Name 1 thing you can taste",
+    "bangla":"আপনি দেখতে পাচ্ছেন এমন 5টি জিনিসের নাম বলুন। আপনি শুনতে পাচ্ছেন এমন 4টি জিনিসের নাম বলুন। আপনি অনুভব করতে পারেন এমন 3টি জিনিসের নাম বলুন। 2টি জিনিসের নাম যা আপনি গন্ধ পেতে পারেন। 1 জিনিস আপনি স্বাদ করতে পারেন",
     "time": 10,
     "img": "https://i.insider.com/607f2be944f4540019207cb9?width=1000&format=jpeg&auto=webp"
-  },
-  {
-    "id": 1,
-    "Name": "Aerobics",
-    "description": "This is Product A",
-    "time": 20,
-    "img": "https://goodspaguide.co.uk/images/uploads/Features/Aerobics/aerobics-class.jpg"
-  },
-  {
-    "id": 1,
-    "Name": "",
-    "description": "This is Product A",
-    "time": 10,
-    "img": "https://example.com/img/product_a.jpg"
-  } 
+  }
 ]
 
 

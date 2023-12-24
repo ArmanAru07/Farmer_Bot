@@ -8,7 +8,6 @@ const Header = () => {
 
   // ---> UseContext
   const { user, LogOut } = useContext(AuthContext);
-  console.log(user);
 
   // --> Log out function ********************************
   const handleLogOut = () => {
@@ -125,7 +124,7 @@ const Header = () => {
                 </button>
 
                 {/* Nav Dropdown content */}
-                <div style={{ zIndex: 100 }} className="absolute hidden divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-700 group-hover:block">
+                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-28 bg-gray-700 group-hover:block">
                   <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
                     <li>
                       <NavLink to="/therapy" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
@@ -136,15 +135,23 @@ const Header = () => {
                     <li>
                       <NavLink to="/cart" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</NavLink>
                     </li>
-                    <li>
-                      <NavLink to="/Dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</NavLink>
-                    </li>
+
                     <li>
                       <NavLink to="/appointment" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
                     </li>
                     <li>
+                      <NavLink to="/chat" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/post" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/aIAssistant" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">aIAssistant</NavLink>
+                    </li>
+                    <li>
                       <NavLink to="/Test" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>
                     </li>
+
                   </ul>
                 </div>
 

@@ -12,6 +12,7 @@ const TimerCart = ({ therapyTime, progressTime }) => {
         setbreakTimeLocal(data);
     }
 
+
     //Break time use effect
     useEffect(() => {
         const value = getLocalStorage();
@@ -36,23 +37,20 @@ const TimerCart = ({ therapyTime, progressTime }) => {
     }, [progressTime]);
 
 
+
+    // let total = (therapyTime !== undefined && therapyTime !== null ? therapyTime : 0) + (breakTime !== undefined && breakTime !== null ? breakTime : 0);
+    // console.log(total);
+
+
+
     const tostify = () => {
-        toast('🦄 Wow so easy!', {
-            position: "bottom-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        toast('Here is your toast.');
         clearLocalStorage();
     }
 
     return (
         // fixed
-        <div className='Cart border-red-200 mt-4 ml-5' >
+        <div className='Cart border-red-200 mt-4 md:ml-5' >
             <p className='text-white mt-3 mb-2 font-bold text-left mb-2' >Progress</p>
 
             <div className='flex mr-3 pt-2 pb-2 pl-2 pr-2 rounded-md' style={{ backgroundColor: "#F2F3FB" }}>
