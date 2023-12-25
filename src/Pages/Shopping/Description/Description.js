@@ -2,12 +2,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
 import CommentSection from './CommentSection';
+import { useQuery } from '@tanstack/react-query';
+import { addLocalStorage } from '../../../Utilities/BooksLocalStorage';
+import toast from 'react-hot-toast';
 
 const Description = () => {
 
     const { user } = useContext(AuthContext);
+
     const product = useLoaderData();
 
+    const { data: comments = [], refetch } = useQuery({     // get give =[] as default value;
+        queryKey: ['comments'],    // this help for caching.
+        queryFn: async () => {
+            const response = await fetch(`http://localhost:4000/comment/${product._id}`);
+            const data = await response.json();
+            return data;
+        }
+    })
 
     const handleForm = (event) => {
         event.preventDefault();
@@ -38,7 +50,7 @@ const Description = () => {
             productName: product.name,
             productimg: product.img,
             productid: product._id,
-            Username: user?.email.split('@')[0],
+            Username: user?.displayName,
             email: user?.email,
             comment,
             DateTime
@@ -55,6 +67,7 @@ const Description = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.acknowledged) {
+                    refetch();
                     event.target.reset();
                 }
             })
@@ -65,17 +78,22 @@ const Description = () => {
 
 
     // Get the comments form server.
-    const [comments, setComments] = useState([]);
+    // const [comments, setComments] = useState([]);
     const [forceRerender, setForceRerender] = useState(false);
 
-    useEffect(() => {
-        fetch(`http://localhost:4000/comment/${product._id}`)
-            .then((response) => response.json())
-            .then((data) => {
-                setComments(data);
-                setForceRerender((prev) => !prev);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch(`http://localhost:4000/comment/${product._id}`)
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             setComments(data);
+    //             setForceRerender((prev) => !prev);
+    //         });
+    // }, []);
+
+
+
+
+
 
     // Sort the comments by DateTime in descending order 
     comments.sort((a, b) => {
@@ -90,12 +108,33 @@ const Description = () => {
         setEdit(!edit)
     }
 
+    const [cartData, setCartData] = useState([]);
+    const handleCartItem = (selectedData) => {
+
+        let newCart;
+        const exists = cartData.find(cart => cart === selectedData);
+
+        if (exists) {
+            const restItem = cartData.filter(cart => cart != selectedData);
+            selectedData.quantity = selectedData.quantity + 1;
+            newCart = [...restItem, selectedData];
+        }
+        else {
+            selectedData.quantity = 1;
+            newCart = [...cartData, selectedData];
+        }
+        // add my manual array state
+        setCartData(newCart);
+        addLocalStorage(selectedData._id);
+        toast.success("Successfully added! Please check the cart.")
+    }
+
 
     return (
 
         <div style={{ backgroundColor: '#111827' }}>
 
-            <section className="text-gray-700 body-font overflow-hidden border-b border-gray-200 ml-1 mr-1">
+            <section className="text-gray-700 body-font overflow-hidden ml-1 mr-1">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="lg:w-4/5 mx-auto flex flex-wrap">
                         <img alt="ecommerce" className="lg:w-1/2 w-full object-cover object-center rounded" src={product.img} />
@@ -119,18 +158,17 @@ const Description = () => {
                                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-yellow-300" viewBox="0 0 24 24">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                     </svg>
-                                    <span className="text-gray-400 ml-3">4 Reviews</span>
+                                    <span className="text-gray-400 ml-3">Rating 4</span>
                                 </span>
                                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
-                                    <h2 className="text-sm title-font text-gray-400 tracking-widest">Seller : {product.sellerName}</h2>
+                                    <h2 className="text-sm title-font text-gray-400 tracking-widest">Seller : {product?.companyName}</h2>
                                 </span>
                             </div>
-                            <p className="leading-relaxed text-gray-300">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+                            <p className="leading-relaxed text-gray-300">{product.description}</p>
 
                             <div className="flex mt-6 items-center pt-5 border-t-2 border-gray-200">
                                 <span className="title-font font-medium text-2xl text-white">${product.price}.00</span>
-                                <button style={{ text: "#111827" }} className="flex ml-auto bg-yellow-300 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded">Add to Cart</button>
-
+                                <button onClick={() => handleCartItem(product)} style={{ text: "#111827" }} className="flex ml-auto bg-yellow-300 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-400 rounded">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -140,7 +178,7 @@ const Description = () => {
             <section class=" dark:bg-gray-900 py-8 lg:py-16 antialiased">
                 <div class="max-w-2xl mx-auto px-4">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-lg lg:text-2xl font-bold text-white">Discussion ({comments.length})</h2>
+                        <h2 class="text-lg lg:text-2xl font-bold text-white">{comments.length} Reviews</h2>
                     </div>
                     <form onSubmit={handleForm} class="mb-6">
                         <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 bg-gray-800 dark:border-gray-700">
@@ -154,7 +192,7 @@ const Description = () => {
 
                     {
                         comments.map(comment =>
-                            <CommentSection comment={comment}></CommentSection>
+                            <CommentSection comment={comment} refetch={refetch}></CommentSection>
                         )
                     }
 

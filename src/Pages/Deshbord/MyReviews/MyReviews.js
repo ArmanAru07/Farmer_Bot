@@ -64,7 +64,6 @@ const MyReviews = () => {
             comment: newComment
         }
 
-        console.log(currentComment);
         fetch(`http://localhost:4000/editComments/${currentComment._id}`, {
             method: 'PATCH', // or 'PUT'
             headers: {

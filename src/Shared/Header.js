@@ -97,6 +97,10 @@ const Header = () => {
             </li>
 
             <li>
+              <NavLink style={navLinkStyle} to="/tutarial" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >Tutorial</NavLink>
+            </li>
+
+            <li>
               <div className="relative inline-block text-left group">
                 <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
                   onMouseEnter={handleMouseEnter}
@@ -124,32 +128,35 @@ const Header = () => {
                 </button>
 
                 {/* Nav Dropdown content */}
-                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-28 bg-gray-700 group-hover:block">
+                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-32 bg-gray-100 group-hover:block">
                   <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
                     <li>
-                      <NavLink to="/therapy" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
+                      <NavLink to="/therapy" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/shoppingPage" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Islamic Book</NavLink>
+                      <NavLink to="/shoppingPage" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Product</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/cart" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</NavLink>
+                      <NavLink to="/cart" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</NavLink>
                     </li>
 
                     <li>
-                      <NavLink to="/appointment" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
+                      <NavLink to="/appointment" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/chat" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
+                      <NavLink to="/chat" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/post" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
+                      <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/aIAssistant" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">aIAssistant</NavLink>
+                      <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">aIAssistant</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/Test" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>
+                      <NavLink to="/Test" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
                     </li>
 
                   </ul>
@@ -159,18 +166,14 @@ const Header = () => {
             </li>
 
             <li>
-              <NavLink to="/Dashboard" style={navLinkStyle} className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Dashboard</NavLink>
-            </li>
-
-            <li>
-              <NavLink style={navLinkStyle} to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Blog</NavLink>
+              <NavLink style={navLinkStyle} to="/shoppingPage" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Shop</NavLink>
             </li>
 
           </ul>
         </div>
 
 
-        {/* Studen info */}
+        {/* User info */}
         <div className="flex flex-shrink-0 items-center space-x-4 text-white user-header-info">
           {
             user && user.email &&
@@ -190,6 +193,7 @@ const Header = () => {
                     <span className="block truncate text-sm font-medium">{user?.email}</span>
                   </Dropdown.Header>
                   <Dropdown.Item as={Link} to='/dashboard' >Dashboard</Dropdown.Item>
+                  <Dropdown.Item as={Link} to='/cart' >My Cart</Dropdown.Item>
 
                   <Dropdown.Divider />
                   <Dropdown.Item onClick={handleLogOut}>Sign out</Dropdown.Item>

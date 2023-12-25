@@ -30,6 +30,7 @@ import MyAppointemnt from "../Pages/Deshbord/MyAppointemnt/MyAppointemnt";
 import Chat from "../Pages/Chat/Chat";
 import Post from "../Pages/Post/Post";
 import AIAssistant from "../Pages/AIAssistant/AIAssistant";
+import Tutorial from "../Pages/Tutorial/Tutorial";
 
 export const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/tutarial",
+                element: <Tutorial></Tutorial>,
             },
             {
                 path: "/login",

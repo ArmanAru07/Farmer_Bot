@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/UserContext';
+import toast from 'react-hot-toast';
 
 const AddProducts = () => {
 
@@ -11,6 +12,7 @@ const AddProducts = () => {
 
         const form = event.target;
         const productName = form.productName.value;
+        const companyName = form.companyName.value;
         const category = form.category.value;
         const description = form.description.value;
         const image = form.image.value;
@@ -23,6 +25,7 @@ const AddProducts = () => {
             category,
             name: productName,
             sellerName: user?.displayName,
+            companyName,
             sellerEmail: user?.email,
             ratings: 0,
             ratingsCount: 0,
@@ -44,7 +47,7 @@ const AddProducts = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.acknowledged) {
-                    alert("Information saved successfully")
+                    toast.success('Successfully added!')
                     event.target.reset();
                 }
             })
@@ -69,7 +72,7 @@ const AddProducts = () => {
 
                         <div className="md:col-span-6">
                             <label htmlFor="address">Product Name</label>
-                            <input type="text" name="productName" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" maxLength={40} placeholder="Short name (maximum character limit 40)" required />
+                            <input type="text" name="productName" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" maxLength={35} placeholder="Short name (maximum character limit 40)" required />
                         </div>
 
                         <div className="md:col-span-3">
@@ -78,7 +81,13 @@ const AddProducts = () => {
                                 <option value="">Please select one…</option>
                                 <option value="book">Book</option>
                                 <option value="product">Product</option>
+                                <option value="product">Medicine</option>
                             </select>
+                        </div>
+
+                        <div className="md:col-span-9">
+                            <label htmlFor="email">Seller Company Name</label>
+                            <input type="text" name="CompanyName" id="companyName" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder='Enter seller company name' required />
                         </div>
 
                         <div className="md:col-span-9 ">
@@ -110,9 +119,9 @@ const AddProducts = () => {
                         </div>
 
 
-                        <div className="md:col-span-9 text-right mt-5">
+                        <div className="md:col-span-9 text-center mt-5">
                             <div className="inline-flex items-end">
-                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add product</button>
+                                <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded text-lg">Add product</button>
                             </div>
                         </div>
 
