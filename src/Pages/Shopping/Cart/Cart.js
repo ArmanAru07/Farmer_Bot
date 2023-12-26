@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight, FaTrash } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 
@@ -52,7 +53,8 @@ const Cart = ({ clearCart, LocalCart }) => {
                     <p className="text-sm text-gray-700">including VAT</p>
                 </div>
             </div>
-            <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-white hover:bg-blue-600">Check out <FaArrowRight className='inline-flex'></FaArrowRight> </button>
+
+            <Link to="/payment"><button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-white hover:bg-blue-600">Check out <FaArrowRight className='inline-flex'></FaArrowRight> </button></Link>
             <button onClick={clearCart} className="mt-3 w-full rounded-md bg-red-600 py-1.5 font-medium text-white hover:bg-red-700">Clear Cart <FaTrash className='inline-flex'></FaTrash> </button>
         </div>
     );

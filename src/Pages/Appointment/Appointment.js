@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ABanner from './ABanner';
 import AvailableAppointments from './AvailableAppointments';
+// import bgImage from '../../../src/Asset/cart.jpg';
 
 const Appointment = () => {
 
@@ -9,7 +10,7 @@ const Appointment = () => {
 
 
     return (
-        <div>
+        <div className='pb-10'>
             <ABanner
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}>

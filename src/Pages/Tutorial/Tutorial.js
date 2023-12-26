@@ -3,6 +3,9 @@ import React from 'react';
 const Tutorial = () => {
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div>
+                <h1 className='text-4xl underline font-semibold mb-10 '>How to use this website ?</h1>
+            </div>
             <div className="grid max-w-2xl mx-auto">
                 <div className="flex">
                     <div className="flex flex-col items-center mr-6">
@@ -32,9 +35,9 @@ const Tutorial = () => {
                                 </svg>
                             </div>
                         </div>
-                        <div>
+                        <div className='text-left'>
                             <p className="text-xl font-semibold sm:text-base">
-                                Use AI to see If there any problem
+                                Use AI to identify any problems you may have experienced.
                             </p>
                             <p className="text-sm text-gray-700">
                                 All recipes are written using certain conventions, which define
@@ -72,7 +75,7 @@ const Tutorial = () => {
                                 </svg>
                             </div>
                         </div>
-                        <div>
+                        <div className='text-left'>
                             <p className="text-xl font-semibold sm:text-base">Heart attack</p>
                             <p className="text-sm text-gray-700">
                                 A flower in my garden, a mystery in my panties. Heart attack
@@ -110,7 +113,7 @@ const Tutorial = () => {
                                 </svg>
                             </div>
                         </div>
-                        <div>
+                        <div className='text-left'>
                             <p className="text-xl font-semibold sm:text-base">Never stop</p>
                             <p className="text-sm text-gray-700">
                                 The first mate and his Skipper too will do their very best to

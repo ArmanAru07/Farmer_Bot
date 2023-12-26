@@ -42,7 +42,7 @@ const CartPage = () => {
                         {
                             LocalCart.length == 0 &&
                             <div className='text-2xl'>
-                                <h2>NO Item selected <span className='inline-flex'><BsFillEmojiFrownFill></BsFillEmojiFrownFill></span></h2>
+                                <h2 className='text-white mb-2'>No Item selected <span className='inline-flex'><BsFillEmojiFrownFill></BsFillEmojiFrownFill></span></h2>
                                 <Link className='underline text-blue-600' to='/shoppingPage'>Go to shopping page</Link>
                             </div>
                         }

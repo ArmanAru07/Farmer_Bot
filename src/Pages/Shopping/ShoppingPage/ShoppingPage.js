@@ -5,16 +5,33 @@ import Cart from '../Cart/Cart';
 import { addLocalStorage } from '../../../Utilities/BooksLocalStorage';
 import { ToastContainer } from 'react-toastify';
 import useTitle from '../../../Hooks/useTitle';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../../../Shared/Loading';
 
 const ShoppingPage = () => {
 
     useTitle("Shopping");
 
-    // Load all books data from my personal API by Router.
-    const AllBooksData = useLoaderData();
-
     // Manual array
     const [cartData, setCartData] = useState([]);
+
+    // Load all books data from my personal API by Router.
+    // const AllBooksData = useLoaderData();
+
+    const { data: AllBooksData = [], isLoading } = useQuery({     // get give =[] as default value;
+        queryKey: ['AllBooksData'],    // this help for caching.
+        queryFn: async () => {
+            const response = await fetch('http://localhost:4000/products');
+            const data = await response.json();
+            return data;
+        }
+    })
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+
 
     // ********************************************************
     // if "add to cart" clicked, then this function run.

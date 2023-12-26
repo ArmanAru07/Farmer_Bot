@@ -8,9 +8,9 @@ const PrivateRoute = ({ children }) => {
 
     if (laoding) {
         return (
-            <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  <div className="rounded-md h-12 w-12 border-4 border-t-4 border-blue-500 animate-spin"></div>
-</div>
+            <div style={{ marginTop: '40px', marginBottom: "100px", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className="rounded-md h-12 w-12 border-4 border-t-4 border-blue-500 animate-spin"></div>
+            </div>
 
         )
     }

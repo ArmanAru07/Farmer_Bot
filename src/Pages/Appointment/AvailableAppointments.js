@@ -28,7 +28,7 @@ const AvailableAppointments = ({ selectedDate }) => {
 
 
     return (
-        <div className='mt-10'>
+        <div className='mt-10 ml-5'>
             {/* <h1 style={{ color: '#1eedb9' }} className='font-bold text-xl'>Available Appointsment on {format(selectedDate, 'PP')}</h1> */}
 
             <div className='grid grid-cols-3 gap-5 mt-5'>

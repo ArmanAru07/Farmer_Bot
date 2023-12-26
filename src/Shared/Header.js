@@ -9,14 +9,14 @@ const Header = () => {
   // ---> UseContext
   const { user, LogOut } = useContext(AuthContext);
 
-  // --> Log out function ********************************
+  // --> Log out function 
   const handleLogOut = () => {
     LogOut().then(() => {
     }).catch((error) => {
     });
   }
 
-  // --> Dropdown menu function ********************************
+  // --> Dropdown menu function 
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -29,10 +29,9 @@ const Header = () => {
 
   const dropdownClick = () => {
     setIsHovered(!isHovered);
-    console.log(isHovered);
   }
 
-  // Active link **************************************************************
+  // Active link style
   const navLinkStyle = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
@@ -40,12 +39,12 @@ const Header = () => {
     }
   }
 
-  // active link for dropdown
+  // Active link for dropdown
   const dropdownLinkStyle = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
-      color: isActive ? "red" : "white",
-      backgroundColor: isActive && "white",
+      color: isActive ? "yellow" : "black",
+      backgroundColor: isActive && "black",
       // "&:hover": {
       //   backgroundColor: "white", // Change to white on hover
       // }
@@ -64,6 +63,7 @@ const Header = () => {
   // Header shrinking **************************************************************
   const [isShrunk, setShrunk] = useState(false);
 
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -77,12 +77,19 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const headerStyles = {
+    transition: 'height 0.2s ease-in-out', // Add transition to the height change
+    backgroundColor: '#18332F',
+  };
+
+
+
 
 
   return (
-    <div className='sticky relative top-0 z-30 '>
+    <div className='sticky relative top-0 z-30 ' >
 
-      <header className={`h-32 w-full flex items-center  justify-between px-4 lg:px-16 ${isShrunk ? 'h-16' : 'h-32'}`} style={{ backgroundColor: "#18332F" }}>
+      <header style={headerStyles} className={`w-full flex items-center  justify-between px-4 lg:px-16 h-16 ${isShrunk ? 'h-20' : 'h-32'}`} >
 
         <div className='text-white brand-name'>
           <h1 className='website-name' >Serene</h1>
@@ -128,27 +135,21 @@ const Header = () => {
                 </button>
 
                 {/* Nav Dropdown content */}
-                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-32 bg-gray-100 group-hover:block">
-                  <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
+                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-32 bg-gray-100  group-hover:block">
+                  <ul className="py-2 text-sm text-gray-700" role="menu">
                     <li>
                       <NavLink to="/therapy" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/shoppingPage" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Product</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/cart" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cart</NavLink>
-                    </li>
-
-                    <li>
                       <NavLink to="/appointment" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/chat" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
                     </li>
                     <li>
                       <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
                     </li>
+                    <li>
+                      <NavLink to="/chat" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
+                    </li>
+
                     <li>
                       <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">aIAssistant</NavLink>
                     </li>

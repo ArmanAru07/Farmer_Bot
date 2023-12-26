@@ -31,6 +31,7 @@ import Chat from "../Pages/Chat/Chat";
 import Post from "../Pages/Post/Post";
 import AIAssistant from "../Pages/AIAssistant/AIAssistant";
 import Tutorial from "../Pages/Tutorial/Tutorial";
+import Payment from "../Pages/Shopping/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -80,6 +81,11 @@ export const router = createBrowserRouter([
                 path: "/cart",
                 element: <CartPage></CartPage>,
                 loader: LocalCartLoader
+            },
+            {
+                path: "/payment",
+                element: <Payment></Payment>,
+
             },
             {
                 path: "/updateProduct/:id",
