@@ -32,6 +32,7 @@ import Post from "../Pages/Post/Post";
 import AIAssistant from "../Pages/AIAssistant/AIAssistant";
 import Tutorial from "../Pages/Tutorial/Tutorial";
 import Payment from "../Pages/Shopping/Payment/Payment";
+import FullPostPage from "../Pages/Post/FullPostPage";
 
 export const router = createBrowserRouter([
     {
@@ -111,6 +112,11 @@ export const router = createBrowserRouter([
             {
                 path: "/post",
                 element: <Post></Post>,
+            },
+            {
+                path: "/fullPost/:id",
+                element: <FullPostPage></FullPostPage>,
+                loader: async ({ params }) => fetch(`http://localhost:4000/postCollection/${params.id}`),
             },
             {
                 path: "/Test",
