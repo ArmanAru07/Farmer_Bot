@@ -3,12 +3,13 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/UserContext';
 import PostCard from './PostCard';
 import toast from 'react-hot-toast';
+import Loading2 from '../../Shared/Loading2';
 
 const Post = () => {
 
     const { user, LogOut } = useContext(AuthContext);
 
-    const { data: postCollection = [], refetch } = useQuery({     // get give =[] as default value;
+    const { data: postCollection = [], refetch, isLoading } = useQuery({     // get give =[] as default value;
         queryKey: ['appointmentData'],    // this help for caching.
         queryFn: async () => {
             const response = await fetch('http://localhost:4000/postCollection');
@@ -16,6 +17,10 @@ const Post = () => {
             return data;
         }
     })
+
+    if (isLoading) {
+        return <Loading2></Loading2>
+    }
 
     // Sort the comments by DateTime in descending order 
     postCollection.sort((a, b) => {
@@ -30,7 +35,7 @@ const Post = () => {
     const handleForm = (event) => {
         event.preventDefault();
 
-        const comment = event.target.comment.value;
+        const post = event.target.comment.value;
 
         const currentDate = new Date();
 
@@ -48,7 +53,7 @@ const Post = () => {
         const userPost = {
             Username: user?.email.split('@')[0],
             email: user?.email,
-            comment,
+            post,
             DateTime
         }
 
@@ -92,8 +97,8 @@ const Post = () => {
             </section>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mx-4'>
-                {postCollection.map((post, index) => (
-                    <PostCard index={index} post={post} ></PostCard>
+                {postCollection.map((postInfo, index) => (
+                    <PostCard index={index} postInfo={postInfo} ></PostCard>
                 ))}
             </div>
         </div>

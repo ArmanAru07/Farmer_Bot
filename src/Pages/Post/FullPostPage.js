@@ -2,12 +2,25 @@ import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { useQuery } from '@tanstack/react-query';
+import FullPostComments from './FullPostComments';
+import toast from 'react-hot-toast';
 
 const FullPostPage = () => {
 
+    const { user } = useContext(AuthContext);
+
     const post = useLoaderData();
 
-    const { user } = useContext(AuthContext);
+
+    // Load specific post comments.
+    const { data: comments = [], refetch } = useQuery({
+        queryKey: ['comments', post._id], // Include the post ID in the query key
+        queryFn: async () => {
+            const response = await fetch(`http://localhost:4000/postCollection/${post._id}/comments`); // Update the URL endpoint
+            const data = await response.json();
+            return data;
+        }
+    });
 
 
     // Edit comment date time.
@@ -25,16 +38,6 @@ const FullPostPage = () => {
 
 
 
-    const { data: comments = [], refetch } = useQuery({
-        queryKey: ['comments', post._id], // Include the post ID in the query key
-        queryFn: async () => {
-            const response = await fetch(`http://localhost:4000/postCollection/${post._id}/comments`); // Update the URL endpoint
-            const data = await response.json();
-            return data;
-        }
-    });
-
-
     const handleForm = (event) => {
         event.preventDefault();
 
@@ -42,7 +45,6 @@ const FullPostPage = () => {
         if (!user?.uid) {
             return alert("Please log in first")
         }
-
 
         const comment = event.target.comment.value;
 
@@ -67,9 +69,7 @@ const FullPostPage = () => {
             DateTime
         }
 
-        console.log(newComment);
-
-        // Post the comment to the server.
+        // Update specific post comment.
         fetch(`http://localhost:4000/postCollection/${post._id}`, {
             method: 'PATCH', // or 'PUT'
             headers: {
@@ -80,7 +80,8 @@ const FullPostPage = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.acknowledged) {
-                    // refetch();
+                    toast.success("Uploaded successfully");
+                    refetch();
                     event.target.reset();
                 }
             })
@@ -89,12 +90,10 @@ const FullPostPage = () => {
             });
     }
 
-
-
     return (
 
-        <div>
-            <div className={`w-1/2 mt-5 text-left mx-auto  p-8 bg-white border border-gray-200 rounded-lg shadow-lg dark:border-gray-700 md:grid-cols-2 dark:bg-gray-800 dark:border-gray-700`}>
+        <div className='mb-20'>
+            <div className={`w-2/3 mt-5 mx-auto  p-8 bg-white border border-gray-200 rounded-lg shadow-lg dark:border-gray-700 md:grid-cols-2 dark:bg-gray-800 dark:border-gray-700`}>
                 <div className="flex items-center text-left mb-2 lg:mb-4">
                     <img className="rounded-full w-9 h-9" src="https://cdn1.iconfinder.com/data/icons/avatar-flat-design-outstanding-occupation/512/avatar_fisherman-1024.png" alt="profile picture" />
                     <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ml-3">
@@ -104,36 +103,37 @@ const FullPostPage = () => {
                 </div>
 
                 <div className="max-w-2xl">
-                    {/* <h3 className={`text-lg text-left font-semibold text-gray-900 dark:text-white`}>Very easy this was to integrate</h3> */}
                     <p className={`my-2 text-left text-gray-500 dark:text-gray-400`}>
-                        {(post.comment)}
+                        {(post.post)}
                     </p>
                 </div>
             </div >
 
-            <section class=" dark:bg-gray-900  antialiased">
+            <section class="mt-5 dark:bg-gray-900  antialiased">
                 <div class="max-w-2xl mx-auto px-4">
-                    <div class="flex justify-between items-center mb-6">
-                        {/* comments.length */}
-                        <h2 class="text-lg lg:text-2xl font-bold text-white">{""} Reviews</h2>
-                    </div>
                     <form onSubmit={handleForm} class="mb-6">
                         <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 bg-gray-800 dark:border-gray-700">
                             <label for="comment" class="sr-only">Your comment</label>
                             <textarea id="comment" rows="6"
-                                class="px-0 h-10 w-full text-sm text-gray-900  border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                                class="px-0 h-8 w-full text-sm text-gray-900  border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                                 placeholder="Write a comment..." required></textarea>
                         </div>
                         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Post Comment</button>
                     </form>
-
-                    {
-                        comments.map(comment =>
-                            <FullPostPage comment={comment} refetch={refetch}></FullPostPage>
-                        )
-                    }
                 </div>
             </section>
+
+            <div class="mb-6">
+                <h2 class="text-lg lg:text-2xl font-bold ">Comments ({comments?.length})</h2>
+            </div>
+
+            <div>
+                {
+                    comments.map(comment =>
+                        <FullPostComments comment={comment} refetch={refetch}></FullPostComments>
+                    )
+                }
+            </div>
         </div >
     );
 };
