@@ -1,251 +1,58 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import "../Shared/Header.css";
-import { AuthContext } from '../Context/UserContext';
+import React from 'react';
 
 const Test = () => {
-
-    // ---> UseContext
-    const { user, LogOut } = useContext(AuthContext);
-
-    // --> Log out function ********************************
-    const handleLogOut = () => {
-        LogOut().then(() => {
-        }).catch((error) => {
-        });
-    }
-
-    // --> Dropdown menu function ********************************
-    const [isHovered, setIsHovered] = useState(false);
-
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
-
-    const dropdownClick = () => {
-        setIsHovered(!isHovered);
-        console.log(isHovered);
-    }
-
-
-
-    // Header shrinking **************************************************************
-    const [isShrunk, setShrunk] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const isTop = scrollTop === 0;
-
-            setShrunk(!isTop);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-
-
     return (
-        <div className='sticky relative top-0 z-30 '>
+        <div>
+            <h1># Working step </h1>
 
-            <header className={`h-32 w-full flex items-center  justify-between px-4 lg:px-16 ${isShrunk ? 'h-16' : 'h-32'}`} style={{ backgroundColor: "#18332F" }}>
-
-                <div className='text-white brand-name'>
-                    <h1 className='website-name' >Serene</h1>
-                </div>
-
-                {/* For Large screen  */}
-                <div className='hidden lg:block' style={{ paddingTop: "6px" }}>
-                    <ul className="flex p-4 mt-4  md:space-x-8 md:mt-0">
-
-                        <li>
-                            <Link to="/" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >Home</Link>
-                        </li>
-
-                        <li>
-                            <div className="relative inline-block text-left group">
-                                <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
-                                    onMouseEnter={handleMouseEnter}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    Dropdown hover{' '}
-                                    <svg
-                                        className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
-                                            }`}
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 10 6">
-                                        <path
-                                            stroke="currentColor"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="m1 1 4 4 4-4" />
-                                    </svg>
-                                    <div
-                                        className="absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 group-hover:block"
-                                        onMouseEnter={() => this.setState({ isHovered: true })}
-                                        onMouseLeave={() => this.setState({ isHovered: false })}
-                                    >
-                                        {/* Dropdown content */}
-                                    </div>
-                                </button>
-
-                                <div style={{ zIndex: 100 }} className="absolute  hidden  divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-700 group-hover:block">
-                                    <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
-                                        <li role="menuitem">
-                                            <Link to="/courses"
-                                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Courses
-                                            </Link>
-                                        </li>
-                                        <li role="menuitem">
-                                            <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Settings
-                                            </a>
-                                        </li>
-                                        <li role="menuitem">
-                                            <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Earnings
-                                            </a>
-                                        </li>
-                                        <li role="menuitem">
-                                            <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Sign out
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </li>
-                        <li>
-                            <Link to="/shoppingPage" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Menu</Link>
-                        </li>
-                        <li>
-                            <Link to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Blog</Link>
-                        </li>
-
-                    </ul>
-                </div>
+            <h1>1.  Work on therapy page </h1>
+            <h1>2.  Check responsive </h1>
 
 
-                {/* Studen info */}
-                <div className="flex flex-shrink-0 items-center space-x-4 text-white user-header-info">
-                    {
-                        user && user.email &&
-                        <div className="flex flex-col items-end ">
-                            <div className="text-md font-medium ">{user.displayName}</div>
-                            <div className="text-sm font-regular">User</div>
-                        </div>
-                    }
+            <br /><br />
+            <h1># Problems</h1>
 
-                    <div className="h-10 w-10 rounded-full cursor-pointer bg-gray-200 border-2 border-blue-400"><img className=' rounded-full'
-                        src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="" /></div>
-                    {
-                        user && user.email ?
-                            <Link onClick={handleLogOut} >
-                                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
-                                    Sign out
-                                </button>
-                            </Link>
-                            :
-                            <Link to="/login">
-                                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
-                                    Sign in
-                                </button>
-                            </Link>
-                    }
+            <h1>**** . Header shrinking is not Working </h1>
+            <h1>**** .  In header user name increase, page links positon change. </h1>
+            <h1>**** .  404 page background color. </h1>
+            <h1>**** .  Therapy page cart position is not fixed </h1>
+            <h1>**** .  Therapy page toast if so fast and not show properly </h1>
+            <h1>**** .  React toastify problem </h1>
+            <h1>**** .  Forget password page, React toastify is not working, but hot toast work</h1>
+            <h1>**** .  After register a new id , and verify , first time login don't work. Need to refresh (check assignment 10)</h1>
+            <h1>**** .  Add product page, description box align item problem</h1>
 
-                    {/* Register button */}
-                    {/* <Link to="/register">
-            <button className="bg-white hover:bg-transparent  py-2 px-4 border text-gray-800 hover:text-white rounded shadow">
-              Sign up
-            </button>
-          </Link> */}
+            <br /><br />
+            <h1># Work but need to know</h1>
 
-                </div>
-            </header>
+            <h1>Why in timercart if we not use break time useEffect, then check whats happend</h1>
 
-            {/* Responsive Header */}
-            <div className='block lg:hidden '>
-                <ul className="flex pb-2 justify-center" style={{ backgroundColor: "#18332F" }}>
-                    <li>
-                        <Link to="/" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >Home</Link>
-                    </li>
-                    <li>
-                        <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            onClick={dropdownClick}
-                        >
-                            Services{' '}
-                            <svg
-                                className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
-                                    }`}
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 10 6">
-                                <path
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="m1 1 4 4 4-4" />
-                            </svg>
-                            <div
-                                className="absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 group-hover:block"
-                                onMouseEnter={() => this.setState({ isHovered: true })}
-                                onMouseLeave={() => this.setState({ isHovered: false })}
-                            >
-                                {/* Dropdown content */}
-                            </div>
-                        </button>
 
-                        <div style={{ zIndex: 100 }} className={` ${isHovered ? '' : 'hidden'} absolute  divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-700 group-hover:block`}>
-                            <ul className="py-2 text-sm text-gray-200 dark:text-gray-200" role="menu">
-                                <li role="menuitem">
-                                    <Link to="/courses"
-                                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Courses
-                                    </Link>
-                                </li>
-                                <li role="menuitem">
-                                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Settings
-                                    </a>
-                                </li>
-                                <li role="menuitem">
-                                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Earnings
-                                    </a>
-                                </li>
-                                <li role="menuitem">
-                                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Sign out
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+            <br /><br />
+            <h1># Dashboard</h1>
 
-                    </li>
-                    <li>
-                        <Link to="" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Menu</Link>
-                    </li>
-                    <li>
-                        <Link to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Blog</Link>
-                    </li>
-                </ul>
-            </div>
-            {/* Header Ends */}
+            <h1> Admin -->  Add doctor, Manage Doctor, Manage Seller, Manage Patient, All Product</h1>
+            <h1> Doctor -->  My Profile, Appointments </h1>
+            <h1> Seller -->  My Profile, My products, Add products </h1>
+            <h1> Patinet -->  My Profile, My reviews, My appointments</h1>
+            <h1> Doctor Email -->  Firebase default account </h1>
+
+
+            <br /><br />
+            <h1># Update</h1>
+
+
+            <h1>1. #088E8E  --> checkout this color  </h1>
+            <h1>Give title in new added page.</h1>
+            <h1>Pagination</h1>
+            <h1>1. Give a small div to go to "my cart" in shop book option. </h1>
+            <h1>2. make a aside bar for service dropdown in mobile view</h1>
+            <h1>3.  when scroll down , header will be small. </h1>
+            <h1>4. therapy page, card background image will be zoom </h1>
+            <h1>6. Tpu er resturant website feature option.  </h1>
+            <h1>7. Authetication code sent option </h1>
+            <h1>8. Search option in buy book page </h1>
+            <h1>9. Twitter login after hosting (we need url) </h1>
         </div>
     );
 };
