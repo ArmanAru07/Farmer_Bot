@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/UserContext';
 import PostCard from './PostCard';
 import toast from 'react-hot-toast';
 import Loading2 from '../../Shared/Loading2';
+import image2 from '../../Asset/post_1.jpg';
 
 const Post = () => {
 
@@ -80,18 +81,20 @@ const Post = () => {
 
 
     return (
-        <div className='mt-10 mb-20'>
-            <section class=" dark:bg-gray-900 antialiased">
+        <div className='mb-20'>
+            <section style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image2})`, backgroundSize: 'cover' }} class=" dark:bg-gray-900 antialiased pt-10">
                 <div class="max-w-2xl mx-auto px-4">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-lg lg:text-2xl font-bold ">Add Your Thought</h2>
+                        <h2 class="text-white  text-lg lg:text-2xl font-bold ">Add Your Thought</h2>
                     </div>
                     <form onSubmit={handleForm} class="mb-6">
-                        <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 bg-gray-800 dark:border-gray-700">
+                        <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 bg-gray-800 dark:border-gray-900">
                             <label for="comment" class="sr-only">Your post</label>
                             <textarea id="comment" rows="5" class="px-0 w-full text-sm text-gray-900  border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Write a post..." required></textarea>
                         </div>
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Post Now</button>
+                        <div className='pb-5'>
+                            <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Post Now</button>
+                        </div>
                     </form>
                 </div>
             </section>

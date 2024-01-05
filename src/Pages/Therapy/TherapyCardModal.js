@@ -5,7 +5,7 @@ const TherapyCardModal = ({ modal, handleModal, modalData }) => {
 
     return (
         <Modal show={modal} onClose={handleModal}>
-            <Modal.Header>{modalData.Name}</Modal.Header>
+            <Modal.Header style={{ backgroundColor: "#155E75" }} ><p className='text-white'>{modalData.Name}</p> </Modal.Header>
             <Modal.Body>
                 <div className="space-y-6">
                     <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">

@@ -92,8 +92,8 @@ const FullPostPage = () => {
 
     return (
 
-        <div className='mb-20'>
-            <div className={`w-2/3 mt-5 mx-auto  p-8 bg-white border border-gray-200 rounded-lg shadow-lg dark:border-gray-700 md:grid-cols-2 dark:bg-gray-800 dark:border-gray-700`}>
+        <div className='pt-10 pb-20 mb-1' style={{ backgroundColor: '#111827' }}>
+            <div className={`w-2/3 mx-auto  p-4 bg-white border border-gray-200 rounded-lg shadow-lg dark:border-gray-700 md:grid-cols-2 dark:bg-gray-800 dark:border-gray-700`}>
                 <div className="flex items-center text-left mb-2 lg:mb-4">
                     <img className="rounded-full w-9 h-9" src="https://cdn1.iconfinder.com/data/icons/avatar-flat-design-outstanding-occupation/512/avatar_fisherman-1024.png" alt="profile picture" />
                     <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ml-3">
@@ -124,7 +124,7 @@ const FullPostPage = () => {
             </section>
 
             <div class="mb-6">
-                <h2 class="text-lg lg:text-2xl font-bold ">Comments ({comments?.length})</h2>
+                <h2 class="text-lg lg:text-2xl font-bold text-white">Comments ({comments?.length})</h2>
             </div>
 
             <div>

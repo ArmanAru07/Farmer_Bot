@@ -51,10 +51,10 @@ const Therapy = () => {
     }
 
     return (
-        <div className='grid grid-cols-4 relative'>
+        <div className='grid grid-cols-4 relative mb-16'>
             <div className='col-span-4 md:col-span-3'>
                 <div className='text-center mb-6 mt-4 '>
-                    <p class='text-xl inline-block px-4 py-2 rounded text-white bg-black' >To learn how to do the activities, click to <span onClick={handleModal} className='cursor-pointer text-red-500 underline'>Read More</span></p>
+                    <p style={{ backgroundColor: '#111827' }} class='text-xl inline-block px-4 py-2 rounded text-white ' >To learn how to do the activities, click to <span onClick={handleModal} className='cursor-pointer text-yellow-200 underline'>Read More</span></p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6 ml-5'>
                     {

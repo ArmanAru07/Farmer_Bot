@@ -43,8 +43,7 @@ const TimerCart = ({ therapyTime, progressTime }) => {
 
 
 
-    const tostify = () => {
-        toast('Here is your toast.');
+    const clearCart = () => {
         clearLocalStorage();
     }
 
@@ -90,7 +89,7 @@ const TimerCart = ({ therapyTime, progressTime }) => {
 
 
 
-            <button onClick={tostify} type="button" className="text-white mt-6 bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-20 py-2.5 mr-2 mb-2   focus:outline-none " style={{}}>Activity Complete</button>
+            <button onClick={clearCart} type="button" className="text-white mt-6 bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-20 py-2.5 mr-2 mb-2   focus:outline-none " style={{}}>Activity Complete</button>
             <ToastContainer />
 
         </div >

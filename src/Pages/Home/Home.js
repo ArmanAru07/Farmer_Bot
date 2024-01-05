@@ -45,7 +45,7 @@ const Home = () => {
                 <div class="col-span-1 ">
                     <div>
                         <div style={containerStyle}>
-                            <div style={{ width: '500px', height: '500px' }}>
+                            <div className='mt-16' style={{ width: '500px', height: '500px' }}>
                                 <Lottie animationData={animationData} />
                             </div>
                         </div>

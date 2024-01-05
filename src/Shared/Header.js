@@ -138,6 +138,9 @@ const Header = () => {
                 <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-32 bg-gray-100  group-hover:block">
                   <ul className="py-2 text-sm text-gray-700" role="menu">
                     <li>
+                      <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">AI Test</NavLink>
+                    </li>
+                    <li>
                       <NavLink to="/therapy" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
                     </li>
                     <li>
@@ -148,10 +151,6 @@ const Header = () => {
                     </li>
                     <li>
                       <NavLink to="/chat" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
-                    </li>
-
-                    <li>
-                      <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">aIAssistant</NavLink>
                     </li>
                     <li>
                       <NavLink to="/Test" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>

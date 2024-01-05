@@ -40,9 +40,9 @@ const Card = ({ data, handleCartData, handleProgress }) => {
             </figure>
             <div className="card-body text-left">
                 <h2 className="card-title text-center">{Name}</h2>
-                <p>{description.substring(0, 130)}...<span onClick={() => handleModal(data)} className='underline text-red-500 cursor-pointer'> Read More</span></p>
+                <p>{description.substring(0, 130)}...<span onClick={() => handleModal(data)} className='underline text-green-300 cursor-pointer'> Read More</span></p>
                 <div className="card-actions justify-between">
-                    <div className="bg-black py-3 px-3 rounded-lg" >Time: {time} m</div>
+                    <div style={{ backgroundColor: '#111827' }} className=" py-3 px-3 rounded-lg" >Time: {time} m</div>
                     <button onClick={() => handleClick(time)} disabled={disabled} className="btn btn-outline btn-success text-white">Complete</button>
                 </div>
             </div>

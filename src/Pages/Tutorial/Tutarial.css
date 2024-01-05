@@ -1,0 +1,12 @@
+.shadow-on-hover {
+    transition: box-shadow 0.3s ease; /* Adding a smooth transition effect */
+  }
+  
+  .shadow-on-hover:hover {
+    box-shadow: 0 4px 8px 0 rgba(237, 3, 3, 0.932); /* Shadow effect on hover */
+}
+  
+
+.shadow-on-hover:hover p.text-xl {
+    color: yellow; /* Change text color for the specified paragraph */
+  }
