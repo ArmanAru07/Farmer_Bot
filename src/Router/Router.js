@@ -33,6 +33,7 @@ import AIAssistant from "../Pages/AIAssistant/AIAssistant";
 import Tutorial from "../Pages/Tutorial/Tutorial";
 import Payment from "../Pages/Shopping/Payment/Payment";
 import FullPostPage from "../Pages/Post/FullPostPage";
+import DashMain from "../Pages/Deshbord/DashMain/DashMain";
 
 export const router = createBrowserRouter([
     {
@@ -132,6 +133,10 @@ export const router = createBrowserRouter([
         path: "/Dashboard",
         element: <Deshbord></Deshbord>,
         children: [
+            {
+                path: "/Dashboard",
+                element: <DashMain></DashMain>,
+            },
             {
                 path: "/Dashboard/addDoctor",
                 element: <AddDoctor></AddDoctor>,

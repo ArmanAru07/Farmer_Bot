@@ -6,12 +6,14 @@ import image from '../../Asset/ai_1.jpg';
 
 const PostCard = ({ index, postInfo }) => {
 
+    console.log()
+
 
 
     // Edit comment date time.
-    const year = postInfo.DateTime.substring(0, 4);
-    const month = postInfo.DateTime.substring(4, 6);
-    const day = postInfo.DateTime.substring(6, 8);
+    const year = postInfo?.DateTime?.substring(0, 4);
+    const month = postInfo?.DateTime?.substring(4, 6);
+    const day = postInfo?.DateTime?.substring(6, 8);
 
     const months = [
         'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.',

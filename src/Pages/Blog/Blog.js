@@ -1,14 +1,15 @@
 import React from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Line, Bar, BarChart } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Line, Bar, BarChart, ZAxis, Legend, Scatter, ScatterChart } from 'recharts';
 import { scaleOrdinal } from "d3-scale";
 import { schemeCategory10 } from "d3-scale-chromatic";
+import { Tooltip } from 'flowbite-react';
 
 
 const Blog = () => {
 
     const colors = scaleOrdinal(schemeCategory10).range();
 
-
+    // pie chart
     const data = [
         { name: 'Group A', value: 400 },
         { name: 'Group B', value: 300 },
@@ -125,7 +126,7 @@ const Blog = () => {
         { x: 120, y: 190 }
     ];
 
-
+    // scatter chart
     const getPath = (x: number, y: number, width: number, height: number) => {
         return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3
             } 
@@ -141,6 +142,7 @@ const Blog = () => {
         return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
     };
 
+    // Line chart
     const chart = (interval: string | number) => (
         <ResponsiveContainer height={250} width="100%">
             <LineChart data={data1} margin={{ right: 25, top: 10 }}>
@@ -157,6 +159,7 @@ const Blog = () => {
             </LineChart>
         </ResponsiveContainer>)
 
+    // Pie chart
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     const RADIAN = Math.PI / 180;
@@ -172,13 +175,11 @@ const Blog = () => {
         );
     };
 
-    // export default class Example extends PureComponent {
-    //     static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-label-dlhhj';
-
-
 
     return (
-        <div width="200%" height="200%">
+        <div>
+
+            {/* Pie chart */}
             <PieChart width={400} height={400}>
                 <Pie
                     data={data}
@@ -196,6 +197,7 @@ const Blog = () => {
                 </Pie>
             </PieChart>
 
+            {/* Bar chart */}
             <BarChart
                 width={500}
                 height={300}
@@ -222,9 +224,42 @@ const Blog = () => {
                 </Bar>
             </BarChart>
 
+            {/* Line chart */}
             <div className='w-1/2'>
                 {chart("preserveEnd")}
             </div>
+
+            <ScatterChart
+                width={500}
+                height={400}
+                margin={{
+                    top: 20,
+                    right: 20,
+                    bottom: 20,
+                    left: 20
+                }}
+            >
+                <CartesianGrid />
+                <XAxis type="number" dataKey="x" name="stature" unit="cm" />
+                <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+                <ZAxis type="number" range={[100]} />
+                <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                <Legend />
+                <Scatter
+                    name="A school"
+                    data={data01}
+                    fill="#8884d8"
+                    line
+                    shape="cross"
+                />
+                <Scatter
+                    name="B school"
+                    data={data02}
+                    fill="#82ca9d"
+                    line
+                    shape="diamond"
+                />
+            </ScatterChart>
         </div>
     );
 };
