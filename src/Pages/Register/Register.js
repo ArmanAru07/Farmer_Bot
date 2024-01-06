@@ -22,9 +22,11 @@ const Register = () => {
         const firstname = form.firstname.value;
         const lastname = form.lastname.value;
         const gender = form.gender.value;
+        const roll = form.roll.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm_password = form.confirm_password.value;
+
 
         // reg ex.
         if (!/^(?=.*[A-Z])/.test(password)) {
@@ -52,8 +54,18 @@ const Register = () => {
                 // Email varification
                 successAlert();
                 form.reset();
-                saveUserData(firstname + " " + lastname, email);
-                handleUpdateUser(firstname + " " + lastname, gender);
+                saveUserData(firstname + " " + lastname, email, roll);
+
+                const profile = {
+                    displayName: firstname + " " + lastname,
+                    photoURL: roll
+                }
+
+                updateUserProfile(profile)
+                    .then(() => {
+                    }).catch((error) => {
+                        console.log(error);
+                    });
 
                 // Email verification
                 // handleEmailVerification();
@@ -66,9 +78,9 @@ const Register = () => {
             });
     }
 
-    const saveUserData = (name, email) => {
+    const saveUserData = (name, email, roll) => {
 
-        const user = { name, email };
+        const user = { name, email, roll };
 
         fetch('http://localhost:4000/users', {
             method: 'POST', // or 'PUT'
@@ -80,8 +92,6 @@ const Register = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.acknowledged) {
-                    alert("Information saved successfully");
-                    // setUserEmail(email);
                 }
             })
             .catch((error) => {
@@ -96,14 +106,8 @@ const Register = () => {
     }
 
 
-    const handleUpdateUser = (username, gender) => {
-        const profile = {
-            displayName: username,
-        }
-        updateUserProfile(profile)
-            .then(() => {
-            }).catch((error) => {
-            });
+    const handleUpdateUser = (username, roll) => {
+
     }
 
     const handleCheckbox = (event) => {
@@ -140,24 +144,13 @@ const Register = () => {
     }
 
     const successAlert = () => {
-        // Swal.fire({
-        //     position: 'center',
-        //     icon: 'success',
-        //     title: 'You have registerd successfully',
-        //     showConfirmButton: false,
-        //     timer: 2000
-        // })
         Swal.fire({
             position: 'center',
-            icon: 'info',
-            title: 'You have registerd successfully, Please verify your email!',
+            icon: "success",
+            title: "Your work has been saved",
             showConfirmButton: false,
-            timer: 2000
+            timer: 1500
         })
-    }
-
-    const verificationAlert = () => {
-
     }
 
     return (
@@ -191,6 +184,12 @@ const Register = () => {
                     </div>
                     <div className="mb-4">
                         <input type="email" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="email" placeholder="Email Address" required />
+                    </div>
+                    <div className="mb-4">
+                        <select name="roll" className="border border-gray-300 rounded-lg  rounded px-4 w-full" placeholder="Gender" required>
+                            <option value="buyer">Here for : Seek For Help</option>
+                            <option value="seller">Here for : Sell Product</option>
+                        </select>
                     </div>
                     <div className="mb-4">
                         <input type="password" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="password" placeholder="Password(6-12 character long)" required />

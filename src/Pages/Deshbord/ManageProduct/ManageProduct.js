@@ -59,7 +59,7 @@ const ManageProduct = () => {
 
 
     return (
-        <div className='divide-x divide-dashe'>
+        <div className='divide-x divide-dashe pt-5'>
             {
                 products.length === 0 ?
                     <h1 className=' mt-10 text-4xl text-red-500'>There is no product added :(</h1>

@@ -34,6 +34,7 @@ import Tutorial from "../Pages/Tutorial/Tutorial";
 import Payment from "../Pages/Shopping/Payment/Payment";
 import FullPostPage from "../Pages/Post/FullPostPage";
 import DashMain from "../Pages/Deshbord/DashMain/DashMain";
+import EmptyDash from "../Pages/Deshbord/EmptyDash";
 
 export const router = createBrowserRouter([
     {
@@ -135,6 +136,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/Dashboard",
+                element: <EmptyDash></EmptyDash>,
+            },
+            {
+                path: "/Dashboard/Main",
                 element: <DashMain></DashMain>,
             },
             {
