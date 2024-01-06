@@ -1,12 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Tutarial.css'
+import './Tutarial.css';
+import animationData from '../../Asset/new_1.json';
+import Lottie from 'lottie-react';
+
+const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center', // Horizontally center
+    alignItems: 'center', // Vertically center
+    height: "250px"
+};
+
 
 const Tutorial = () => {
     return (
-        <div style={{ backgroundColor: '#111827' }} className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-14 mb-1">
+        <div style={{ backgroundColor: '#111827' }} className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8 mb-1">
             <div>
-                <h1 className='text-4xl underline font-semibold mb-10 text-yellow-200'>How to use this website?</h1>
+                <h1 className='text-4xl underline font-semibold mb-10 text-yellow-200'>How to use this website</h1>
+            </div>
+            <div>
+                <div style={containerStyle}>
+                    <div className='mt-16' style={{ width: '300px', height: '300px' }}>
+                        <Lottie animationData={animationData} />
+                    </div>
+                </div>
             </div>
             <div className="grid max-w-3xl mx-auto">
                 {/* first */}
