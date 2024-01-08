@@ -9,12 +9,16 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const fbProvider = new FacebookAuthProvider();
 
+
+
 const UserContext = ({ children }) => {
 
     const [user, setUser] = useState({});
     const [laoding, setloading] = useState(true);
 
-    console.log(user);
+    const [bangla, setBangla] = useState(true);
+
+    // console.log(user);
 
     const reagistration = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -51,6 +55,8 @@ const UserContext = ({ children }) => {
         return signOut(auth);
     }
 
+
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             // Email verification
@@ -66,12 +72,18 @@ const UserContext = ({ children }) => {
     }, []);
 
 
+
+    const handlBangla = () => {
+        setBangla(!bangla);
+    }
+
+
     return (
         <AuthContext.Provider value={{
             user, reagistration, passwordSignIn,
             LogOut, googleSignIn, facebookSignIn,
             laoding, updateUserProfile, passwordReset,
-            verifyEmail, setloading
+            verifyEmail, setloading, bangla, handlBangla
         }}>
             {children}
         </AuthContext.Provider>

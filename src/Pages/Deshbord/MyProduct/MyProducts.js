@@ -59,28 +59,6 @@ const MyProducts = () => {
     return (
         <div className='  divide-x divide-dashe'>
 
-            {/* <div className='col-span-1' >
-                <Link onClick={navLinkStyle} className='flex gap-3 mt-5  mr-3 p-4 rounded-r-full font-semibold  hover:bg-gray-200'>
-                    <div>
-                        Logo
-                    </div>
-                    <div>
-                        My Products
-                    </div>
-                </Link>
-
-                <Link onClick={navLinkStyle} className='flex gap-3  mr-3 p-4 rounded-r-full  hover:bg-gray-200'>
-                    <div>
-                        Logo
-                    </div>
-                    <div>
-                        My Profile
-                    </div>
-                </Link>
-            </div> */}
-
-
-            {/* Product info */}
             {
                 products.length === 0 ?
                     <h1 className=' mt-10 text-4xl text-red-500'>There is no product added :(</h1>

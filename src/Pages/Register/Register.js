@@ -189,6 +189,7 @@ const Register = () => {
                         <select name="roll" className="border border-gray-300 rounded-lg  rounded px-4 w-full" placeholder="Gender" required>
                             <option value="buyer">Here for : Seek For Help</option>
                             <option value="seller">Here for : Sell Product</option>
+                            {/* <option value="Admin">Admin</option> */}
                         </select>
                     </div>
                     <div className="mb-4">

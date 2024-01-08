@@ -1,52 +1,79 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/UserContext';
+import Swal from 'sweetalert2';
+import { useQuery } from '@tanstack/react-query';
 
 const ManageProduct = () => {
 
     const { user } = useContext(AuthContext);
-    // console.log(user);
+
 
     // get product from server
-    const [products, setProducts] = useState([]);
-    // console.log(products);
+    // const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        fetch(`http://localhost:4000/products`)
-            .then(response => response.json())
-            .then(data => setProducts(data))
-    }, [user]);
+    // useEffect(() => {
+    //     fetch(`http://localhost:4000/products`)
+    //         .then(response => response.json())
+    //         .then(data => setProducts(data))
+    // }, [user]);
 
-    console.log(products);
-
-    // Delete Product
-    const handleDelete = (DeleteProduct) => {
-        const agree = window.confirm(`Are you sure to delete ${DeleteProduct.name}`);
-
-        if (agree) {
-            fetch(`http://localhost:4000/products/${DeleteProduct._id}`, {
-                method: 'DELETE', // or 'PUT'
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(),  // Keep blank when delete.
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log('Success:', data);
-                    // a return message is come from server (res.send)
-                    // There are a value deleteCount = 1
-                    if (data.deletedCount > 0) {
-                        alert("Deleted successfully");
-                        const remainingUser = products.filter(product => product._id !== DeleteProduct._id);
-                        setProducts(remainingUser);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+    const { data: products = [], refetch } = useQuery({     // get give =[] as default value;
+        queryKey: ['products'],    // this help for caching.
+        queryFn: async () => {
+            const response = await fetch('http://localhost:4000/products');
+            const data = await response.json();
+            return data;
         }
+    })
+
+
+    const handleDelete = (DeleteProduct) => {
+        // Alert confirmation
+        Swal.fire({
+            title: `Are you sure to delete ${DeleteProduct.name}`,
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+
+                fetch(`http://localhost:4000/products/${DeleteProduct._id}`, {
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(),  // Keep blank when delete.
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log('Success:', data);
+                        // a return message is come from server (res.send)
+                        // There are a value deleteCount = 1
+                        if (data.deletedCount > 0) {
+                            // const remainingUser = products.filter(product => product._id !== DeleteProduct._id);
+                            // setProducts(remainingUser);
+                            refetch();
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
     }
+
+
+
+
 
 
     // Active nav link

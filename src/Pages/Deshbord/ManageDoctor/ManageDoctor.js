@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Loading from '../../../Shared/Loading';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../../Context/UserContext';
 
 const ManageDoctor = () => {
 
-    const [user, setUser] = useState(null);
+
 
     const { data: doctorsCollection = [], isLoading, refetch } = useQuery({     // get give =[] as default value;
         queryKey: ['doctorsCollection'],    // this help for caching.
@@ -19,42 +21,56 @@ const ManageDoctor = () => {
         return <Loading></Loading>
     }
 
-
-
     const handleDelete = (DeleteUser) => {
-        console.log(DeleteUser);
+        // Alert confirmation
+        Swal.fire({
+            title: `Are you sure to delete ${DeleteUser.name}`,
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
 
-        const agree = window.confirm(`Are you sure to delete ${DeleteUser._id}`);
-
-        if (agree) {
-            fetch(`http://localhost:4000/doctorsCollection/${DeleteUser._id}`, {
-                method: 'DELETE', // or 'PUT'
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(),  // Keep blank when delete.
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log('Success:', data);
-                    // a return message is come from server (res.send)
-                    // There are a value deleteCount = 1
-                    if (data.deletedCount > 0) {
-                        alert("Deleted successfully");
-                        refetch();
-                        // const remainingUser = user.filter(u => u._id !== DeleteUser._id);
-                        // setUser(remainingUser);
-                    }
+                fetch(`http://localhost:4000/doctorsCollection/${DeleteUser._id}`, {
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(),  // Keep blank when delete.
                 })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
+                    .then((response) => response.json())
+                    .then((data) => {
+
+                        // a return message is come from server (res.send)
+                        // There are a value deleteCount = 1
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            // const remainingUser = user.filter(u => u._id !== DeleteUser._id);
+                            // setUser(remainingUser);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
     }
 
+
+
+
+
     return (
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8">
+            <table class="w-full rounded-lg text-sm text-left rtl:text-right text-gray-400">
                 <thead class="text-xs  uppercase  bg-gray-700 text-gray-400">
                     <tr>
                         <th>

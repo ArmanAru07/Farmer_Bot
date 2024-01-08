@@ -39,6 +39,9 @@ const AvailableAppointments = ({ selectedDate }) => {
                             <a href="#">
                                 <h5 style={{ color: '#1eedb9' }} class="mb-2 text-2xl font-bold tracking-tight ">{data.name}</h5>
                             </a>
+                            <a href="#">
+                                <h5 class="mb-2 text-1xl font-bold tracking-tight ">{data?.speciality}</h5>
+                            </a>
                             <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400">{data.slots.length > 0 ? data.slots[0] : "Try another day"}.</p>
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{data.slots.length} {data.slots.length > 0 ? 'spaces' : "space"} available</p>
                             <button onClick={() => handleModal(data)} style={{ backgroundColor: '#0FCDE9' }} disabled={data.slots.length === 0} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

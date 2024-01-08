@@ -7,7 +7,9 @@ import { Avatar, Dropdown } from 'flowbite-react';
 const Header = () => {
 
   // ---> UseContext
-  const { user, LogOut } = useContext(AuthContext);
+  const { user, LogOut, handlBangla, bangla } = useContext(AuthContext);
+
+
 
   // --> Log out function 
   const handleLogOut = () => {
@@ -112,7 +114,7 @@ const Header = () => {
                 <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}>
-                  Services{' '}
+                  Options{' '}
                   <svg
                     className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
                       }`}
@@ -135,7 +137,7 @@ const Header = () => {
                 </button>
 
                 {/* Nav Dropdown content */}
-                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-32 bg-gray-100  group-hover:block">
+                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-100  group-hover:block">
                   <ul className="py-2 text-sm text-gray-700" role="menu">
                     <li>
                       <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">AI Test</NavLink>
@@ -150,14 +152,21 @@ const Header = () => {
                       <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/chat" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Chat</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/Test" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Test</NavLink>
+                      <NavLink to="/contact" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</NavLink>
                     </li>
                     <li>
                       <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
                     </li>
+                    {
+                      bangla ?
+                        <button onClick={handlBangla} className="bg-transparent   hover:text-gray-800  py-2 px-4">
+                          Change to English
+                        </button>
+                        :
+                        <button onClick={handlBangla} className="bg-transparent   hover:text-gray-800  py-2 px-4">
+                          Change to Bangla
+                        </button>
+                    }
 
                   </ul>
                 </div>
@@ -206,6 +215,10 @@ const Header = () => {
                 </button>
               </Link>
           }
+
+
+
+
 
           {/* Register button */}
           {/* <Link to="/register">

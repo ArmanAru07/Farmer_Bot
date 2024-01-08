@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Blog from "../Pages/Blog/Blog";
+import Blogs from "../Pages/Blog/Blogs";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import ShoppingPage from "../Pages/Shopping/ShoppingPage/ShoppingPage";
@@ -13,7 +13,6 @@ import Login_2 from "../Pages/Login_2/Login_2";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
-import Test from "../Pages/Test";
 import AddProducts from "../../src/Pages/Deshbord/AddProducts/AddProducts";
 import Deshbord from "../Pages/Deshbord/Dashboard";
 import UpdateProduct from "../../src/Pages/Deshbord/UpdateProduct/UpdateProduct";
@@ -27,7 +26,7 @@ import ManageDoctor from "../Pages/Deshbord/ManageDoctor/ManageDoctor";
 import AllUser from "../Pages/Deshbord/AllUser/AllUser";
 import ManageProduct from "../Pages/Deshbord/ManageProduct/ManageProduct";
 import MyAppointemnt from "../Pages/Deshbord/MyAppointemnt/MyAppointemnt";
-import Chat from "../Pages/Chat/Chat";
+import Contact from "../Pages/Contact/Contact";
 import Post from "../Pages/Post/Post";
 import AIAssistant from "../Pages/AIAssistant/AIAssistant";
 import Tutorial from "../Pages/Tutorial/Tutorial";
@@ -35,6 +34,7 @@ import Payment from "../Pages/Shopping/Payment/Payment";
 import FullPostPage from "../Pages/Post/FullPostPage";
 import DashMain from "../Pages/Deshbord/DashMain/DashMain";
 import EmptyDash from "../Pages/Deshbord/EmptyDash";
+import ManageSeller from "../Pages/Deshbord/ManageSeller/ManageSeller";
 
 export const router = createBrowserRouter([
     {
@@ -105,11 +105,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/blog",
-                element: <Blog></Blog>,
+                element: <Blogs></Blogs>,
             },
             {
-                path: "/chat",
-                element: <Chat></Chat>,
+                path: "/contact",
+                element: <Contact></Contact>,
             },
             {
                 path: "/post",
@@ -121,10 +121,6 @@ export const router = createBrowserRouter([
                 loader: async ({ params }) => fetch(`http://localhost:4000/postCollection/${params.id}`),
             },
             {
-                path: "/Test",
-                element: <Test></Test>,
-            },
-            {
                 path: "/aIAssistant",
                 element: <AIAssistant></AIAssistant>,
             }
@@ -132,7 +128,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/Dashboard",
-        element: <Deshbord></Deshbord>,
+        element: <PrivateRoute><Deshbord></Deshbord></PrivateRoute>,
         children: [
             {
                 path: "/Dashboard",
@@ -153,6 +149,10 @@ export const router = createBrowserRouter([
             {
                 path: "/Dashboard/manageDoctor",
                 element: <ManageDoctor></ManageDoctor>,
+            },
+            {
+                path: "/Dashboard/manageSeller",
+                element: <ManageSeller></ManageSeller>,
             },
             {
                 path: "/Dashboard/myProduct",

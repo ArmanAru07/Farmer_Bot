@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import useTitle from '../../../Hooks/useTitle';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../../../Shared/Loading';
+import Scroller from '../../../Shared/Scroller';
 
 const ShoppingPage = () => {
 
@@ -63,6 +64,7 @@ const ShoppingPage = () => {
 
     return (
         <div>
+            <Scroller></Scroller>
             <div className='pl-2 pr-2 pb-10 grid grid-cols-1 lg:grid-cols-4 gap-3 mt-5'>
                 {
                     AllBooksData.map(BooksData => <ShoppingCards key={BooksData._id} BooksData={BooksData} handleCartItem={handleCartItem}></ShoppingCards>)

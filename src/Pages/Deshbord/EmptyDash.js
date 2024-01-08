@@ -1,10 +1,13 @@
 import React from 'react';
+// import './EmptyDash.css'
+import Scroller from '../../Shared/Scroller';
 
 const EmptyDash = () => {
+
+
+
     return (
-        <div>
-            <h1>Hi</h1>
-        </div>
+        <Scroller></Scroller>
     );
 };
 

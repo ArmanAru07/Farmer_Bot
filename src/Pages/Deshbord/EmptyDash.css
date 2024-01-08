@@ -1,0 +1,24 @@
+/* ScrollingText.css */
+
+/* Container to hide the overflow */
+.scrolling-text-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Actual scrolling text */
+  .scrolling-text {
+    white-space: nowrap;
+    animation: marquee 13s linear infinite; /* Change 10s to control speed */
+  }
+  
+  /* Keyframes for the animation */
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
