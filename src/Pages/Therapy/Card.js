@@ -11,6 +11,8 @@ const Card = ({ data, handleCartData, handleProgress }) => {
 
     const [isZoomed, setIsZoomed] = useState(false);
 
+    console.log(isZoomed);
+
     const handleModal = (data = null) => {
         setModal(!modal);
         setModalData(data);

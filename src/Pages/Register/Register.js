@@ -160,12 +160,12 @@ const Register = () => {
 
                 <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
                     <img
-                        src="https://veerle.duoh.com/images/inspiration/_small/cats-are-jerks-v2-big.jpg"
+                        src="https://ik.imagekit.io/7hdidvbes/illustrations/become_expert_2.svg?tr=w-1920,q-75"
                         className="w-full"
                         alt="Phone image" />
                 </div>
 
-                <form onSubmit={handleForm} className=" mx-auto">
+                <form onSubmit={handleForm} className="mx-auto">
                     <h2 className="text-left text-2xl font-bold mb-4">Create an Account</h2>
                     <p className="text-left  text-gray-600 mb-4">Sign up with your email address or social media account.</p>
 

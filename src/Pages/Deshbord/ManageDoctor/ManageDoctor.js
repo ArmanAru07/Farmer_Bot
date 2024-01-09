@@ -11,7 +11,7 @@ const ManageDoctor = () => {
     const { data: doctorsCollection = [], isLoading, refetch } = useQuery({     // get give =[] as default value;
         queryKey: ['doctorsCollection'],    // this help for caching.
         queryFn: async () => {
-            const response = await fetch('http://localhost:4000/doctorsCollection');
+            const response = await fetch('http://localhost:4000/doctorsinfo');
             const data = await response.json();
             return data;
         }
@@ -22,6 +22,8 @@ const ManageDoctor = () => {
     }
 
     const handleDelete = (DeleteUser) => {
+
+
         // Alert confirmation
         Swal.fire({
             title: `Are you sure to delete ${DeleteUser.name}`,
@@ -39,7 +41,7 @@ const ManageDoctor = () => {
                     'success'
                 )
 
-                fetch(`http://localhost:4000/doctorsCollection/${DeleteUser._id}`, {
+                fetch(`http://localhost:4000/doctorsinfo/${DeleteUser._id}`, {
                     method: 'DELETE', // or 'PUT'
                     headers: {
                         'Content-Type': 'application/json',
@@ -102,17 +104,17 @@ const ManageDoctor = () => {
                                     {i + 1}
                                 </th>
                                 <th scope="row" class=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full" src={doctor.image} alt="Jese image" />
+                                    <img class="w-10 h-10 rounded-full" src={doctor?.image} alt="Jese image" />
                                 </th>
 
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap text-white">
-                                    {doctor.name}
+                                    {doctor?.name}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {doctor.email}
+                                    {doctor?.email}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {doctor.speciality}
+                                    {doctor?.speciality}
                                 </td>
                                 {/* <td class="px-6 py-4">
                                     {doctor?.role !== 'admin' && <button onClick={() => handleUserAdmin(doctor._id)} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Admin</button>}

@@ -6,3 +6,25 @@
 .shop-card:hover{
     background-color: #C1C9A0;
 }
+
+
+/* Define the card's default styles */
+.ShoppingCard {
+    position: relative;
+    width: 300px; /* Set the card width */
+    height: auto;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .ShoppingCard img {
+    width: 100%; /* Image takes up full width of the card */
+    height: auto;
+    transition: transform 2s ease-in-out;
+  }
+  
+  /* Define the zoom effect when hovering */
+  .ShoppingCard.zoomed img {
+    transform: scale(1.1); /* Change the scale factor as needed */
+  }
+  

@@ -121,7 +121,7 @@ const AddProducts = () => {
 
                         <div className="md:col-span-9 text-center mt-5">
                             <div className="inline-flex items-end">
-                                <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded text-lg">Add product</button>
+                                <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded text-lg">Add product+</button>
                             </div>
                         </div>
 

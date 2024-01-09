@@ -72,7 +72,7 @@ const MyAppointemnt = () => {
 
 
                         <th scope="col" class="px-6 py-3">
-                            Doctor Category
+                            Doctor Name
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Appointment Date
@@ -94,7 +94,7 @@ const MyAppointemnt = () => {
                                     {i + 1}
                                 </th>
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap text-white">
-                                    {booking.treatment}
+                                    {booking.docName}
                                 </th>
                                 <td class="px-6 py-4">
                                     {booking.appointmentDate}

@@ -7,11 +7,18 @@ import Swal from 'sweetalert2';
 const AppointmentModal = ({ modal, handleModal, modalData, selectedDate, refetch }) => {
     const { user } = useContext(AuthContext);
 
+    // console.log(modalData);
+
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const submitForm = (data) => {
         data.appointmentDate = format(selectedDate, 'PP');
-        data.treatment = modalData.name;
+        data.docName = modalData.name;
+        data.docEmail = modalData.email;
+        data.speciality = modalData.speciality
+
+        console.log(data);
 
         fetch('http://localhost:4000/bookings', {
             method: 'POST', // or 'PUT'

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ShoppingCards.css'
 import { Link } from 'react-router-dom';
 import { FaOpencart } from "react-icons/fa";
@@ -10,14 +10,27 @@ const ShoppingCards = ({ BooksData, handleCartItem }) => {
 
     const { id, img, name, price, quantity, ratings } = BooksData;
 
+    const [isZoomed, setIsZoomed] = useState(false);
+
+
+
     const halndleAddButton = (BooksData) => {
         handleCartItem(BooksData);
         toast.success("Successfully added! Please check the cart.")
     }
 
+    // background image zoom.
+    const handleMouseOver = () => {
+        setIsZoomed(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsZoomed(false);
+    };
+
     return (
 
-        <Link to={`/description/${BooksData._id}`} className="shop-card mb-4 w-full max-w-sm  border border-gray-200 rounded-lg shadow relative">
+        <Link to={`/description/${BooksData._id}`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className={`${isZoomed ? 'zoomed' : ''} ShoppingCard shop-card mb-4 w-full max-w-sm  border border-gray-200 rounded-lg shadow relative`} >
             <div >
                 {/* add padding && 383 */}
                 <img className="rounded-t-lg" src={img} alt="product image" style={{ height: 302 }} />
@@ -43,7 +56,7 @@ const ShoppingCards = ({ BooksData, handleCartItem }) => {
                     </div>
                 </div>
             </div>
-        </Link>
+        </Link >
     );
 };
 

@@ -2,13 +2,14 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../Context/UserContext';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const MyProfile = () => {
 
     const { user, updateUserProfile } = useContext(AuthContext);
 
     // React Form
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const formData = new FormData();
 
@@ -28,7 +29,8 @@ const MyProfile = () => {
         }
         updateUserProfile(profile)
             .then(() => {
-                alert("Successfully updated")
+                sweetAlert();
+
             }).catch((error) => {
                 console.log(error);
             });
@@ -73,6 +75,18 @@ const MyProfile = () => {
         //     console.error('Error:', error);
         // });
 
+    }
+
+
+    const sweetAlert = () => {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Updated successfully!!!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        window.location.reload();
     }
 
     return (

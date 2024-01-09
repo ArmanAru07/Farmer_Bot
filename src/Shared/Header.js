@@ -188,7 +188,12 @@ const Header = () => {
             user && user.email &&
             <div className="flex flex-col items-end ">
               <div className="text-md font-medium ">{user.displayName}</div>
-              <div className="text-sm font-regular">User</div>
+              {
+                user?.photoURL ?
+                  <div className="text-sm font-regular">{(user?.photoURL).substring(0, 10)}</div>
+                  :
+                  <div className="text-sm font-regular">Doc</div>}
+
             </div>
           }
 

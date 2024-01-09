@@ -29,15 +29,7 @@ const Tutorial = () => {
                         <h1 className='text-4xl underline font-semibold mb-10 text-yellow-200 mt-2'>How to use this website?</h1>
                     </div>
             }
-
-            <div>
-                <div style={containerStyle}>
-                    <div className='mt-16' style={{ width: '300px', height: '300px' }}>
-                        <Lottie animationData={animationData} />
-                    </div>
-                </div>
-            </div>
-            <div className="grid max-w-3xl mx-auto">
+            <div className="grid max-w-3xl mx-auto mt-20">
                 {/* first */}
                 <div className="flex">
                     <div className="flex flex-col items-center mr-6">
@@ -71,7 +63,7 @@ const Tutorial = () => {
                             bangla ?
                                 <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
-                                        আপনার মানসিক স্বাস্থ্য পরীক্ষা করুন
+                                        সিস্টেমে লগ ইন করুন
                                     </p>
                                     <p className="text-sm text-gray-400">
                                         আমাদের AI সম্ভাব্য মানসিক স্বাস্থ্য উদ্বেগ সনাক্ত করতে আপনার প্রতিক্রিয়া মূল্যায়ন করবে। এটি পেশাদার পরামর্শের বিকল্প নয়, তবে এটি সহায়ক অন্তর্দৃষ্টি প্রদান করতে পারে। একটি বিশ্লেষণ পেতে ফর্ম জমা দিন.
@@ -89,6 +81,7 @@ const Tutorial = () => {
                         }
                     </div>
                 </div>
+
                 {/* Second */}
                 <div className="flex">
                     <div className="flex flex-col items-center mr-6">
@@ -96,6 +89,59 @@ const Tutorial = () => {
                         <div>
                             <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
                                 2
+                            </div>
+                        </div>
+                        <div className="w-px h-full bg-gray-300" />
+                    </div>
+                    <div className="flex flex-col pb-6 sm:items-center sm:flex-row sm:pb-0">
+                        <div className="sm:mr-5">
+                            <div className="flex items-center justify-center w-16 h-16 my-3 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                                <svg
+                                    className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
+                                    stroke="currentColor"
+                                    viewBox="0 0 52 52"
+                                >
+                                    <polygon
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        fill="yellow"
+                                        points="29 13 14 29 25 29 23 39 38 23 27 23"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {
+                            bangla ?
+                                <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
+                                    <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
+                                        আপনার মানসিক স্বাস্থ্য পরীক্ষা করুন
+                                    </p>
+                                    <p className="text-sm text-gray-400">
+                                        আমাদের AI সম্ভাব্য মানসিক স্বাস্থ্য উদ্বেগ সনাক্ত করতে আপনার প্রতিক্রিয়া মূল্যায়ন করবে। এটি পেশাদার পরামর্শের বিকল্প নয়, তবে এটি সহায়ক অন্তর্দৃষ্টি প্রদান করতে পারে। একটি বিশ্লেষণ পেতে ফর্ম জমা দিন.
+                                    </p>
+                                </Link>
+                                :
+                                <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
+                                    <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
+                                        Use AI to identify any problems you may have experienced.
+                                    </p>
+                                    <p className="text-sm text-gray-400">
+                                        Our AI will assess your responses to identify potential mental health concerns. This is not a substitute for professional advice, but it can provide helpful insights. Submit the form to receive an analysis.
+                                    </p>
+                                </Link>
+                        }
+
+                    </div>
+                </div>
+                {/* Third */}
+                <div className="flex">
+                    <div className="flex flex-col items-center mr-6">
+                        <div className="w-px h-10 bg-gray-300 sm:h-full" />
+                        <div>
+                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                                3
                             </div>
                         </div>
                         <div className="w-px h-full bg-gray-300" />
@@ -138,13 +184,13 @@ const Tutorial = () => {
 
                     </div>
                 </div>
-                {/* second */}
+                {/* Fourth */}
                 <div className="flex">
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
                             <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
-                                3
+                                4
                             </div>
                         </div>
                         <div className="w-px h-full bg-gray-300" />
@@ -191,7 +237,7 @@ const Tutorial = () => {
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
                             <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
-                                4
+                                5
                             </div>
                         </div>
                         <div className="w-px h-full bg-gray-300" />
@@ -238,7 +284,7 @@ const Tutorial = () => {
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
                             <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
-                                5
+                                6
                             </div>
                         </div>
                         <div className="w-px h-full opacity-0" />
@@ -282,6 +328,13 @@ const Tutorial = () => {
 
                 </div>
 
+            </div>
+            <div>
+                <div style={containerStyle}>
+                    <div className='mt-16' style={{ width: '300px', height: '300px' }}>
+                        <Lottie animationData={animationData} />
+                    </div>
+                </div>
             </div>
 
         </div>

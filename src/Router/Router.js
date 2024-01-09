@@ -35,6 +35,7 @@ import FullPostPage from "../Pages/Post/FullPostPage";
 import DashMain from "../Pages/Deshbord/DashMain/DashMain";
 import EmptyDash from "../Pages/Deshbord/EmptyDash";
 import ManageSeller from "../Pages/Deshbord/ManageSeller/ManageSeller";
+import DocAppointment from "../Pages/Deshbord/DocAppointment/DocAppointment";
 
 export const router = createBrowserRouter([
     {
@@ -97,7 +98,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/appointment",
-                element: <Appointment></Appointment>
+                element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
             },
             {
                 path: "/terms",
@@ -113,7 +114,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/post",
-                element: <Post></Post>,
+                element: <PrivateRoute><Post></Post></PrivateRoute>,
             },
             {
                 path: "/fullPost/:id",
@@ -177,6 +178,10 @@ export const router = createBrowserRouter([
             {
                 path: "/Dashboard/myApointments",
                 element: <MyAppointemnt></MyAppointemnt>,
+            },
+            {
+                path: "/Dashboard/docAppointment",
+                element: <DocAppointment></DocAppointment>,
             }
         ]
     },

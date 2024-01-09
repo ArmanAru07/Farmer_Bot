@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const ManageSeller = () => {
 
@@ -12,25 +13,46 @@ const ManageSeller = () => {
         }
     })
 
-    const handleUserAdmin = (_id) => {
-        fetch(`http://localhost:4000/users/admin/${_id}`, {
-            method: 'PUT', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    alert("Make admin successfully");
-                    refetch();
+    const handleDelete = (DeleteUser) => {
+        // Alert confirmation
+        Swal.fire({
+            title: `Are you sure to delete ${DeleteUser.name}`,
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
 
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+                fetch(`http://localhost:4000/allusers/${DeleteUser._id}`, {
+                    method: 'DELETE', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(),  // Keep blank when delete.
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log('Success:', data);
+                        // a return message is come from server (res.send)
+                        // There are a value deleteCount = 1
+                        if (data.deletedCount > 0) {
+
+                            refetch();
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
     }
 
     return (
@@ -68,7 +90,7 @@ const ManageSeller = () => {
                                     {user.email}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+                                    <button onClick={() => handleDelete(user)} type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
