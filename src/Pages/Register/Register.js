@@ -120,6 +120,16 @@ const Register = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 const user = result.user;
+
+                const profile = {
+                    photoURL: "buyer"
+                }
+
+                updateUserProfile(profile)
+                    .then(() => {
+                    }).catch((error) => {
+                        console.log(error);
+                    });
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -128,6 +138,7 @@ const Register = () => {
                 const credential = GoogleAuthProvider.credentialFromError(error);
             });
     }
+
 
     const handleFacebookLogin = () => {
         facebookSignIn()
@@ -158,12 +169,13 @@ const Register = () => {
 
             <div className="bg-white flex rounded-2xl shadow-lg max-w-5xl p-5 items-center mt-4 mb-6">
 
-                <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+                <div className="md:w-8/12 lg:w-6/12 flex">
                     <img
                         src="https://ik.imagekit.io/7hdidvbes/illustrations/become_expert_2.svg?tr=w-1920,q-75"
-                        className="w-full"
+                        className="w-full "
                         alt="Phone image" />
                 </div>
+
 
                 <form onSubmit={handleForm} className="mx-auto">
                     <h2 className="text-left text-2xl font-bold mb-4">Create an Account</h2>
@@ -222,15 +234,21 @@ const Register = () => {
 
 
                     <div className="flex justify-center space-x-4 ">
-                        <button onClick={handleFacebookLogin} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-                            <FaFacebook className="inline-block mr-1" /> Facebook
-                        </button >
-                        <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-                            <FaTwitter className="inline-block mr-1" /> Twitter
+
+                        <button onClick={handleFacebookLogin} type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+                            <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                                <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                            </svg>
+                            Sign in with Facebook
                         </button>
-                        <button onClick={handleGoogleSignIn} className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">
-                            <FaGoogle className="inline-block mr-1" /> Google
-                        </button >
+
+
+                        <button onClick={handleGoogleSignIn} type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
+                            <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                                <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd" />
+                            </svg>
+                            Sign in with Google
+                        </button>
                     </div>
 
                     <div className=" text-xs border-b border-[#002D74] py-4 text-[#002D74]">
@@ -238,8 +256,8 @@ const Register = () => {
                     </div>
 
                     <div className="mt-3 text-xs  flex justify-between items-center text-[#002D74]">
-                        <p className='text-sm'>Already have an account?</p>
-                        <Link to="/login"><button className="py-2 px-5 bg-white font-semibold border rounded-xl hover:scale-110 hover:bg-blue-900 hover:text-white duration-300">Log in</button></Link>
+                        <p className='text-base'>Already have an account?</p>
+                        <Link to="/login"><button className="py-2 px-5 text-base bg-white font-semibold border rounded-xl hover:scale-110 hover:bg-blue-900 hover:text-white duration-300">Log in</button></Link>
                     </div>
                 </form>
             </div>

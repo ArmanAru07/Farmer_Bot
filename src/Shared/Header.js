@@ -102,11 +102,11 @@ const Header = () => {
           <ul className="flex p-4 mt-4  md:space-x-8 md:mt-0">
 
             <li>
-              <NavLink style={navLinkStyle} to="/" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >Home</NavLink>
+              <NavLink style={navLinkStyle} to="/" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "হোম" : "Home"}</NavLink>
             </li>
 
             <li>
-              <NavLink style={navLinkStyle} to="/tutarial" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >Tutorial</NavLink>
+              <NavLink style={navLinkStyle} to="/tutarial" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "টিউটেরিয়াল" : "Tutorial"}</NavLink>
             </li>
 
             <li>
@@ -114,7 +114,7 @@ const Header = () => {
                 <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}>
-                  Options{' '}
+                  {bangla ? "অপশানস" : "Options"}{' '}
                   <svg
                     className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
                       }`}
@@ -157,17 +157,9 @@ const Header = () => {
                     <li>
                       <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
                     </li>
-                    {
-                      bangla ?
-                        <button onClick={handlBangla} className="bg-transparent   hover:text-gray-800  py-2 px-4">
-                          Change to English
-                        </button>
-                        :
-                        <button onClick={handlBangla} className="bg-transparent   hover:text-gray-800  py-2 px-4">
-                          Change to Bangla
-                        </button>
-                    }
-
+                    <button onClick={handlBangla} className="bg-transparent   hover:text-gray-800  py-2 px-4">
+                      {bangla ? "Change to English" : "Change to Bangla"}
+                    </button>
                   </ul>
                 </div>
 
@@ -175,7 +167,7 @@ const Header = () => {
             </li>
 
             <li>
-              <NavLink style={navLinkStyle} to="/shoppingPage" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 ">Shop</NavLink>
+              <NavLink style={navLinkStyle} to="/shoppingPage" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 "> {bangla ? "শপ" : "Shop"}</NavLink>
             </li>
 
           </ul>

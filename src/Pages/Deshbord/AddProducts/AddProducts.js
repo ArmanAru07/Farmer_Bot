@@ -61,13 +61,13 @@ const AddProducts = () => {
 
     return (
 
-        <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+        <div className="min-h-screen p-6  flex items-center justify-center">
             <div className="container max-w-screen-lg mx-auto">
 
-                <h2 className="font-semibold text-xl text-gray-600">Add New Product</h2>
-                <p className="text-gray-500 mb-6">This information will show in your product info.</p>
+                <h2 className="font-semibold text-xl text-white">Add New Product</h2>
+                <p className="text-gray-200 mb-6">This information will show in your product info.</p>
 
-                <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                <div className="bg-white rounded-lg shadow-lg p-4 px-4 md:p-8 mb-6">
                     <form onSubmit={handleAddProductForm} className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-9 text-left">
 
                         <div className="md:col-span-6">

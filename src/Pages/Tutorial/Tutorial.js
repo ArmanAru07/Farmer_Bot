@@ -21,14 +21,16 @@ const Tutorial = () => {
     return (
         <div style={{ backgroundColor: '#111827' }} className="  sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:pb-32 mb-1">
             <Scroller></Scroller>
-            {
-                bangla ? <div>
-                    <h1 className='text-3xl underline font-semibold mb-10 text-yellow-200 mt-2'>কিভাবে এই ওয়েবসাইটি ব্যবহার করবেন?</h1>
-                </div> :
-                    <div>
-                        <h1 className='text-4xl underline font-semibold mb-10 text-yellow-200 mt-2'>How to use this website?</h1>
-                    </div>
-            }
+            <div className='mt-5'>
+                {
+                    bangla ? <div>
+                        <h1 className='text-3xl underline font-semibold mb-10 text-yellow-200 mt-2'>কিভাবে এই ওয়েবসাইটি ব্যবহার করবেন?</h1>
+                    </div> :
+                        <div>
+                            <h1 className='text-4xl underline font-semibold mb-10 text-yellow-200 mt-2'>How to use this website?</h1>
+                        </div>
+                }
+            </div>
             <div className="grid max-w-3xl mx-auto mt-20">
                 {/* first */}
                 <div className="flex">

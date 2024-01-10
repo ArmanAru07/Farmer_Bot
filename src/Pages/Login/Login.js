@@ -5,6 +5,7 @@ import { AuthContext } from '../../Context/UserContext';
 import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
 import useTitle from '../../Hooks/useTitle';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    const { passwordSignIn, setloading } = useContext(AuthContext);
+    const { passwordSignIn, setloading, facebookSignIn, googleSignIn, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState(null);
 
 
@@ -74,6 +75,45 @@ const Login = () => {
 
     }
 
+    const handleFacebookLogin = () => {
+        facebookSignIn()
+            .then((result) => {
+                const user = result.user;
+                const credential = FacebookAuthProvider.credentialFromResult(result);
+                const accessToken = credential.accessToken;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+
+                const profile = {
+                    photoURL: "buyer"
+                }
+
+                updateUserProfile(profile)
+                    .then(() => {
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            });
+    }
+
     const sweetAlert = () => {
         Swal.fire({
             position: 'center',
@@ -83,6 +123,8 @@ const Login = () => {
             timer: 2000
         })
     }
+
+
 
     const notVerified = () => {
         Swal.fire({
@@ -121,7 +163,7 @@ const Login = () => {
                         <Link to="/fpassword" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-blue-500 hover:text-gray-700">Forgot Password</Link>
                     </div>
                     <div class="mb-4">
-                        <button type="submit" class="bg-blue-900 hover:bg-green-600 text-white font-semibold py-3 px-6 w-full rounded-lg">Sign In</button>
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-3 px-6 w-full rounded-lg">Sign In</button>
                     </div>
 
                     <div className="mt-3 text-xs  flex justify-between items-center text-[#002D74]">
@@ -136,15 +178,18 @@ const Login = () => {
 
 
                     <div class="flex justify-center space-x-4 ">
-                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
-                            <FaFacebook className="inline-block mr-1" /> Facebook
-                        </a>
-                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-                            <FaTwitter className="inline-block mr-1" /> Twitter
-                        </a>
-                        <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">
-                            <FaGoogle className="inline-block mr-1" /> Google
-                        </a>
+                        <button onClick={handleFacebookLogin} type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">
+                            <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                                <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                            </svg>
+                            Sign in with Facebook
+                        </button>
+                        <button onClick={handleGoogleSignIn} type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
+                            <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                                <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd" />
+                            </svg>
+                            Sign in with Google
+                        </button>
                     </div>
 
                     <div class=" text-xs border-b border-[#002D74] py-4 text-[#002D74]">
@@ -152,8 +197,8 @@ const Login = () => {
                     </div>
 
                     <div class="mt-3 text-xs  flex justify-between items-center text-[#002D74]">
-                        <p className='text-sm'>Don't have an account?</p>
-                        <Link to="/register"><button class="py-2 px-5 bg-white font-semibold border rounded-xl hover:scale-110 hover:bg-blue-900 hover:text-white duration-300">Register</button></Link>
+                        <p className='text-base'>Don't have an account?</p>
+                        <Link to="/register"><button class="text-base py-2 px-5 bg-white font-semibold border rounded-xl hover:scale-110 hover:bg-blue-900 hover:text-white duration-300">Register</button></Link>
                     </div>
                 </form>
 

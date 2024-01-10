@@ -40,25 +40,30 @@ const ForgetPassword = () => {
 
 
     return (
-        <>
-            <form className="w-2/5 mx-auto" onSubmit={handlePasswordReset}>
-                <h2 className=" text-2xl font-bold mb-4">Reset password</h2>
-                <p className="text-left text-gray-600 mb-4">Enter the email address associated with your account and we'll send you a link to reset your password.</p>
+        <div>
+            <div className="bg-white flex w-3/5 mx-auto mt-10 rounded-2xl shadow-lg  p-5 items-center mb-6">
+                <form className="w-3/5 mx-auto" onSubmit={handlePasswordReset}>
+                    <h2 className=" text-2xl font-bold mb-4">Reset password</h2>
+                    <p className="text-left text-gray-600 mb-4">Enter the email address associated with your account and we'll send you a link to reset your password.</p>
 
-                <div className="mb-4">
-                    <input type="email" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="email" placeholder="Email Address" required />
-                </div>
+                    <div className="mb-4">
+                        <input type="email" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="email" placeholder="Email Address" required />
+                    </div>
 
-                <div className="mb-4">
-                    <button type="submit" className="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-3 px-6 w-full rounded-lg">Continue</button>
-                </div>
+                    <div className="mb-4">
+                        <button type="submit" className="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-3 px-6 w-full rounded-lg">Continue</button>
+                    </div>
 
-                <div className="mt-3 text-xs  flex justify-between items-center text-[#002D74]">
-                    <p className='text-base text-left text-red-700'>{error}</p>
-                </div>
+                    <div className="mt-3 text-xs  flex justify-between items-center text-[#002D74]">
+                        <p className='text-base text-left text-red-700'>{error}</p>
+                    </div>
 
-            </form>
-        </>
+                </form>
+
+            </div>
+
+
+        </div >
     );
 };
 
