@@ -10,24 +10,24 @@ const DashMain = () => {
 
     // pie chart
     const pieData = [
-        { name: 'Group A', value: 400 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
+        { name: 'Buyer', value: 800 },
+        { name: 'Seller', value: 200 },
+        { name: 'Doctor', value: 100 },
+        { name: 'Blogger', value: 50 },
     ];
 
     // Pie chart
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     const RADIAN = Math.PI / 180;
-    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }) => {
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
         return (
             <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-                {`${(percent * 100).toFixed(0)}%`}
+                {`${name}: ${(percent * 100).toFixed(0)}%`}
             </text>
         );
     };
@@ -81,43 +81,43 @@ const DashMain = () => {
     const BarData = [
         {
             name: "Psychiatrist",
-            uv: 4000,
+            uv: 400,
             pv: 2400,
             amt: 2400
         },
         {
             name: "Psychologist",
-            uv: 3000,
+            uv: 300,
             pv: 1398,
             amt: 2210
         },
         {
             name: "Pastoral",
-            uv: 2000,
+            uv: 200,
             pv: 9800,
             amt: 2290
         },
         {
             name: "Addiction",
-            uv: 2780,
+            uv: 278,
             pv: 3908,
             amt: 2000
         },
         {
             name: "Page E",
-            uv: 1890,
+            uv: 189,
             pv: 4800,
             amt: 2181
         },
         {
             name: "Peer",
-            uv: 2390,
+            uv: 239,
             pv: 3800,
             amt: 2500
         },
         {
             name: "Art therapist",
-            uv: 3490,
+            uv: 349,
             pv: 4300,
             amt: 2100
         }
@@ -126,18 +126,18 @@ const DashMain = () => {
 
     // scatter chart
     const data01 = [
-        { x: 10, y: 30 },
-        { x: 30, y: 200 },
-        { x: 45, y: 100 },
-        { x: 50, y: 400 },
-        { x: 70, y: 150 },
-        { x: 100, y: 250 }
+        { x: 10, y: 100 },
+        { x: 20, y: 200 },
+        { x: 45, y: 300 },
+        { x: 50, y: 1000 },
+        { x: 70, y: 400 },
+        { x: 100, y: 500 }
     ];
     const data02 = [
-        { x: 30, y: 20 },
+        { x: 20, y: 50 },
         { x: 50, y: 180 },
-        { x: 75, y: 240 },
-        { x: 100, y: 100 },
+        { x: 75, y: 600 },
+        { x: 100, y: 400 },
         { x: 120, y: 190 }
     ];
 
@@ -234,7 +234,7 @@ const DashMain = () => {
                         ))}
                     </Pie>
                 </PieChart>
-                <h1 className='text-white'>Pie chart</h1>
+                <h1 className='text-white'>Total user</h1>
             </div>
 
             {/* Radar chart */}
@@ -245,7 +245,7 @@ const DashMain = () => {
                     <PolarRadiusAxis />
                     <Radar name="Mike" dataKey="A" stroke="green" fill="#FFBB28" fillOpacity={0.6} />
                 </RadarChart>
-                <h1 className='text-white'>Radar chart</h1>
+                <h1 className='text-white'>Appointments</h1>
             </div>
 
             {/* Bar chart */}
@@ -261,7 +261,7 @@ const DashMain = () => {
                         ))}
                     </Bar>
                 </BarChart>
-                <h1 className='text-white'>Bar chart</h1>
+                <h1 className='text-white'>Total Appointments</h1>
             </div>
 
             {/* ScatterChart */}
@@ -269,16 +269,16 @@ const DashMain = () => {
                 <ScatterChart width={800} height={400} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
 
                     <CartesianGrid />
-                    <XAxis type="number" dataKey="x" name="stature" unit="cm" />
-                    <YAxis type="number" dataKey="y" name="weight" unit="kg" />
+                    <XAxis type="number" dataKey="x" name="stature" unit="pic" />
+                    <YAxis type="number" dataKey="y" name="weight" unit="$" />
                     <ZAxis type="number" range={[100]} />
                     <Tooltip cursor={{ strokeDasharray: "3 3" }} />
                     <Legend />
-                    <Scatter name="A school" data={data01} fill="#FFBB28" line shape="cross" />
+                    <Scatter name="Last month" data={data01} fill="#FFBB28" line shape="cross" />
 
-                    <Scatter name="B school" data={data02} fill="#0088FE" line shape="diamond" />
+                    <Scatter name="This month" data={data02} fill="#0088FE" line shape="diamond" />
                 </ScatterChart>
-                <h1 className='text-white'>Scatter chart</h1>
+                <h1 className='text-white'>Total sell</h1>
             </div>
         </div >
 

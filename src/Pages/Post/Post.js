@@ -5,6 +5,7 @@ import PostCard from './PostCard';
 import toast from 'react-hot-toast';
 import Loading2 from '../../Shared/Loading2';
 import image2 from '../../Asset/post_1.jpg';
+import Scroller from '../../Shared/Scroller';
 
 const Post = () => {
 
@@ -82,7 +83,8 @@ const Post = () => {
 
     return (
         <div className='mb-20'>
-            <section style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image2})`, backgroundSize: 'cover' }} class=" dark:bg-gray-900 antialiased pt-10">
+            <Scroller></Scroller>
+            <section style={{ backgroundColor: '#1D385B' }} class=" dark:bg-gray-900 antialiased pt-10">
                 <div class="max-w-2xl mx-auto px-4">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-white  text-lg lg:text-2xl font-bold ">Add Your Thought</h2>

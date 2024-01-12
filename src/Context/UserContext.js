@@ -16,7 +16,8 @@ const UserContext = ({ children }) => {
     const [user, setUser] = useState({});
     const [laoding, setloading] = useState(true);
 
-    const [bangla, setBangla] = useState(true);
+    const [bangla, setBangla] = useState(false);
+    const [dark, setDark] = useState(true);
 
     // console.log(user);
 
@@ -77,13 +78,19 @@ const UserContext = ({ children }) => {
         setBangla(!bangla);
     }
 
+    const handlDark = () => {
+        setDark(!dark);
+    }
+
 
     return (
         <AuthContext.Provider value={{
             user, reagistration, passwordSignIn,
             LogOut, googleSignIn, facebookSignIn,
             laoding, updateUserProfile, passwordReset,
-            verifyEmail, setloading, bangla, handlBangla
+            verifyEmail, setloading, bangla, handlBangla,
+            dark, handlDark
+
         }}>
             {children}
         </AuthContext.Provider>

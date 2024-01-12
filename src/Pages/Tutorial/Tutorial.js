@@ -16,20 +16,25 @@ const containerStyle = {
 
 const Tutorial = () => {
 
-    const { bangla } = useContext(AuthContext);
+    const { bangla, dark } = useContext(AuthContext);
 
     return (
-        <div style={{ backgroundColor: '#111827' }} className="  sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:pb-32 mb-1">
+        <div style={{ backgroundColor: dark ? '#111827' : 'white', }} className="  sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:pb-32 mb-1">
             <Scroller></Scroller>
             <div className='mt-5'>
+
                 {
-                    bangla ? <div>
-                        <h1 className='text-3xl underline font-semibold mb-10 text-yellow-200 mt-2'>কিভাবে এই ওয়েবসাইটি ব্যবহার করবেন?</h1>
-                    </div> :
+                    bangla ?
                         <div>
-                            <h1 className='text-4xl underline font-semibold mb-10 text-yellow-200 mt-2'>How to use this website?</h1>
+                            <h1 className={`text-2xl underline font-semibold mb-10 ${dark ? "text-yellow-200" : "text-black"} mt-2`}>কিভাবে এই ওয়েবসাইটি ব্যবহার করবেন?</h1>
+                        </div>
+                        :
+                        <div>
+                            <h1 className={`text-3xl underline font-semibold mb-10 ${dark ? "text-yellow-200" : "text-black"} mt-2`}>How to use this website? </h1>
                         </div>
                 }
+
+
             </div>
             <div className="grid max-w-3xl mx-auto mt-20">
                 {/* first */}
@@ -37,7 +42,7 @@ const Tutorial = () => {
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 opacity-0 sm:h-full" />
                         <div>
-                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                            <div className={` ${dark ? "text-yellow-200" : "text-black"}   flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full`}>
                                 1
                             </div>
                         </div>
@@ -63,8 +68,8 @@ const Tutorial = () => {
                         </div>
                         {
                             bangla ?
-                                <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
-                                    <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
+                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
+                                    <p className={` hover:text-yellow-200 text-xl font-semibold sm:text-base text-white`}>
                                         সিস্টেমে লগ ইন করুন
                                     </p>
                                     <p className="text-sm text-gray-400">
@@ -72,7 +77,7 @@ const Tutorial = () => {
                                     </p>
                                 </Link>
                                 :
-                                <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
+                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
                                         Use AI to identify any problems you may have experienced.
                                     </p>
@@ -89,7 +94,7 @@ const Tutorial = () => {
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
-                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                            <div className={` ${dark ? "text-yellow-200" : "text-black"}   flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full`}>
                                 2
                             </div>
                         </div>
@@ -116,7 +121,7 @@ const Tutorial = () => {
 
                         {
                             bangla ?
-                                <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
+                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
                                         আপনার মানসিক স্বাস্থ্য পরীক্ষা করুন
                                     </p>
@@ -125,7 +130,7 @@ const Tutorial = () => {
                                     </p>
                                 </Link>
                                 :
-                                <Link to="/aIAssistant" className=' shadow-on-hover text-left px-4 py-4 rounded-lg '>
+                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
                                         Use AI to identify any problems you may have experienced.
                                     </p>
@@ -142,7 +147,7 @@ const Tutorial = () => {
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
-                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                            <div className={` ${dark ? "text-yellow-200" : "text-black"}   flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full`}>
                                 3
                             </div>
                         </div>
@@ -169,14 +174,14 @@ const Tutorial = () => {
 
                         {
                             bangla ?
-                                <Link to="/therapy" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                                <Link to="/therapy" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">কিছু হোম অ্যাক্টিভিটি করুন</p>
                                     <p className="text-sm text-gray-400">
                                         আমাদের নির্দেশিত ধ্যান এবং শান্ত শ্বাস-প্রশ্বাসের ব্যায়ামের মাধ্যমে ঘরে বসে মুক্ত করুন, আপনার স্থানের পরিচিত আরামের মধ্যে আপনার মনের জন্য একটি নির্মল অভয়ারণ্য তৈরি করুন
                                     </p>
                                 </Link>
                                 :
-                                <Link to="/therapy" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                                <Link to="/therapy" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">Do Some Home Activity</p>
                                     <p className="text-sm text-gray-400">
                                         Unwind at home with our guided meditation and calming breathing exercises, creating a serene sanctuary for your mind within the familiar comfort of your space
@@ -191,7 +196,7 @@ const Tutorial = () => {
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
-                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                            <div className={` ${dark ? "text-yellow-200" : "text-black"}   flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full`}>
                                 4
                             </div>
                         </div>
@@ -216,7 +221,7 @@ const Tutorial = () => {
                             </div>
                         </div>
                         {bangla ?
-                            <Link to="/appointment" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                            <Link to="/appointment" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                 <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">অ্যাপয়েন্টমেন্ট বুক করুন</p>
                                 <p className="text-sm text-gray-400 ">
 
@@ -224,7 +229,7 @@ const Tutorial = () => {
                                 </p>
                             </Link>
                             :
-                            <Link to="/appointment" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                            <Link to="/appointment" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                 <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">Schedule Your  Appointment</p>
                                 <p className="text-sm text-gray-400 ">
                                     Book a consultation with our experts effortlessly. Choose your date and time, and let us guide you towards mental well-being.
@@ -238,7 +243,7 @@ const Tutorial = () => {
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
-                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                            <div className={` ${dark ? "text-yellow-200" : "text-black"}   flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full`}>
                                 5
                             </div>
                         </div>
@@ -265,13 +270,13 @@ const Tutorial = () => {
 
                         {
                             bangla ?
-                                <Link to="/post" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                                <Link to="/post" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">আমাদের কমিউনিটির কাছে আপনার প্রশ্ন জিজ্ঞাসা করুন</p>
                                     <p className="text-sm text-gray-400">
                                         এখানে আপনি আপনার  চিন্তাভাবনা, গল্প এবং অভিজ্ঞতা শেয়ার করতে পারেন। মেম্বারদের সাথে যুক্ত থাকুন, আপনার চিন্তাভাবনা পোস্ট করুন এবং মূল্যবান প্রতিক্রিয়া এবং সমর্থন পান।
                                     </p>
                                 </Link>
-                                : <Link to="/post" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                                : <Link to="/post" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">Explore Our Vibrant Community Page</p>
                                     <p className="text-sm text-gray-400">
                                         A space where users share insights, stories, and experiences. Engage with fellow members, post your thoughts, and receive valuable feedback and support.
@@ -285,7 +290,7 @@ const Tutorial = () => {
                     <div className="flex flex-col items-center mr-6">
                         <div className="w-px h-10 bg-gray-300 sm:h-full" />
                         <div>
-                            <div className="text-yellow-200 flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full">
+                            <div className={` ${dark ? "text-yellow-200" : "text-black"}   flex items-center justify-center w-8 h-8 text-xs font-medium border rounded-full`}>
                                 6
                             </div>
                         </div>
@@ -311,7 +316,7 @@ const Tutorial = () => {
                         </div>
                         {
                             bangla ?
-                                <Link to="/shoppingPage" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                                <Link to="/shoppingPage" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">
                                         আপনার প্রয়োজনীয় পণ্যের জন্য কেনাকাটা করুন</p>
                                     <p className="text-sm text-gray-400">
@@ -319,7 +324,7 @@ const Tutorial = () => {
                                     </p>
                                 </Link>
                                 :
-                                <Link to="/shoppingPage" className='shadow-on-hover text-left px-4 py-4 rounded-lg'>
+                                <Link to="/shoppingPage" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="text-xl font-semibold sm:text-base text-white hover:text-yellow-200">Shop for the products you need</p>
                                     <p className="text-sm text-gray-400">
                                         Various products are available here according to your needs. Find what you need and shop with ease.

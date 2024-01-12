@@ -9,8 +9,9 @@ const Error = () => {
     useTitle("Page not Found");
 
     return (
-        <div>
-            <div class="box">
+        <div className='bg-black'>
+            <h1>hi</h1>
+            <div style={{ backgroundColor: '#111827' }} class="box">
                 <div class="box__ghost">
                     <div class="symbol"></div>
                     <div class="symbol"></div>
@@ -47,6 +48,7 @@ const Error = () => {
                 {/* <GhostEyes /> */}
             </div>
         </div>
+
     );
 };
 

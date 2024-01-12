@@ -26,7 +26,6 @@ import ManageDoctor from "../Pages/Deshbord/ManageDoctor/ManageDoctor";
 import AllUser from "../Pages/Deshbord/AllUser/AllUser";
 import ManageProduct from "../Pages/Deshbord/ManageProduct/ManageProduct";
 import MyAppointemnt from "../Pages/Deshbord/MyAppointemnt/MyAppointemnt";
-import Contact from "../Pages/Contact/Contact";
 import Post from "../Pages/Post/Post";
 import AIAssistant from "../Pages/AIAssistant/AIAssistant";
 import Tutorial from "../Pages/Tutorial/Tutorial";
@@ -36,6 +35,7 @@ import DashMain from "../Pages/Deshbord/DashMain/DashMain";
 import EmptyDash from "../Pages/Deshbord/EmptyDash";
 import ManageSeller from "../Pages/Deshbord/ManageSeller/ManageSeller";
 import DocAppointment from "../Pages/Deshbord/DocAppointment/DocAppointment";
+import Testimonial from "../Pages/Testimonial/Testimonials";
 
 export const router = createBrowserRouter([
     {
@@ -109,8 +109,8 @@ export const router = createBrowserRouter([
                 element: <Blogs></Blogs>,
             },
             {
-                path: "/contact",
-                element: <Contact></Contact>,
+                path: "/testimonial",
+                element: <Testimonial></Testimonial>,
             },
             {
                 path: "/post",

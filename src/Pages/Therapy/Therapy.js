@@ -62,7 +62,7 @@ const Therapy = () => {
                     }
                 </div>
             </div>
-            <div className='timercart col-span-4 md:col-span-1 border rounded-xl mt-20' style={{ borderColor: "#18332F", backgroundColor: "#5C616B", backgroundImage: `url(${cartImage})` }}>
+            <div className=' timercart col-span-4 md:col-span-1 border rounded-xl mt-20' style={{ borderColor: "#18332F", backgroundColor: "#5C616B", backgroundImage: `url(${cartImage})` }}>
                 <TimerCart therapyTime={therapyTime} progressTime={progressTime}></TimerCart>
             </div>
             {

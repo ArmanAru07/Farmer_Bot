@@ -11,7 +11,7 @@ const Blogs = () => {
         { description: "This is 6th card" },
     ]
     return (
-        <div class="grid grid-cols-3  gap-4">
+        <div class="grid grid-cols-3  gap-5 ml-5 mr-5 mt-10 mb-20">
             {
                 obj.map((data, idx) => <Blog key={idx} index={idx} data={data}></Blog>)
             }

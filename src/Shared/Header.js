@@ -4,10 +4,13 @@ import "./Header.css";
 import { AuthContext } from '../Context/UserContext';
 import { Avatar, Dropdown } from 'flowbite-react';
 
+
+
+
 const Header = () => {
 
   // ---> UseContext
-  const { user, LogOut, handlBangla, bangla } = useContext(AuthContext);
+  const { user, LogOut, handlBangla, bangla, dark, handlDark } = useContext(AuthContext);
 
 
 
@@ -97,7 +100,7 @@ const Header = () => {
           <h1 className='website-name' >Serene</h1>
         </div>
 
-        {/* For Large screen  */}
+        {/* For Large screen, Links  */}
         <div className='hidden lg:block' style={{ paddingTop: "6px" }}>
           <ul className="flex p-4 mt-4  md:space-x-8 md:mt-0">
 
@@ -152,16 +155,42 @@ const Header = () => {
                       <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/contact" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</NavLink>
-                    </li>
-                    <li>
                       <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
                     </li>
-                    <button onClick={handlBangla} className="bg-transparent   hover:text-gray-800  py-2 px-4">
-                      {bangla ? "Change to English" : "Change to Bangla"}
-                    </button>
+                    <li>
+                      <NavLink to="/testimonial" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Testimonial</NavLink>
+                    </li>
                   </ul>
                 </div>
+
+                {/* <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-52 bg-gray-100 group-hover:block">
+                  <div className="flex">
+                    <ul className="py-2 text-sm text-gray-700 flex-1 border-r" role="menu">
+                      <li>
+                        <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">AI Test</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/therapy" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/appointment" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
+                      </li>
+                    </ul>
+                    <ul className="py-2 text-sm text-gray-700 flex-1" role="menu">
+                      <li>
+                        <NavLink to="/contact" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </div> */}
+
 
               </div>
             </li>
@@ -198,20 +227,40 @@ const Header = () => {
                     {/* <span className="block text-sm">Bonnie Green</span> */}
                     <span className="block truncate text-sm font-medium">{user?.email}</span>
                   </Dropdown.Header>
-                  <Dropdown.Item as={Link} to='/dashboard' >Dashboard</Dropdown.Item>
-                  <Dropdown.Item as={Link} to='/cart' >My Cart</Dropdown.Item>
+                  <Dropdown.Item as={Link} to='/dashboard' className=' hover:text-blue-600 '>Dashboard</Dropdown.Item>
+                  <Dropdown.Item as={Link} to='/cart' className=' hover:text-blue-600 '>My Cart</Dropdown.Item>
+
+                  <Dropdown.Item onClick={handlBangla} className="bg-transparent   hover:text-blue-600">
+                    {bangla ? "Change to English" : "Change to Bangla"}
+                  </Dropdown.Item>
+
+
+                  <Dropdown.Item onClick={handlDark} className="bg-transparent   hover:text-blue-600">
+                    {dark ? "Light Theme" : "Dark Theme"}
+                  </Dropdown.Item>
+
 
                   <Dropdown.Divider />
-                  <Dropdown.Item onClick={handleLogOut}>Sign out</Dropdown.Item>
+                  <Dropdown.Item className=' hover:text-blue-600 ' onClick={handleLogOut}>Sign out</Dropdown.Item>
                 </Dropdown>
               </div>
               :
               <Link to="/login">
-                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
-                  Sign in
+                <button class="special-button">
+                  <span>Sign In</span>
                 </button>
               </Link>
           }
+
+
+          {/* <Link to="/login">
+                <button className="bg-transparent hover:bg-white  text-white hover:text-gray-800  py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                  Sign in
+                </button>
+              </Link> */}
+
+
+
 
 
 
