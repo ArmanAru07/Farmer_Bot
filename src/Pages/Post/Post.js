@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import Loading2 from '../../Shared/Loading2';
 import image2 from '../../Asset/post_1.jpg';
 import Scroller from '../../Shared/Scroller';
+import Loading from '../../Shared/Loading';
 
 const Post = () => {
 
@@ -21,7 +22,7 @@ const Post = () => {
     })
 
     if (isLoading) {
-        return <Loading2></Loading2>
+        return <Loading></Loading>
     }
 
     // Sort the comments by DateTime in descending order 

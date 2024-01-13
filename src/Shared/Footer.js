@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import footerimage from '../Asset/footer.png';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/UserContext';
 
 const Footer = () => {
+
+    const { user } = useContext(AuthContext);
 
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -50,9 +53,12 @@ const Footer = () => {
                         <div>
                             <h2 class="mb-6 text-sm font-semibold  uppercase ">Legal</h2>
                             <ul class=" text-gray-400 font-medium">
-                                <li class="mb-4">
-                                    <Link to='/terms' class="hover:underline">Privacy Policy</Link>
-                                </li>
+                                {
+                                    user?.email &&
+                                    <li class="mb-4">
+                                        <Link to='/contact' class="hover:underline">Contact Us</Link>
+                                    </li>
+                                }
                                 <li>
                                     <Link to='/terms' class="hover:underline">Terms &amp; Conditions</Link>
                                 </li>

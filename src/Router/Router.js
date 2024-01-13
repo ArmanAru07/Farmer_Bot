@@ -35,7 +35,8 @@ import DashMain from "../Pages/Deshbord/DashMain/DashMain";
 import EmptyDash from "../Pages/Deshbord/EmptyDash";
 import ManageSeller from "../Pages/Deshbord/ManageSeller/ManageSeller";
 import DocAppointment from "../Pages/Deshbord/DocAppointment/DocAppointment";
-import Testimonial from "../Pages/Testimonial/Testimonials";
+import Testimonial from "../Pages/Testimonial/Testimonial";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -124,6 +125,10 @@ export const router = createBrowserRouter([
             {
                 path: "/aIAssistant",
                 element: <AIAssistant></AIAssistant>,
+            },
+            {
+                path: "/contact",
+                element: <Contact></Contact>,
             }
         ]
     },
