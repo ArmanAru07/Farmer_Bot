@@ -3,6 +3,7 @@ import React from 'react';
 import { AuthContext } from '../../../Context/UserContext';
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyAppointemnt = () => {
 
@@ -20,6 +21,8 @@ const MyAppointemnt = () => {
             return data;
         }
     })
+
+    console.log(bookings);
 
     const handleDelete = (DeleteBookings) => {
 
@@ -81,6 +84,9 @@ const MyAppointemnt = () => {
                             Slot Time
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Video meeting
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Delete Appointment
                         </th>
                     </tr>
@@ -102,9 +108,13 @@ const MyAppointemnt = () => {
                                 <td class="px-6 py-4">
                                     {booking.slot}
                                 </td>
+                                <td class="px-6 py-4">
+                                    <Link to={`/room/${booking?.email}`}><button type="button" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Join</button></Link>
+                                </td>
                                 <td class="px-6 py-4 text-center">
                                     <button onClick={() => handleDelete(booking)} type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
                                 </td>
+
                             </tr>
                         </tbody>
                     )

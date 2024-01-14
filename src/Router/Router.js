@@ -37,6 +37,7 @@ import ManageSeller from "../Pages/Deshbord/ManageSeller/ManageSeller";
 import DocAppointment from "../Pages/Deshbord/DocAppointment/DocAppointment";
 import Testimonial from "../Pages/Testimonial/Testimonial";
 import Contact from "../Pages/Contact/Contact";
+import Room from "../Pages/VideoCall.js/Room";
 
 export const router = createBrowserRouter([
     {
@@ -129,6 +130,10 @@ export const router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact></Contact>,
+            },
+            {
+                path: "/room/:roomID",
+                element: <Room></Room>,
             }
         ]
     },
