@@ -167,7 +167,7 @@ const Login = () => {
                     </div>
 
                     <div className="mt-3 text-xs  flex justify-between items-center text-[#002D74]">
-                        <p className='text-base text-left text-red-700'>{error}</p>
+                        <p className='text-base text-left text-red-700'>{error?.substring(0, 50)}</p>
                     </div>
 
                     <div class="mt-6 mb-6 grid grid-cols-3 items-center text-gray-400">

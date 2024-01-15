@@ -97,19 +97,19 @@ const MyProfile = () => {
 
                 <div class="w-full md:w-3/5 p-8 bg-white m-auto shadow-md border rounded-lg">
                     <h2 className="font-semibold text-xl text-gray-600">Update Your Profile</h2>
-                    <span class="text-gray-600">"We keep your information safe & secret.</span>
+                    <span class="text-gray-600">We keep your information safe & secret.</span>
 
                     <form onSubmit={handleSubmit(submit)} class="rounded  shadow p-6">
 
                         <div class="pb-6">
-                            <label for="name" class="font-semibold text-gray-700 block pb-1">Name</label>
+                            <label for="name" class="font-semibold text-gray-700 block pb-1 text-sm"> <span className='font-bold'>Name</span> (maximum length 10 characters)</label>
                             <div class="flex">
-                                <input {...register("name", { required: "Name is required" })} id="username" class="border-1  rounded px-4 py-2 w-full" type="text" defaultValue={user?.displayName} />
+                                <input {...register("name", { required: "Name is required" })} maxLength={10} id="username" class="border-1  rounded px-4 py-2 w-full" type="text" defaultValue={user?.displayName} />
                             </div>
                             {errors.name && <p className='text-red-700 text-sm'>{errors.name.message}</p>}
                         </div>
                         <div class="pb-4">
-                            <label for="about" class="font-semibold text-gray-700 block pb-1">Email (not changeable)</label>
+                            <label for="about" class="font-semibold text-gray-700 block pb-1 text-sm">Email (not changeable)</label>
                             <input id="email" class="border-1  rounded px-4 py-2 w-full" type="email" value={user?.email} />
                             <span class="text-gray-600 pt-4 block opacity-70">Personal login information of your account</span>
                         </div>

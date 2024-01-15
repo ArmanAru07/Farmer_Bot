@@ -9,6 +9,7 @@ const MyAppointemnt = () => {
 
     const { user } = useContext(AuthContext);
 
+
     const { data: bookings = [], refetch } = useQuery({     // get give =[] as default value;
         queryKey: ['bookings', user?.email],    // this help for caching. like useEffect perameter.
         queryFn: async () => {
@@ -21,8 +22,6 @@ const MyAppointemnt = () => {
             return data;
         }
     })
-
-    console.log(bookings);
 
     const handleDelete = (DeleteBookings) => {
 

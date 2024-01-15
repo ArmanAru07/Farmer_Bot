@@ -158,7 +158,7 @@ const Register = () => {
         Swal.fire({
             position: 'center',
             icon: "success",
-            title: "Your work has been saved",
+            title: "Registration successfull!",
             showConfirmButton: false,
             timer: 1500
         })
@@ -183,10 +183,10 @@ const Register = () => {
 
 
                     <div className="mb-4">
-                        <input type="text" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="firstname" placeholder="Firstname" maxlength="20" required />
+                        <input type="text" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="firstname" placeholder="Firstname" maxlength="10" required />
                     </div>
                     <div className="mb-4">
-                        <input type="text" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="lastname" placeholder="Lastname" maxlength="20" required />
+                        <input type="text" className="border border-gray-300 rounded-lg w-full px-4 py-3" name="lastname" placeholder="Lastname" maxlength="10" required />
                     </div>
                     <div className="mb-4">
                         <select name="gender" className="border border-gray-300 rounded-lg  rounded px-4 w-full" placeholder="Gender" required>

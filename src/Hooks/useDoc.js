@@ -12,8 +12,6 @@ const useDoc = (email) => {
 
         fetch(`http://localhost:4000/doctorsCollection/${email}`)
             .then((res) => res.json()).then((data) => {
-
-
                 setIsDoc(data);
             }).catch((error) => {
                 console.log(error.message);

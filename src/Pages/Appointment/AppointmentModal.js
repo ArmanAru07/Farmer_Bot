@@ -3,16 +3,20 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/UserContext';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const AppointmentModal = ({ modal, handleModal, modalData, selectedDate, refetch }) => {
+
     const { user } = useContext(AuthContext);
 
-    // console.log(modalData);
+    console.log(user);
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const submitForm = (data) => {
+
+
         data.appointmentDate = format(selectedDate, 'PP');
         data.docName = modalData.name;
         data.docEmail = modalData.email;
@@ -31,11 +35,11 @@ const AppointmentModal = ({ modal, handleModal, modalData, selectedDate, refetch
             .then((data) => {
                 if (data.acknowledged) {
                     handleModal();
-                    alert("Information saved successfully");
+                    handleAlert();
                     refetch();
                 }
                 if (data.acknowledged === false) {
-                    alert();
+                    errorAlert();
                     refetch();
                 }
             })
@@ -44,13 +48,22 @@ const AppointmentModal = ({ modal, handleModal, modalData, selectedDate, refetch
             });
     }
 
-    const alert = () => {
+    const handleAlert = () => {
         Swal.fire({
             position: "center",
             icon: "success",
             title: "Appointment successfully booked!",
             showConfirmButton: false,
             timer: 1500
+        });
+    }
+
+    const errorAlert = () => {
+        handleModal();
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Already have an appointment to this Doctor!",
         });
     }
 
@@ -87,7 +100,7 @@ const AppointmentModal = ({ modal, handleModal, modalData, selectedDate, refetch
                             <input {...register("patientName")} type="text" id="default-input" value={user?.displayName} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         <div class="px-6">
-                            <input {...register("email")} type="text" id="default-input" value={user?.email} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <input {...register("email")} type="email" id="default-input" value={user?.email} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         <div class="px-6">
                             <input {...register("phone")} type="text" id="default-input" placeholder='Your Phone number' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />

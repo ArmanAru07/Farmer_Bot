@@ -19,7 +19,7 @@ const UserContext = ({ children }) => {
     const [bangla, setBangla] = useState(false);
     const [dark, setDark] = useState(true);
 
-    // console.log(user);
+    console.log(user);
 
     const reagistration = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
