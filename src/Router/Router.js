@@ -38,6 +38,11 @@ import DocAppointment from "../Pages/Deshbord/DocAppointment/DocAppointment";
 import Testimonial from "../Pages/Testimonial/Testimonial";
 import Contact from "../Pages/Contact/Contact";
 import Room from "../Pages/VideoCall.js/Room";
+import TestMain from "../Pages/AIAssistant/TestMain";
+import Depression from "../Pages/AIAssistant/Depression";
+import Anxiety from "../Pages/AIAssistant/Anxiety";
+import Suicidal from "../Pages/AIAssistant/Suicidal";
+import Bipolar from "../Pages/AIAssistant/Bipolar";
 
 export const router = createBrowserRouter([
     {
@@ -124,8 +129,28 @@ export const router = createBrowserRouter([
                 loader: async ({ params }) => fetch(`http://localhost:4000/postCollection/${params.id}`),
             },
             {
+                path: "/testMain",
+                element: <TestMain></TestMain>,
+            },
+            {
                 path: "/aIAssistant",
                 element: <AIAssistant></AIAssistant>,
+            },
+            {
+                path: "/depression",
+                element: <Depression></Depression>,
+            },
+            {
+                path: "/anxiety",
+                element: <Anxiety></Anxiety>,
+            },
+            {
+                path: "/suicidal",
+                element: <Suicidal></Suicidal>,
+            },
+            {
+                path: "/bipolar",
+                element: <Bipolar></Bipolar>,
             },
             {
                 path: "/contact",
@@ -135,6 +160,7 @@ export const router = createBrowserRouter([
                 path: "/room/:roomID",
                 element: <Room></Room>,
             }
+
         ]
     },
     {

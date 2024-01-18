@@ -33,9 +33,8 @@ const Tutorial = () => {
                             <h1 className={`text-3xl underline font-semibold mb-10 ${dark ? "text-yellow-200" : "text-black"} mt-2`}>How to use this website? </h1>
                         </div>
                 }
-
-
             </div>
+
             <div className="grid max-w-3xl mx-auto mt-20">
                 {/* first */}
                 <div className="flex">
@@ -73,16 +72,16 @@ const Tutorial = () => {
                                         সিস্টেমে লগ ইন করুন
                                     </p>
                                     <p className="text-sm text-gray-400">
-                                        আমাদের AI সম্ভাব্য মানসিক স্বাস্থ্য উদ্বেগ সনাক্ত করতে আপনার প্রতিক্রিয়া মূল্যায়ন করবে। এটি পেশাদার পরামর্শের বিকল্প নয়, তবে এটি সহায়ক অন্তর্দৃষ্টি প্রদান করতে পারে। একটি বিশ্লেষণ পেতে ফর্ম জমা দিন.
+                                        সেরা অভিজ্ঞতার জন্য লগইন করুন, যেখানে আপনি ব্যক্তিগতকৃত বৈশিষ্ট্য এবং একচেটিয়া সামগ্রী পাবেন।
                                     </p>
                                 </Link>
                                 :
                                 <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
-                                        Use AI to identify any problems you may have experienced.
+                                        Login First
                                     </p>
                                     <p className="text-sm text-gray-400">
-                                        Our AI will assess your responses to identify potential mental health concerns. This is not a substitute for professional advice, but it can provide helpful insights. Submit the form to receive an analysis.
+                                        Login for the ultimate experience, where you get personalized features and exclusive content.
                                     </p>
                                 </Link>
                         }
