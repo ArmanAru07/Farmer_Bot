@@ -120,18 +120,18 @@ const Tutorial = () => {
 
                         {
                             bangla ?
-                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
+                                <Link to="/testMain" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
                                         আপনার মানসিক স্বাস্থ্য পরীক্ষা করুন
                                     </p>
                                     <p className="text-sm text-gray-400">
-                                        আমাদের AI সম্ভাব্য মানসিক স্বাস্থ্য উদ্বেগ সনাক্ত করতে আপনার প্রতিক্রিয়া মূল্যায়ন করবে। এটি পেশাদার পরামর্শের বিকল্প নয়, তবে এটি সহায়ক অন্তর্দৃষ্টি প্রদান করতে পারে। একটি বিশ্লেষণ পেতে ফর্ম জমা দিন.
+                                        ফ্রী টেস্ট সম্ভাব্য মানসিক স্বাস্থ্য উদ্বেগ সনাক্ত করতে আপনার প্রতিক্রিয়া মূল্যায়ন করবে। এটি পেশাদার পরামর্শের বিকল্প নয়, তবে এটি সহায়ক অন্তর্দৃষ্টি প্রদান করতে পারে। একটি বিশ্লেষণ পেতে ফর্ম জমা দিন.
                                     </p>
                                 </Link>
                                 :
-                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
+                                <Link to="/testMain" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
-                                        Use AI to identify any problems you may have experienced.
+                                        Give free test to identify any problems you may have experienced.
                                     </p>
                                     <p className="text-sm text-gray-400">
                                         Our AI will assess your responses to identify potential mental health concerns. This is not a substitute for professional advice, but it can provide helpful insights. Submit the form to receive an analysis.
