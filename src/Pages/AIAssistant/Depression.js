@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Scroller from '../../Shared/Scroller';
 import image from '../../Asset/ai_1.jpg'
+import { AuthContext } from '../../Context/UserContext';
 
 const Depression = () => {
 
+    const { bangla, dark } = useContext(AuthContext);
+
 
     const [level, setLevel] = useState("");
+    const [comment, setComment] = useState("");
+    const [color, setcolor] = useState("");
 
     const handleForm = (event) => {
         event.preventDefault();
@@ -33,12 +38,19 @@ const Depression = () => {
             setLevel("Minimal Depression")
         } else if (total >= 5 && total <= 9) {
             setLevel("Mild Depression")
+            setComment("You need to Monitor")
         } else if (total >= 10 && total <= 14) {
             setLevel("Moderate Depression")
+            setComment("You have a possible clinically significant condition")
+            setcolor('red')
         } else if (total >= 15 && total <= 19) {
             setLevel("Moderately Severe Depression")
+            setComment("Your Treatment probably warranted")
+            setcolor('red')
         } else if (total >= 20 && total <= 27) {
             setLevel("Severe Depression")
+            setComment("Your Treatment probably warranted")
+            setcolor('red')
         } else {
             setLevel("Severity not specified")
         }
@@ -179,7 +191,12 @@ const Depression = () => {
                     <p className="text-gray-300 mb-6">Fell free to ask us any question. <span className='underline text-blue-300'>Click here</span></p>
 
                     <div style={{ backgroundColor: "#278BC7" }} className='w-2/3 text-white font-semibold  h-40 rounded-md shadow-lg p-3  mb-6'>
-                        {level && <h1 className=' text-2xl'>You have {level}</h1>}
+                        {level && <h1 className={`mt-2 text-2xl text-${color ? color : ''}-400`}>You have {level}</h1>}
+                        {comment && <h1 className='mt-6 text-2xl text-red-400'>{comment}</h1>}
+
+                        {/* {level && <h1 className='text-2xl'>You have {level.split(' ')}</h1>} */}
+
+
                     </div>
 
                 </div>
