@@ -7,6 +7,7 @@ const Bipolar = () => {
     const [level, setLevel] = useState("");
     const [comment, setComment] = useState("");
     const [color, setcolor] = useState("");
+    const [score, setscore] = useState(0);
 
     const handleForm = (event) => {
         event.preventDefault();
@@ -36,15 +37,24 @@ const Bipolar = () => {
 
         setcolor('');
         if (total >= 0 && total <= 3) {
-            setLevel("Highly unlikely bipolar disorder")
+            setLevel("Highly unlikely bipolar disorder");
+            setscore(0);
         } else if (total >= 4 && total <= 6) {
-            setLevel("Not very likely to have bipolar disorder.")
+            setLevel("Not very likely to have bipolar disorder.");
+            setscore(2);
         } else if (total >= 7 && total <= 9) {
-            setLevel("Moderately likely to have bipolar disorder.")
+            setLevel("Moderately likely to have bipolar disorder !");
+            setComment("You have a possible clinically significant condition !")
+            setcolor('red');
+            setscore(4);
         } else if (total >= 10 && total <= 13) {
-            setLevel("Highly Likely bipolar disorder.")
+            setLevel("Highly Likely bipolar disorder !");
+            setcolor('red');
+            setComment("Your Treatment probably warranted !");
+            setscore(5);
         } else {
-            setLevel("Likelihood not specified")
+            setLevel("Likelihood not specified");
+
         }
 
     }
@@ -207,9 +217,11 @@ const Bipolar = () => {
                     <h2 className="font-semibold text-2xl text-white mt-10">Your Result</h2>
                     <p className="text-gray-300 mb-6">Fell free to ask us any question. <span className='underline text-blue-300'>Click here</span></p>
 
-                    <div style={{ backgroundColor: "#278BC7" }} className='w-2/3 text-white font-semibold  h-40 rounded-md shadow-lg p-3  mb-6'>
-                        {level && <h1 className={`mt-2 text-2xl text-${color ? color : ''}-400`}>You have {level}</h1>}
-                        {comment && <h1 className='mt-6 text-2xl'>{comment}</h1>}
+                    <div style={{ backgroundColor: "#278BC7" }} className='w-3/5 text-white font-semibold  h-52 rounded-md shadow-lg p-3  mb-6'>
+                        <h1 className='mt-2 text-2xl text-left'>Total Level : 5</h1>
+                        <h1 className='mt-2 text-2xl text-left'>Your Level : {score}</h1>
+                        {level && <h1 className={`mt-2 text-left text-2xl text-${color ? color : ''}-400`}>You have {level}</h1>}
+                        {comment && <h1 className='mt-2 text-left text-2xl text-red-400'>{comment}</h1>}
 
                         {/* {level && <h1 className='text-2xl'>You have {level.split(' ')}</h1>} */}
 

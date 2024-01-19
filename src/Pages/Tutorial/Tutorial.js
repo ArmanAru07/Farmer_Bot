@@ -67,7 +67,7 @@ const Tutorial = () => {
                         </div>
                         {
                             bangla ?
-                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
+                                <Link to="/login" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className={` hover:text-yellow-200 text-xl font-semibold sm:text-base text-white`}>
                                         সিস্টেমে লগ ইন করুন
                                     </p>
@@ -76,7 +76,7 @@ const Tutorial = () => {
                                     </p>
                                 </Link>
                                 :
-                                <Link to="/aIAssistant" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
+                                <Link to="/login" className={` shadow-on-hover text-left px-4 py-4 rounded-lg  ${dark ? "bg-transparent" : "bg-[#18332F]"} `}>
                                     <p className="hover:text-yellow-200 text-xl font-semibold sm:text-base text-white">
                                         Login First
                                     </p>

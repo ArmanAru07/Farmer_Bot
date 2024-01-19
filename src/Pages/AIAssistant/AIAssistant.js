@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import image from '../../Asset/ai_1.jpg'
 import Scroller from '../../Shared/Scroller';
+import { Link } from 'react-router-dom';
 
 const AIAssistant = () => {
 
@@ -15,7 +16,6 @@ const AIAssistant = () => {
 
 
     const handleSubmit = () => {
-        console.log(message);
         sendMessage(message);
     }
 
@@ -45,7 +45,7 @@ const AIAssistant = () => {
                 <div className="container max-w-screen-lg mx-auto ">
 
                     <h2 className="font-semibold text-xl text-white">Ask your question to  our AI</h2>
-                    <p className="text-gray-300 mb-6">After write your question, click on the 'submit' button.</p>
+                    <p className="text-gray-300 mb-6">After write your question, click on the 'submit' button. <Link to="/voiceAI" className='underline text-yellow-300 text-bold'>Or use voice typing</Link> </p>
                     <div className='w-2/3'>
                         <div style={{ backgroundColor: "#278BC7" }} className=' rounded-md shadow-lg p-3 mb-6'>
                             <textarea

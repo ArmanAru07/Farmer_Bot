@@ -10,42 +10,42 @@ const Payment = () => {
     const displayData = user?.displayName?.split(",") || undefined;
 
     // get specific data
-    const url = `https://interior-design-seven-psi.vercel.app/specificBookingInfo/${id}`;
+    // const url = `https://interior-design-seven-psi.vercel.app/specificBookingInfo/${id}`;
 
-    const { data: BookingInfo = [] } = useQuery({
-        queryKey: ["BookingInfo", id],
-        queryFn: async () => {
-            const res = await fetch(url);
-            const data = await res.json();
-            return data;
-        },
-    });
+    // const { data: BookingInfo = [] } = useQuery({
+    //     queryKey: ["BookingInfo", id],
+    //     queryFn: async () => {
+    //         const res = await fetch(url);
+    //         const data = await res.json();
+    //         return data;
+    //     },
+    // });
 
-    const { itemname, price, location, phone } = BookingInfo?.data || {};
+    // const { itemname, price, location, phone } = BookingInfo?.data || {};
 
     const handelPaymentSumbit = (event) => {
         event.preventDefault();
         const element = event.target;
+
         const UserName = element.UserName.value;
-        const name = element.name.value;
-        const currency = element.currency.value;
-        const price = Number(element.price.value) / 2;
+        // const name = element.name.value;
+        // const currency = element.currency.value;
+        // const price = Number(element.price.value) / 2;
         const email = element.email.value;
         const address = element.address.value;
         const phoneNumber = element.phoneNumber.value;
 
         const paymentData = {
             UserName,
-            name,
-            currency,
-            price,
+            name: "Product",
+            currency: "BDT",
+            price: "100",
             email,
             address,
-            phoneNumber,
-            id,
+            phoneNumber
         };
 
-        fetch("https://interior-design-seven-psi.vercel.app/order", {
+        fetch("http://localhost:4000/order", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(paymentData),
@@ -66,7 +66,7 @@ const Payment = () => {
                 <div className="bg-[#082f49] m-3 p-4 rounded w-1/2">
                     <form onSubmit={handelPaymentSumbit}>
                         <div class="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-6 group">
+                            <div className="relative text-left z-0 w-full mb-6 group">
                                 <input
                                     type="text"
                                     name="UserName"
@@ -84,30 +84,30 @@ const Payment = () => {
                                     UserName
                                 </label>
                             </div>
-                            <div className="relative z-0 w-full mb-6 group">
+                            <div className="relative text-left z-0 w-full mb-6 group">
                                 <input
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    // defaultValue={itemname}
+                                    type="phoneNumber"
+                                    name="phoneNumber"
+                                    // defaultValue={phone}
                                     // readOnly
+                                    id="floating_phone"
                                     className="block py-2.5 px-0 w-full text-sm text-gray-100 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                     placeholder=" "
                                     required
                                 />
 
                                 <label
-                                    htmlFor="Interior Design Name"
+                                    htmlFor="phoneNumber"
                                     className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                    Product Name
+                                    Phone number
                                 </label>
                             </div>
                         </div>
 
                         {/* poster code  currency */}
 
-                        <div class="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-6 group">
+                        {/* <div class="grid md:grid-cols-2 md:gap-6">
+                            <div className="relative text-left z-0 w-full mb-6 group">
                                 <label for="currency" className="sr-only">
                                     Underline select
                                 </label>
@@ -123,7 +123,7 @@ const Payment = () => {
                                     <option>Euro</option>
                                 </select>
                             </div>
-                            <div className="relative z-0 w-full mb-6 group">
+                            <div className="relative text-left z-0 w-full mb-6 group">
                                 <input
                                     type="text"
                                     name="price"
@@ -140,12 +140,12 @@ const Payment = () => {
                                     Price
                                 </label>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* email address and addresss */}
 
                         <div class="grid md:grid-cols-2 md:gap-6">
-                            <div className="relative z-0 w-full mb-6 group">
+                            <div className="relative text-left z-0 w-full mb-6 group">
                                 <input
                                     type="email"
                                     name="email"
@@ -162,7 +162,7 @@ const Payment = () => {
                                     Email Address
                                 </label>
                             </div>
-                            <div className="relative z-0 w-full mb-6 group">
+                            <div className="relative text-left z-0 w-full mb-6 group">
                                 <input
                                     type="text"
                                     name="address"
@@ -182,25 +182,8 @@ const Payment = () => {
                         </div>
                         {/* Phone Number  */}
 
-                        <div className="relative z-0 w-full mb-6 group">
-                            <input
-                                type="phoneNumber"
-                                name="phoneNumber"
-                                // defaultValue={phone}
-                                // readOnly
-                                id="floating_phone"
-                                className="block py-2.5 px-0 w-full text-sm text-gray-100 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                required
-                            />
 
-                            <label
-                                htmlFor="phoneNumber"
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                Phone number (123-456-7890)
-                            </label>
-                        </div>
-                        <div className="flex justify-end">
+                        <div className="flex justify-center">
                             <button className="btn btn-outline btn-sm btn-success">
                                 Submit
                             </button>

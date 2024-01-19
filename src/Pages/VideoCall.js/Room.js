@@ -1,8 +1,11 @@
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
 
 const Room = () => {
+
+    const { user, } = useContext(AuthContext);
 
     const { roomID } = useParams();
 
@@ -11,7 +14,7 @@ const Room = () => {
         // generate Kit Token
         const appID = 2103475427;
         const serverSecret = "bcf083d2e0d835ec3f2f56cc355fcbdc";
-        const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, Date.now().toString(), "Serene");
+        const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, Date.now().toString(), "User");
 
         // Create instance object from Kit Token.
         const zp = ZegoUIKitPrebuilt.create(kitToken);

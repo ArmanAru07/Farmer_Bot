@@ -33,7 +33,7 @@ const Contact = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {
-                    toast.success('Successfully added!')
+                    toast.success('Successfully send!')
                     event.target.reset();
                 }
             })

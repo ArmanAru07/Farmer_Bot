@@ -43,6 +43,7 @@ import Depression from "../Pages/AIAssistant/Depression";
 import Anxiety from "../Pages/AIAssistant/Anxiety";
 import Suicidal from "../Pages/AIAssistant/Suicidal";
 import Bipolar from "../Pages/AIAssistant/Bipolar";
+import VoiceAI from "../Pages/AIAssistant/VoiceAI";
 
 export const router = createBrowserRouter([
     {
@@ -135,6 +136,10 @@ export const router = createBrowserRouter([
             {
                 path: "/aIAssistant",
                 element: <AIAssistant></AIAssistant>,
+            },
+            {
+                path: "/voiceAI",
+                element: <VoiceAI></VoiceAI>,
             },
             {
                 path: "/depression",
