@@ -7,6 +7,9 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 const VoiceAI = () => {
 
 
+    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+
+
     const [isListening, setIsListening] = useState(false);
     const [fullTranscript, setFullTranscript] = useState('');
     const [response, setResponse] = useState('');
@@ -18,10 +21,10 @@ const VoiceAI = () => {
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
 
-    const startListening = () => {
-        SpeechRecognition.startListening();
-        setIsListening(true);
-    };
+    // const startListening = () => {
+    //     SpeechRecognition.startListening();
+    //     setIsListening(true);
+    // };
 
     const stopListening = () => {
         SpeechRecognition.stopListening();
@@ -123,4 +126,4 @@ const VoiceAI = () => {
     );
 };
 
-export default VoiceAI;
+export default VoiceAI; 
