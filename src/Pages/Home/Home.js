@@ -25,7 +25,7 @@ const Home = () => {
                 <div class="col-span-1 pt-7">
 
                     <div className='text-white flex flex-col justify-center align-middle items-center'>
-                        <h1 className='website-main-text'>Empower Your <br /> <span style={{ color: "#ffffffce" }}>Mind</span> <br />  Enrich Your <br /> <span style={{ color: "#ffffffce" }}>World</span>  </h1>
+                        <h1 className='website-main-text'>Protect Our <br /> <span style={{ color: "#ffffffce" }}>Planet</span> <br />  Preserve Our <br /> <span style={{ color: "#ffffffce" }}>Future</span>  </h1>
                         {/* <br />
                         <h1 className='website-name'></h1> */}
                     </div>

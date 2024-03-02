@@ -9,6 +9,9 @@ const Blogs = () => {
         { description: "This is 4th card" },
         { description: "This is 5th card" },
         { description: "This is 6th card" },
+        { description: "This is 7th card" },
+        { description: "This is 8th card" },
+        { description: "This is 9th card" },
     ]
     return (
         <div class="grid grid-cols-3  gap-5 ml-5 mr-5 mt-10 mb-20">

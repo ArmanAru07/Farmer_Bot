@@ -11,16 +11,16 @@ const Blog = ({ data, index }) => {
                     class="flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700  md:flex-row">
                     <img
                         class="h-48 w-2/5 rounded-t-lg object-cover md:h-72 md:w-48 md:rounded-none md:rounded-l-lg"
-                        src="https://www.verywellmind.com/thmb/CJKHXA0DM35GWsBWz2EslpiSaOI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/HereAreMyXFavoriteADHDLifeHacks-v1-5e32c5d0d91f4680b6320c1ef90e16f4.png"
+                        src="https://upload.wikimedia.org/wikipedia/commons/2/28/Guignardia_bidwellii_04.jpg"
                         alt="" />
                     <div class="flex flex-col justify-start p-6">
                         <h5
                             class="mb-4 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-                            7 Favorite ADHD Life Hacks
+                            Black rot (grape disease)
                         </h5>
                         <p class="mb-4 text-left text-base text-neutral-600 dark:text-neutral-200">
-                            Many people with ADHD struggle with self-esteem, especially those who do not receive adequate treatment and support.1 This is due in part to the fact that our brains do not function in the way that neurotypical society expects. We often feel like we are not good enough, called “lazy” for having difficulties, and are forced to mask to conform to those neurotypical standards.
-                            If something works for you, use it! If the people in your life do not respect your needs.
+                        Grape black rot is a fungal disease caused by an ascomycetous fungus, Guignardia bidwellii, that attacks grape vines during hot and humid weather. “Grape black rot originated in eastern North America, but now occurs in portions of Europe, South America, and Asia. It can cause complete crop loss in warm, humid climates, but is virtually unknown in regions with arid summers.” The name comes from the black fringe that borders growing brown patches on the leaves. The disease also attacks other parts of the plant, “all green parts of the vine: the shoots, leaf and fruit stems, tendrils, and fruit. The most damaging effect is to the fruit”
+Grape black rot affects many grape growers throughout the World, therefore, it is important to understand the disease life cycle and environmental conditions to best manage the disease. Once infection takes place, different methods are available to control the disease.
                         </p>
 
                     </div>
@@ -38,16 +38,16 @@ const Blog = ({ data, index }) => {
                         <img
                             // style={{ height: "286px" }}
                             class="rounded-t-lg h-2/5"
-                            src="https://www.verywellmind.com/thmb/KRcy6hXq5fkl_aURDmUNcqq071c=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/can-tapering-off-reduce-alcohol-withdrawal-symptoms-80195-01-8714fd18faf84cf5acfed2bd84e6cd2e.png"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWMFNz6Is3bauGY1UuVVSeNxt9fN-HxOJXItY3WfUCVh__C9QrAwuLUGx8dqYAfn22dRE&usqp=CAU"
                             alt="" />
                     </a>
                     <div class="p-6">
                         <h5
                             class="mb-4 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                            Pros and Cons of Tapering Off Alcohol Intake
+                            Black Spot
                         </h5>
                         <p class="mb-4 text-left text-base text-neutral-600 dark:text-neutral-200">
-                            Whether you're a daily imbiber, heavy drinker, or frequent binge drinker, you're likely to experience withdrawal symptoms when you quit. Unfortunately, there's little to no evidence that tapering off reduces the effects of alcohol withdrawal, some of which can be severe or even life-threatening. Quitting with proper medical supervision may be more important than whether you stop gradually or all at once.
+                        Black spot is a common and potentially serious leaf spot disease affecting many types of roses. Black spot is found wherever roses are grown. Black spot lesions are roughly circular and may be up to 1/2 inch in diameter. Lesions often have feathery margins, and are dark brown to black in color. Black spot first appears during periods of wet weather when rose leaves are first emerging. Lower leaves become infected first, but the disease will spread to the entire plant. Severe black spot leads to yellowing of leaves and defoliation. Black spot can also develop on one-year old canes leading to raised, purplish-red blotches that blacken and blister. Black spot is caused by the fungus Diplocarpon rosae, which survives in rose leaf litter and in infected rose canes. Spores of the fungus are easily spread to newly emerging leaves by wind, or splashing rain.
                         </p>
 
                     </div>
@@ -66,17 +66,17 @@ const Blog = ({ data, index }) => {
                         <img
                             // style={{ height: "276px" }}
                             class="rounded-t-lg h-2/5"
-                            src="https://www.verywellmind.com/thmb/Q7hE1_B8AiLxljb7Lw2TDVJrYuw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Psychologists-journey-to-an-adhd-diagnosis-in-adulthood-5217962-V1-10844bec63434c07bb92363d99b3c146.png"
+                            src="https://plantdoctor.co.nz/assets/uploads/2019/10/Blossom-end-rot.jpg"
                             alt="" />
                     </a>
                     <div class="p-6">
                         <h5
                             class="mb-4 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                            ADHD Without Realizing I Had It
+                            BLOSSOM END ROT
 
                         </h5>
                         <p class="mb-4 text-left text-base text-neutral-600 dark:text-neutral-200">
-                            SSometimes I would forget important things. More than once, I would complete an assignment and leave it at home on the day it was due. I always managed to pull something together at the last second, and friends would ask me how I did it. I never had an answer. My brain was in a constant state of chaos, but I looked like I had my s*** together. I was like a duck, looking calm on the surface but kicking like crazy under the water to keep everything going.
+                        Lycopersicon esculentum. Also known as ‘blackheart’, blossom end rot appears on an array of edibles – including tomatoes, courgettes, lemons, peppers, apples, eggplants and even watermelons.The ends of the affected fruit present as a sunken, leathery, blackened scars that rot the fruit, damaging the core. In bad cases the fruit becomes inedible. While it most commonly appears on the first fruit of the season, it can happen all year round.Blossom end rot is usually due to a lack of calcium, along with irregular watering. The rot is caused by the cells on the blossom end of the fruit dying and disrupting the natural growth process.
                         </p>
 
                     </div>
@@ -93,16 +93,17 @@ const Blog = ({ data, index }) => {
                     <a href="#!" data-te-ripple-init data-te-ripple-color="light">
                         <img
                             class="rounded-t-lg "
-                            src="https://www.verywellmind.com/thmb/QSQlPqbzoeXBg_xqPQJ4r8mgNuE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/adhd-symptom-spotlight-delay-adversion-7104447-885705adea7e41318b39a62e43cc1cdf.png"
+                            src="https://plantdoctor.co.nz/assets/uploads/2016/10/marigold-flowers-for-pd-site.jpg"
                             alt="" />
                     </a>
                     <div class="p-6">
                         <h5
                             class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                            ADHD Symptom Spotlight: Delay Aversion
+                            Repellent’ Plants
                         </h5>
                         <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                            Waiting is the worst.
+                        Plant them near your veggies to lesson the likelihood of pest incursions. These plants through various means (including smells and the secretion of chemicals into the soil) help ward off various insect pests.
+Plants that help repel pests include: Chives, Marigolds, Leeks, Lemongrass, Onions, Garlic and Pyrethrum.
                         </p>
 
                     </div>
@@ -118,15 +119,22 @@ const Blog = ({ data, index }) => {
                     class="flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700  md:flex-row">
                     <img
                         class="h-96 w-full rounded-t-lg object-cover md:h-56 md:w-48 md:rounded-none md:rounded-l-lg"
-                        src="https://www.verywellmind.com/thmb/0Yo7kQClH0VjSrow6gw8l24AW-M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/schoolgirl-showing-a-pill-in-classroom--munich--bavaria--germany-530076942-5b8ffe64c9e77c0050a8c929.jpg"
+                        src="https://plantdoctor.co.nz/assets/uploads/2017/02/Passionfruit.jpg"
                         alt="" />
                     <div class="flex flex-col justify-start p-6">
                         <h5
                             class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-                            ADHD History and Medication Timeline
+                            GROWING PASSIONFRUIT
                         </h5>
                         <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                            Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental condition that is most often diagnosed during childhood, although it can affect adults as well. While ADHD is the most common mental health condition diagnosed in children today,1 it was not always as well recognized or understood.
+                        Healthy plants grown in healthy soil in the right place are far less likely to suffer from the fungal and bacterial spots that passionfruit can be susceptible to. Getting things right initially when siting and planting can make growing them considerably easier, especially if you care for them correctly as they grow.
+Position
+Full sun. They prefer to be planted in fertile, free-draining soil rich in organic matter in a spot with a reasonable amount of airflow.
+As they are a vine you will need to choose a spot where you can either make a structure or take advantage of an existing one for them to climb along.
+If you are planting multiple plants, leave at least 3m between each plant.
+Planting
+Dig a hole at least twice as wide and deep as the pot the plant came in. Backfill, leaving enough space to plant your passionfruit with a mix of your top soil, compost and sheep pellets. Water-in well after planting.
+In heavier soils it is often worth making a larger hole and planting into a slight mound to ensure the soil won’t be too wet over the wetter months. Adding gypsum will also help improve the soil structure.
                         </p>
 
                     </div>

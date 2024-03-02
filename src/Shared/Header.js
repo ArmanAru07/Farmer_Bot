@@ -97,7 +97,7 @@ const Header = () => {
       <header style={headerStyles} className={`w-full flex items-center  justify-between px-4 lg:px-16 h-16 ${isShrunk ? 'h-20' : 'h-32'}`} >
 
         <div className='text-white brand-name'>
-          <h1 className='website-name' >Serene</h1>
+          <h1 className='website-name' >Agrinama</h1>
         </div>
 
         {/* For Large screen, Links  */}

@@ -24,7 +24,7 @@ const Footer = () => {
                 <div class="md:flex md:justify-between">
                     <div class="mb-6 md:mb-0">
                         <div href="https://flowbite.com/" class="flex items-center">
-                            <span class="website-name self-center text-2xl font-semibold whitespace-nowrap text-white">Serene</span>
+                            <span class="website-name self-center text-2xl font-semibold whitespace-nowrap text-white">Agrinama</span>
                         </div>
                     </div>
                     <div style={{ color: "#8BA17F" }} class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
