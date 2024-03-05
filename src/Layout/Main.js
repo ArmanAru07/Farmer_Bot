@@ -12,9 +12,12 @@ const Main = () => {
 
     return (
         <div className="relative">
-            {location.pathname !== '/' && <Header />}
+            <Header></Header>
+            <Outlet></Outlet>
+            <Footer></Footer>
+            {/* {location.pathname !== '/' && <Header />}
             <Outlet />
-            {location.pathname !== '/' && <Footer />}
+            {location.pathname !== '/' && <Footer />} */}
         </div>
 
     );

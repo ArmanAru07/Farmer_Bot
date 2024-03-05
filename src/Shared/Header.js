@@ -84,7 +84,7 @@ const Header = () => {
 
   const headerStyles = {
     transition: 'height 0.2s ease-in-out', // Add transition to the height change
-    backgroundColor: '#18332F',
+    backgroundColor: '#0f172a',
   };
 
 

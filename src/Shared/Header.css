@@ -1,6 +1,6 @@
 .website-name{
     font-family: 'Kaushan Script', cursive;
-    color: #8BA17F;
+    color: #d68409;
     font-size: 40px;
 }
 
@@ -16,14 +16,14 @@
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: #8BA17F;
+    background-color: #d68409;
     left: 0;
     bottom: -4px;
     transition: 0.3s;
 }
 
 .header-links:hover{
-    color: #8BA17F; 
+    color: #d68409; 
 }
 
 .header-links:hover::after {
@@ -54,7 +54,7 @@
     content: " ";
     width: 0%;
     height: 100%;
-    background: #ffd401;
+    background: #ff7301;
     position: absolute;
     transition: all 0.4s ease-in-out;
     right: 0;

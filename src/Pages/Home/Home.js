@@ -18,14 +18,14 @@ const Home = () => {
 
     return (
         // #18332F
-        < div className='relative text-left h-screen' style={{ backgroundColor: "#18332F" }}>
+        < div className='relative text-left h-screen' style={{ backgroundColor: "#e2e8f0" }}>
 
             <div class="grid grid-cols-2 gap-4">
 
                 <div class="col-span-1 pt-7">
 
                     <div className='text-white flex flex-col justify-center align-middle items-center'>
-                        <h1 className='website-main-text'>Protect Our <br /> <span style={{ color: "#ffffffce" }}>Planet</span> <br />  Preserve Our <br /> <span style={{ color: "#ffffffce" }}>Future</span>  </h1>
+                        <h1 className='website-main-text'>Protect Our <br /> <span style={{ color: "#fb923c" }}>Planet</span> <br />  Preserve Our <br /> <span style={{ color: "#fb923c" }}>Future</span>  </h1>
                         {/* <br />
                         <h1 className='website-name'></h1> */}
                     </div>
@@ -52,7 +52,11 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className='text-white flex flex-col justify-center align-middle items-center'>
+                <h1>Coming soon...!</h1>
+            </div>
         </div >
+        
     );
 };
 
