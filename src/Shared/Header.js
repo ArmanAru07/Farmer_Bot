@@ -13,12 +13,12 @@ const Header = () => {
   const { user, LogOut, handlBangla, bangla, dark, handlDark } = useContext(AuthContext);
 
 
-
   // --> Log out function 
   const handleLogOut = () => {
     LogOut().then(() => {
     }).catch((error) => {
     });
+
   }
 
   // --> Dropdown menu function 
@@ -108,8 +108,16 @@ const Header = () => {
               <NavLink style={navLinkStyle} to="/" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "হোম" : "Home"}</NavLink>
             </li>
 
-            <li>
+            {/* <li>
               <NavLink style={navLinkStyle} to="/tutarial" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "টিউটেরিয়াল" : "Tutorial"}</NavLink>
+            </li> */}
+
+            <li>
+              <NavLink style={navLinkStyle} to="/testMain" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "নির্ণয়" : "Diagnose"}</NavLink>
+            </li>
+
+            <li>
+              <NavLink style={navLinkStyle} to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "ব্লগ" : "Blog"}</NavLink>
             </li>
 
             <li>

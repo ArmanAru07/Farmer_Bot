@@ -31,10 +31,10 @@ const Home = () => {
                     </div>
 
                     <div class="container pt-6">
-                        <Link to='tutarial' class="button type--C">
+                        <Link to='testMain' class="button type--C">
                             <div class="button__line"></div>
                             <div class="button__line"></div>
-                            <span class="button__text">EXPLORE</span>
+                            <span class="button__text">Diagnose</span>
                             <div class="button__drow1"></div>
                             <div class="button__drow2"></div>
                         </Link>
