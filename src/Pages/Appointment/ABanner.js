@@ -3,7 +3,7 @@ import bgImage from '../../../src/Asset/appointment(2).jpg';
 import { DayPicker } from 'react-day-picker';
 import { format, isSameDay } from 'date-fns';
 import Lottie from 'lottie-react';
-import animationData from '../../../src/Asset/Business Team.json';
+import animationData from '../../../src/Asset/counseling.json';
 
 const ABanner = ({ selectedDate, setSelectedDate }) => {
 
@@ -15,9 +15,9 @@ const ABanner = ({ selectedDate, setSelectedDate }) => {
 
     return (
         <div>
-            <div href="#" style={{ height: "500px" }} className="bg-yellow-300 shadow  md:min-w-full   dark:border-gray-700 dark:bg-gray-800 ">
+            <div href="#" style={{ height: "500px" }} className="bg-slate-200 shadow  md:min-w-full   dark:border-gray-700 dark:bg-gray-800 ">
 
-            <h1 style={{ color: '#020617', marginLeft: "420px", marginRight: "420px" }} className='font-bold text-xl '>If you want discuss with Agronomist, please book Appointsment</h1>
+            <h1 style={{ color: '#020617', marginLeft: "420px", marginRight: "420px" }} className='font-bold text-xl '>If you want discuss with Agronomist, please book Appointsment for counseling</h1>
 
                 <div className='flex flex-col md:flex-row md:h-96'>
                     <div className="flex justify-center items-center leading-normal md:w-1/2">
