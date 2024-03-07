@@ -119,6 +119,9 @@ const Header = () => {
             <li>
               <NavLink style={navLinkStyle} to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "ব্লগ" : "Blog"}</NavLink>
             </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/diseases" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "ব্লগ" : "Diseases"}</NavLink>
+            </li>
 
             <li>
               <div className="relative inline-block text-left group">

@@ -53,10 +53,14 @@ const Home = () => {
                 </div>
             </div>
             <div className='text-white flex flex-col justify-center align-middle items-center'>
-                <h1>Coming soon...!</h1>
+                <h1 style={{ color: '#000', marginLeft: "420px", marginRight: "420px", }} className='font-bold text-xl  rounded-lg'>Common Plant Diseases</h1>
+
+
+                <h1 style={{ color: '#b91c1c' }}>Coming soon...!</h1>
             </div>
+
         </div >
-        
+
     );
 };
 
