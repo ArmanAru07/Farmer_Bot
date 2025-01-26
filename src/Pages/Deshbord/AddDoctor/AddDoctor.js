@@ -35,7 +35,7 @@ const AddDoctor = () => {
     //     }
     // })
 
-    const Speciality = ["Psychiatrist", "Psychologist", "Pastoral counselors", "Addiction counselor", "Peer Specialist", "Art therapist"]
+    const Speciality = ["Agronomist", "Pastoral counselors", "Addiction counselor", "Peer Specialist", "Field Specialistist", "Counselor for Medicine"]
 
 
 
@@ -139,16 +139,16 @@ const AddDoctor = () => {
             <div class="  block ">
 
                 <div class="w-full md:w-3/5 p-8 bg-white m-auto shadow-md border rounded-lg">
-                    <h2 className="font-semibold text-xl text-gray-600">Add New Doctor</h2>
+                    <h2 className="font-semibold text-xl text-gray-600">Add New Agronomist</h2>
                     <span class="text-gray-600">Give the firebase created email.</span>
 
                     <form onSubmit={handleSubmit(submit)} class="rounded  shadow p-6">
 
                         <div className="md:col-span-9">
                             <div class="w-full px-3">
-                                <label for="" class="text-xs font-semibold px-1">Doctor Name</label>
+                                <label for="" class="text-xs font-semibold px-1">Agronomist Name</label>
                                 <div class="flex">
-                                    <input {...register("name", { required: "Name is required" })} name="name" type="text" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Muhibur Rahmam" />
+                                    <input {...register("name", { required: "Name is required" })} name="name" type="text" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Kamal Rahmam" />
                                 </div>
                                 {errors.name && <p className='text-red-700 text-sm'>{errors.name.message}</p>}
                             </div>
@@ -156,7 +156,7 @@ const AddDoctor = () => {
 
                         <div className="md:col-span-9 mt-4">
                             <div class="w-full px-3">
-                                <label for="" class="text-xs font-semibold px-1">Doctor Email</label>
+                                <label for="" class="text-xs font-semibold px-1">Agronomist Email</label>
                                 <div class="flex">
                                     <input {...register("email", { required: "Email is required" })} name="email" type="text" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="email123@gmail.com" />
                                 </div>
@@ -190,7 +190,7 @@ const AddDoctor = () => {
 
                         <div className="md:col-span-9 text-center mt-8">
                             <div className="inline-flex items-end">
-                                <button href="#" class="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-8 py-2 hover:bg-gray-800">Add Doctor+</button>
+                                <button href="#" class="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-8 py-2 hover:bg-gray-800">Add Agronomist+</button>
                             </div>
                         </div>
 

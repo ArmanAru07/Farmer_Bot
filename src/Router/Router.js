@@ -4,7 +4,6 @@ import Blogs from "../Pages/Blog/Blogs";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import ShoppingPage from "../Pages/Shopping/ShoppingPage/ShoppingPage";
-import Therapy from "../Pages/Therapy/Therapy";
 import { LocalCartLoader } from '../Utilities/CartLocalStorage'
 import CartPage from "../Pages/Shopping/Cart/CartPage";
 import Login from "../Pages/Login/Login";
@@ -38,13 +37,11 @@ import DocAppointment from "../Pages/Deshbord/DocAppointment/DocAppointment";
 import Testimonial from "../Pages/Testimonial/Testimonial";
 import Contact from "../Pages/Contact/Contact";
 import Room from "../Pages/VideoCall.js/Room";
-import TestMain from "../Pages/AIAssistant/TestMain";
-import Depression from "../Pages/AIAssistant/Depression";
-import Anxiety from "../Pages/AIAssistant/Anxiety";
-import Suicidal from "../Pages/AIAssistant/Suicidal";
-import Bipolar from "../Pages/AIAssistant/Bipolar";
+import Diagnose from "../Pages/AIAssistant/Diagnose";
 import VoiceAI from "../Pages/AIAssistant/VoiceAI";
 import Diseases from "../Pages/Diseases/Diseases";
+import ChatBot from "../Pages/ChatBot/ChatBot";
+import SeedSelection from "../Pages/AIAssistant/SeedSelection";
 
 export const router = createBrowserRouter([
     {
@@ -78,11 +75,6 @@ export const router = createBrowserRouter([
             {
                 path: "/diseases",
                 element: <Diseases></Diseases>,
-            },
-            {
-                path: "/therapy",
-                element: <PrivateRoute><Therapy></Therapy></PrivateRoute>,
-                loader: async () => fetch(`Therapy.json`),
             },
             {
                 path: "/shoppingPage",
@@ -134,9 +126,10 @@ export const router = createBrowserRouter([
                 element: <FullPostPage></FullPostPage>,
                 loader: async ({ params }) => fetch(`http://localhost:4000/postCollection/${params.id}`),
             },
+            
             {
-                path: "/testMain",
-                element: <TestMain></TestMain>,
+                path: "/diagnose",
+                element: <Diagnose></Diagnose>,
             },
             {
                 path: "/aIAssistant",
@@ -147,20 +140,8 @@ export const router = createBrowserRouter([
                 element: <VoiceAI></VoiceAI>,
             },
             {
-                path: "/depression",
-                element: <Depression></Depression>,
-            },
-            {
-                path: "/anxiety",
-                element: <Anxiety></Anxiety>,
-            },
-            {
-                path: "/suicidal",
-                element: <Suicidal></Suicidal>,
-            },
-            {
-                path: "/bipolar",
-                element: <Bipolar></Bipolar>,
+                path: "/seed-selection",
+                element: <SeedSelection></SeedSelection>,
             },
             {
                 path: "/contact",
@@ -169,6 +150,10 @@ export const router = createBrowserRouter([
             {
                 path: "/room/:roomID",
                 element: <Room></Room>,
+            },
+            {
+                path:"/chatbot",
+                element:<ChatBot/>
             }
 
         ]

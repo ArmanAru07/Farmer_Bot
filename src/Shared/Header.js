@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect,  useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./Header.css";
 import { AuthContext } from '../Context/UserContext';
@@ -113,104 +113,22 @@ const Header = () => {
             </li> */}
 
             <li>
-              <NavLink style={navLinkStyle} to="/testMain" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "নির্ণয়" : "Diagnose"}</NavLink>
+              <NavLink style={navLinkStyle} to="/diagnose" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "নির্ণয়" : "Diagnose"}</NavLink>
             </li>
-
+            <li>
+              <NavLink style={navLinkStyle} to="/appointment" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0"> {bangla ? "কাউন্সেলিং" : "Counseling"}</NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/shoppingPage" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 "> {bangla ? "শপ" : "Shop"}</NavLink>
+            </li>
             <li>
               <NavLink style={navLinkStyle} to="/blog" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "ব্লগ" : "Blog"}</NavLink>
             </li>
             <li>
               <NavLink style={navLinkStyle} to="/diseases" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0" >{bangla ? "ব্লগ" : "Diseases"}</NavLink>
             </li>
-
             <li>
-              <div className="relative inline-block text-left group">
-                <button className="text-gray-300 header-links pl-3 pr-4 py-2  md:p-0  flex items-center justify-between w-full md:w-auto" type="button"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}>
-                  {bangla ? "অপশানস" : "Options"}{' '}
-                  <svg
-                    className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isHovered ? '-translate-y-0.5 rotate-180' : 'translate-y-0 rotate-0'
-                      }`}
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6">
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="m1 1 4 4 4-4" />
-                  </svg>
-                  <div
-                    className="absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 group-hover:block"
-                    onMouseEnter={() => this.setState({ isHovered: true })}
-                    onMouseLeave={() => this.setState({ isHovered: false })}>
-                  </div>
-                </button>
-
-                {/* Nav Dropdown content */}
-                <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-36 bg-gray-100  group-hover:block">
-                  <ul className="py-2 text-sm text-gray-700" role="menu">
-                    {/* <li>
-                      <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">AI Test</NavLink>
-                    </li> */}
-                    <li>
-                      <NavLink to="/testMain" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Free Test</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/therapy" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/appointment" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/testimonial" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Testimonial</NavLink>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* <div style={{ zIndex: 100 }} className="-ml-3 absolute hidden divide-y divide-gray-100 rounded-lg shadow w-52 bg-gray-100 group-hover:block">
-                  <div className="flex">
-                    <ul className="py-2 text-sm text-gray-700 flex-1 border-r" role="menu">
-                      <li>
-                        <NavLink to="/aIAssistant" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">AI Test</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/therapy" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Therapy</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/appointment" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Counseling</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/post" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Post</NavLink>
-                      </li>
-                    </ul>
-                    <ul className="py-2 text-sm text-gray-700 flex-1" role="menu">
-                      <li>
-                        <NavLink to="/contact" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/blog" style={dropdownLinkStyle} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</NavLink>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                </div> */}
-
-
-              </div>
-            </li>
-
-            <li>
-              <NavLink style={navLinkStyle} to="/shoppingPage" className="header-links block py-2 pl-3 pr-4 text-gray-300 rounded  md:p-0 "> {bangla ? "শপ" : "Shop"}</NavLink>
+              <NavLink style={navLinkStyle} to="/post" className="header-links block py-2 pl-3 pr-4 text-gray-300  rounded md:p-0"> {bangla ? "পোস্ট" : "Post"}</NavLink>
             </li>
 
           </ul>

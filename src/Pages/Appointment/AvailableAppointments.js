@@ -9,7 +9,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     const [modalData, setModalData] = useState(null);
 
     const date = format(selectedDate, 'PP');
-
+ 
     // Tanstack + data load main API.
     const { data: appointmentData = [], refetch, isLoading } = useQuery({     // get give =[] as default value;
         queryKey: ['appointmentData', date],    // this help for caching.

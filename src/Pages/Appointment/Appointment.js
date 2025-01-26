@@ -15,7 +15,7 @@ const Appointment = () => {
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}>
             </ABanner>
-
+ 
             <AvailableAppointments
                 selectedDate={selectedDate}>
             </AvailableAppointments>

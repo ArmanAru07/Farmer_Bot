@@ -15,6 +15,8 @@ const Loading2 = () => {
         <div>
             <div style={containerStyle}>
                 <div style={{ width: '200px', height: '200px' }}>
+                    <span className="loading loading-infinity loading-lg"></span>
+
                     <Lottie animationData={animationData} />
                 </div>
             </div>

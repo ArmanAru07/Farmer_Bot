@@ -1,5 +1,15 @@
+.shop-card{
+    background-color: #111827;
+    transition: background-color 300ms ease-out;
+}
+
+.shop-card:hover{
+    background-color: #C1C9A0;
+}
+
+
 /* Define the card's default styles */
-.therapyCard {
+.Link {
     position: relative;
     width: 300px; /* Set the card width */
     height: auto;
@@ -7,14 +17,14 @@
     transition: transform 0.3s ease-in-out;
   }
   
-  .therapyCard img {
+  .ShoppingCard img {
     width: 100%; /* Image takes up full width of the card */
     height: auto;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 2s ease-in-out;
   }
   
   /* Define the zoom effect when hovering */
-  .therapyCard.zoomed img {
-    transform: scale(1.2); /* Change the scale factor as needed */
+  .ShoppingCard.zoomed img {
+    transform: scale(1.1); /* Change the scale factor as needed */
   }
   

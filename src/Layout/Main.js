@@ -15,9 +15,6 @@ const Main = () => {
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>
-            {/* {location.pathname !== '/' && <Header />}
-            <Outlet />
-            {location.pathname !== '/' && <Footer />} */}
         </div>
 
     );
